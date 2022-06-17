@@ -1,5 +1,5 @@
 import { Body, Equator, Observer } from "astronomy-engine";
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
 
 type Data = {
