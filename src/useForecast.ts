@@ -21,7 +21,10 @@ const observer = new Observer(lat, long, 0);
 const equ_ofdate = Equator(Body.Sun, new Date(), observer, true, true);
 const dec = equ_ofdate.dec.toFixed(2);
 
-const apiKey = new URLSearchParams(window.location.search).get("apiKey");
+const apiKey =
+  (new URLSearchParams(window.location.search).get("apiKey") ||
+    localStorage.getItem("apiKey")) ??
+  "fakekey";
 
 const maxKwAC = 7.67;
 const maxKwDC = 9.88;
@@ -44,6 +47,9 @@ export const useForecast = () => {
         try {
           fetchResult = await fetch(privateUrl);
           setApi("Personal");
+          if (apiKey !== "fakekey") {
+            localStorage.setItem("apiKey", apiKey);
+          }
         } catch {}
       }
       if (!fetchResult) {
