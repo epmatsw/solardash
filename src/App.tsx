@@ -122,7 +122,13 @@ function App() {
             const money = formatCurrency(productionData?.total ?? 0);
             return (
               <div>
-                {dayFormatter.format(date)}: {formatKw(value)}{!!production && <> (Actual: {sum}kW, {money})</>}
+                {dayFormatter.format(date)}: {formatKw(value)}
+                {!!production && (
+                  <>
+                    {" "}
+                    (Actual: {sum}kW, {money})
+                  </>
+                )}
               </div>
             );
           })}

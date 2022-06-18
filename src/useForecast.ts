@@ -53,7 +53,6 @@ export const useForecast = () => {
         } catch {}
       }
 
-
       let result: Response["result"];
       if (fetchResult) {
         result = ((await fetchResult.json()) as Response).result;
@@ -61,7 +60,7 @@ export const useForecast = () => {
       } else {
         const cachedValue = localStorage.getItem("forecast");
         if (!cachedValue) throw new Error("Couldn't get data anywhere");
-          setApi("Cached");
+        setApi("Cached");
         result = JSON.parse(cachedValue);
       }
 
@@ -69,7 +68,8 @@ export const useForecast = () => {
       for (const key in result.watts) {
         if (!result.watts.hasOwnProperty(key)) continue;
         if (!result.watt_hours.hasOwnProperty(key)) continue;
-        const date = new Date(key);
+        const dateString = key.replace(" ", "T");
+        const date = new Date(dateString);
         processed.push({
           date,
           wattHours: result.watt_hours[key],
@@ -80,7 +80,8 @@ export const useForecast = () => {
       const days = [];
       for (const key in result.watt_hours_day) {
         if (!result.watt_hours_day.hasOwnProperty(key)) continue;
-        const date = new Date(key);
+        const dateString = key.replace(" ", "T");
+        const date = new Date(dateString);
         days.push({
           date,
           value: result.watt_hours_day[key],
@@ -116,5 +117,5 @@ export const useForecast = () => {
     api,
     maxWatts,
     maxWattHours,
-  }
-}
+  };
+};
