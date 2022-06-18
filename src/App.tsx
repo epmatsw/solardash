@@ -19,36 +19,35 @@ function App() {
   const { forecast, days, api, maxWatts, maxWattHours } = useForecast();
   const production = useProduction();
 
+  if (!forecast && !days && !production) return <div>Loading...</div>;
 
-
-  if (!forecast || !days || !production) return <div>Loading...</div>;
-
-  const totalValue = production.reduce(
-    (sum: number, p) => sum + p.total ?? 0,
-    0
-  );
-  const daysForValue = production.reduce(
-    (s: number, p) => (p.total > 0 ? s + 1 : s),
-    0
-  );
+  const totalValue =
+    production?.reduce((sum: number, p) => sum + p.total ?? 0, 0) ?? 0;
+  const daysForValue =
+    production?.reduce((s: number, p) => (p.total > 0 ? s + 1 : s), 0) ?? 0;
   const perDay = daysForValue > 0 ? totalValue / daysForValue : 0;
 
   const totalProduction = formatKw(
-    production.reduce((sum: number, p) => sum + p.productionNum ?? 0, 0)
+    production?.reduce((sum: number, p) => sum + p.productionNum ?? 0, 0) ?? 0
   );
 
-  const productionWithTimes: Data[] = production.flatMap((p) => {
+  const productionWithTimes: Data[] | undefined = production?.flatMap((p) => {
     return p.productionData.map((d, i) => {
-      return { watts: (d ?? 0) * 4, date: new Date(p.startTime + (i * 15 * 60 * 1000)) };
+      return {
+        watts: (d ?? 0) * 4,
+        date: new Date(p.startTime + i * 15 * 60 * 1000),
+      };
     });
   });
 
-  const comboData = forecast.map((f) => {
-    const production = productionWithTimes.find((p) => p.date.getTime() === f.date.getTime());
+  const comboData = forecast?.map((f) => {
+    const production = productionWithTimes?.find(
+      (p) => p.date.getTime() === f.date.getTime()
+    );
     return {
       ...f,
       production: production?.watts ?? 0,
-    }
+    };
   });
 
   return (
@@ -66,35 +65,52 @@ function App() {
           display: "flex",
           flexDirection: "column",
           blockSize: "100%",
-          justifyContent: "space-evenly"
+          justifyContent: "space-evenly",
         }}
       >
-        <LineChart width={window.innerWidth / 2} height={window.innerHeight / 3} data={comboData}>
-          <Line dataKey={"watts"} dot={false} strokeDasharray="2 2"></Line>
-          <Line dataKey={"production"} dot={false} strokeWidth={2}></Line>
-          <XAxis dataKey={"date"} tickFormatter={formatter.format} />
-          <YAxis max={maxWatts} tickFormatter={formatKw} />
-        </LineChart>
-        <LineChart width={window.innerWidth / 2} height={window.innerHeight / 3} data={days}>
-          <Line dataKey={"value"} dot={false}></Line>
-          <XAxis dataKey={"date"} tickFormatter={dayFormatter.format} />
-          <YAxis max={maxWattHours} tickFormatter={formatKw} />
-        </LineChart>
-        <div style={{ textAlign: "center" }}>{api} API</div>
+        {!!comboData && (
+          <LineChart
+            width={window.innerWidth / 2}
+            height={window.innerHeight / 3}
+            data={comboData}
+          >
+            <Line dataKey={"watts"} dot={false} strokeDasharray="2 2"></Line>
+            <Line dataKey={"production"} dot={false} strokeWidth={2}></Line>
+            <XAxis dataKey={"date"} tickFormatter={formatter.format} />
+            <YAxis max={maxWatts} tickFormatter={formatKw} />
+          </LineChart>
+        )}
+        {!!days && (
+          <LineChart
+            width={window.innerWidth / 2}
+            height={window.innerHeight / 3}
+            data={days}
+          >
+            <Line dataKey={"value"} dot={false}></Line>
+            <XAxis dataKey={"date"} tickFormatter={dayFormatter.format} />
+            <YAxis max={maxWattHours} tickFormatter={formatKw} />
+          </LineChart>
+        )}
+        {!!api && <div style={{ textAlign: "center" }}>{api} API</div>}
       </span>
       <span>
-        Lifetime Value: {formatCurrency(totalValue)} ({formatCurrency(perDay)}
-        /day)
-        <br />
-        Lifetime Production: {totalProduction}
-        <br />
-        <br />
+        {!!production && (
+          <>
+            Lifetime Value: {formatCurrency(totalValue)} (
+            {formatCurrency(perDay)}
+            /day)
+            <br />
+            Lifetime Production: {totalProduction}
+            <br />
+            <br />
+          </>
+        )}
         <div>
-          {days.map(({ value, date }) => {
+          {days?.map(({ value, date }) => {
             const startOfDay = new Date(date);
             startOfDay.setHours(0);
             startOfDay.setMinutes(0);
-            const productionData = production.find(
+            const productionData = production?.find(
               (p) => p.startTime === startOfDay.getTime()
             );
             const sum = (
@@ -106,8 +122,7 @@ function App() {
             const money = formatCurrency(productionData?.total ?? 0);
             return (
               <div>
-                {dayFormatter.format(date)}: {formatKw(value)} (Actual: {sum}
-                kW, {money})
+                {dayFormatter.format(date)}: {formatKw(value)}{!!production && <> (Actual: {sum}kW, {money})</>}
               </div>
             );
           })}
