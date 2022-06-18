@@ -1,142 +1,116 @@
-import { Body, Equator, Observer } from "astronomy-engine";
-import { useEffect, useMemo, useState } from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
-
-type Data = {
-  watts: number;
-  wattHours: number;
-  date: Date;
-};
-
-type Response = {
-  result: {
-    watt_hours: Record<string, number>;
-    watt_hours_day: Record<string, number>;
-    watts: Record<string, number>;
-  };
-};
+import { Data, useForecast } from "./useForecast";
+import { useProduction } from "./useProduction";
 
 const formatter = new Intl.DateTimeFormat("en-US", {
-  day: "numeric",
+  weekday: "narrow",
 });
 const dayFormatter = new Intl.DateTimeFormat("en-US", {
   weekday: "long",
 });
 
-const lat = 39.8;
-const long = -105.08;
-const observer = new Observer(lat, long, 0);
-const equ_ofdate = Equator(Body.Sun, new Date(), observer, true, true);
-const dec = equ_ofdate.dec.toFixed(2);
-
-const apiKey = new URLSearchParams(window.location.search).get("apiKey");
-
-const maxKwAC = 7.67;
-const maxKwDC = 9.88;
-const maxKw = maxKwAC;
-
-const publicUrl = `https://api.forecast.solar/estimate/${lat}/${long}/${dec}/-15/${maxKw}`;
-const privateUrl = apiKey
-  ? `https://api.forecast.solar/${apiKey}/estimate/${lat}/${long}/${dec}/-15/${maxKw}`
-  : undefined;
-
 const formatKw = (value: number) => `${Math.round(value / 1000)}kW`;
+const formatCurrency = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+}).format;
 
 function App() {
-  const [data, setData] = useState<Data[]>();
-  const [days, setDays] = useState<{ date: Date; value: number }[]>();
-  const [api, setApi] = useState<"Public" | "Personal">();
+  const { forecast, days, api, maxWatts, maxWattHours } = useForecast();
+  const production = useProduction();
 
-  useEffect(() => {
-    (async function () {
-      let fetchResult;
-      if (privateUrl) {
-        try {
-          fetchResult = await fetch(privateUrl);
-          setApi("Personal");
-        } catch {}
-      }
-      if (!fetchResult) {
-        fetchResult = await fetch(publicUrl);
-        setApi("Public");
-      }
-      const { result } = (await fetchResult.json()) as Response;
 
-      const processed: Data[] = [];
-      for (const key in result.watts) {
-        if (!result.watts.hasOwnProperty(key)) continue;
-        if (!result.watt_hours.hasOwnProperty(key)) continue;
-        const date = new Date(key);
-        processed.push({
-          date,
-          wattHours: result.watt_hours[key],
-          watts: result.watts[key],
-        });
-      }
 
-      const days = [];
-      for (const key in result.watt_hours_day) {
-        if (!result.watt_hours_day.hasOwnProperty(key)) continue;
-        const date = new Date(key);
-        days.push({
-          date,
-          value: result.watt_hours_day[key],
-        });
-      }
+  if (!forecast || !days || !production) return <div>Loading...</div>;
 
-      setData(processed);
-      setDays(days);
-    })();
-  }, []);
+  const totalValue = production.reduce(
+    (sum: number, p) => sum + p.total ?? 0,
+    0
+  );
+  const daysForValue = production.reduce(
+    (s: number, p) => (p.total > 0 ? s + 1 : s),
+    0
+  );
+  const perDay = daysForValue > 0 ? totalValue / daysForValue : 0;
 
-  const maxWatts = useMemo(() => {
-    let max = -Infinity;
-    if (!data) return 0;
-    for (const item of data) {
-      if (item.watts > max) max = item.watts;
+  const totalProduction = formatKw(
+    production.reduce((sum: number, p) => sum + p.productionNum ?? 0, 0)
+  );
+
+  const productionWithTimes: Data[] = production.flatMap((p) => {
+    return p.productionData.map((d, i) => {
+      return { watts: (d ?? 0) * 4, date: new Date(p.startTime + (i * 15 * 60 * 1000)) };
+    });
+  });
+
+  const comboData = forecast.map((f) => {
+    const production = productionWithTimes.find((p) => p.date.getTime() === f.date.getTime());
+    return {
+      ...f,
+      production: production?.watts ?? 0,
     }
-    return max * 1.5;
-  }, [data]);
-
-  const maxWattHours = useMemo(() => {
-    let max = -Infinity;
-    if (!data) return 0;
-    for (const item of data) {
-      if (item.wattHours > max) max = item.wattHours;
-    }
-    return max * 1.5;
-  }, [data]);
-
-  if (!data || !days) return <div>Loading...</div>;
+  });
 
   return (
     <div
       style={{
+        boxSizing: "border-box",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-evenly",
+        blockSize: "100vh",
       }}
     >
-      <span>
-        <LineChart width={600} height={300} data={data}>
-          <Line dataKey={"watts"} dot={false}></Line>
+      <span
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          blockSize: "100%",
+          justifyContent: "space-evenly"
+        }}
+      >
+        <LineChart width={window.innerWidth / 2} height={window.innerHeight / 3} data={comboData}>
+          <Line dataKey={"watts"} dot={false} strokeDasharray="2 2"></Line>
+          <Line dataKey={"production"} dot={false} strokeWidth={2}></Line>
           <XAxis dataKey={"date"} tickFormatter={formatter.format} />
           <YAxis max={maxWatts} tickFormatter={formatKw} />
         </LineChart>
-        <LineChart width={600} height={300} data={data}>
-          <Line dataKey={"wattHours"} dot={false}></Line>
-          <XAxis dataKey={"date"} tickFormatter={formatter.format} />
+        <LineChart width={window.innerWidth / 2} height={window.innerHeight / 3} data={days}>
+          <Line dataKey={"value"} dot={false}></Line>
+          <XAxis dataKey={"date"} tickFormatter={dayFormatter.format} />
           <YAxis max={maxWattHours} tickFormatter={formatKw} />
         </LineChart>
         <div style={{ textAlign: "center" }}>{api} API</div>
       </span>
       <span>
+        Lifetime Value: {formatCurrency(totalValue)} ({formatCurrency(perDay)}
+        /day)
+        <br />
+        Lifetime Production: {totalProduction}
+        <br />
+        <br />
         <div>
-          {days.map(({ value, date }) => (
-            <div>
-              {dayFormatter.format(date)}: {formatKw(value)}
-            </div>
-          ))}
+          {days.map(({ value, date }) => {
+            const startOfDay = new Date(date);
+            startOfDay.setHours(0);
+            startOfDay.setMinutes(0);
+            const productionData = production.find(
+              (p) => p.startTime === startOfDay.getTime()
+            );
+            const sum = (
+              (productionData?.productionData.reduce(
+                (r: number, v) => r + (v ?? 0),
+                0
+              ) ?? 0) / 1000
+            ).toFixed(1);
+            const money = formatCurrency(productionData?.total ?? 0);
+            return (
+              <div>
+                {dayFormatter.format(date)}: {formatKw(value)} (Actual: {sum}
+                kW, {money})
+              </div>
+            );
+          })}
         </div>
       </span>
     </div>
