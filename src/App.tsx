@@ -134,7 +134,7 @@ function App() {
             ).toFixed(1);
             const money = formatCurrency(productionData?.total ?? 0);
             return (
-              <div>
+              <div key={date.getTime()}>
                 {dayFormatter.format(date)}: {formatKw(value)}
                 {!!production && (
                   <>
