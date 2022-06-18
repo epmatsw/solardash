@@ -29,10 +29,7 @@ const observer = new Observer(lat, long, 0);
 const equ_ofdate = Equator(Body.Sun, new Date(), observer, true, true);
 const dec = equ_ofdate.dec.toFixed(2);
 
-const apiKey =
-  process.env.NODE_ENV === "production"
-    ? new URLSearchParams(window.location.search).get("apiKey")
-    : "995108ca75752736";
+const apiKey = new URLSearchParams(window.location.search).get("apiKey");
 
 const maxKwAC = 7.67;
 const maxKwDC = 9.88;
