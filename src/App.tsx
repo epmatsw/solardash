@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
 import { Data, useForecast } from "./useForecast";
 import { useProduction } from "./useProduction";
@@ -18,6 +19,18 @@ const formatCurrency = new Intl.NumberFormat("en-US", {
 function App() {
   const { forecast, days, api, maxWatts, maxWattHours } = useForecast();
   const production = useProduction();
+
+  const [, setUpdater] = useState(0);
+
+  useEffect(() => {
+    const update = () => setUpdater((i) => i + 1);
+    window.addEventListener("orientationchange", update);
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("orientationchange", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
 
   if (!forecast && !days && !production) return <div>Loading...</div>;
 
