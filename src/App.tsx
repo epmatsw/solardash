@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
 import { Data, useForecast } from "./useForecast";
-import { useProduction } from "./useProduction";
+import { Dollar, useProduction, Watt } from "./useProduction";
+import { isToday } from "date-fns";
 
 const formatter = new Intl.DateTimeFormat("en-US", {
   weekday: "narrow",
 });
 const dayFormatter = new Intl.DateTimeFormat("en-US", {
   weekday: "long",
+});
+const hourFormatter = new Intl.DateTimeFormat("en-US", {
+  hour: "numeric",
 });
 
 const getLast5 = <T,>(a: T[]): T[] => {
@@ -19,8 +23,10 @@ const getLast5 = <T,>(a: T[]): T[] => {
   }
 };
 
-const formatKw = (value: number) => `${(value / 1000).toFixed(1)}kW`;
-const formatCurrency = new Intl.NumberFormat("en-US", {
+const formatKw = (value: Watt) => `${(value / 1000).toFixed(1)}kW`;
+const formatKwVague = (value: Watt) => `${Math.round(value / 1000)}kW`;
+const formatKwPrecise = (value: Watt) => `${(value / 1000).toFixed(2)}kW`;
+const formatCurrency: (d: Dollar) => string = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
 }).format;
@@ -44,19 +50,23 @@ function App() {
   if (!forecast && !days && !production) return <div>Loading...</div>;
 
   const totalValue =
-    production?.reduce((sum: number, p) => sum + p.total ?? 0, 0) ?? 0;
+    production?.reduce<Dollar>(
+      (sum: Dollar, p) => (sum + p.total ?? 0) as Dollar,
+      0 as Dollar
+    ) ?? (0 as Dollar);
   const daysForValue =
     production?.reduce((s: number, p) => (p.total > 0 ? s + 1 : s), 0) ?? 0;
-  const perDay = daysForValue > 0 ? totalValue / daysForValue : 0;
+  const perDay =
+    daysForValue > 0 ? ((totalValue / daysForValue) as Dollar) : (0 as Dollar);
 
   let productionDays = 0;
   const totalProductionNumber =
-    production?.reduce((sum: number, p) => {
+    production?.reduce<Watt>((sum: Watt, p) => {
       if (typeof p.productionNum === "number") {
         productionDays++;
       }
-      return sum + p.productionNum ?? 0;
-    }, 0) ?? 0;
+      return (sum + p.productionNum ?? 0) as Watt;
+    }, 0 as Watt) ?? (0 as Watt);
   const totalProduction = formatKw(totalProductionNumber);
 
   const productionWithTimes: Data[] | undefined = production?.flatMap((p) => {
@@ -78,6 +88,10 @@ function App() {
     };
   });
 
+  const todayProduction = production?.find((p) => isToday(p.startTime));
+
+  const todayData = comboData?.filter((d) => isToday(d.date));
+
   return (
     <div
       style={{
@@ -96,6 +110,18 @@ function App() {
           justifyContent: "space-evenly",
         }}
       >
+        {!!todayData && (
+          <LineChart
+            width={window.innerWidth / 2}
+            height={window.innerHeight / 3}
+            data={todayData}
+          >
+            <Line dataKey={"watts"} dot={false} strokeDasharray="2 2"></Line>
+            <Line dataKey={"production"} dot={false} strokeWidth={2}></Line>
+            <XAxis dataKey={"date"} tickFormatter={hourFormatter.format} />
+            <YAxis max={maxWatts} tickFormatter={formatKwVague} />
+          </LineChart>
+        )}
         {!!comboData && (
           <LineChart
             width={window.innerWidth / 2}
@@ -105,7 +131,7 @@ function App() {
             <Line dataKey={"watts"} dot={false} strokeDasharray="2 2"></Line>
             <Line dataKey={"production"} dot={false} strokeWidth={2}></Line>
             <XAxis dataKey={"date"} tickFormatter={formatter.format} />
-            <YAxis max={maxWatts} tickFormatter={formatKw} />
+            <YAxis max={maxWatts} tickFormatter={formatKwVague} />
           </LineChart>
         )}
         {!!days && (
@@ -116,12 +142,29 @@ function App() {
           >
             <Line dataKey={"value"} dot={false}></Line>
             <XAxis dataKey={"date"} tickFormatter={dayFormatter.format} />
-            <YAxis max={maxWattHours} tickFormatter={formatKw} />
+            <YAxis max={maxWattHours} tickFormatter={formatKwVague} />
           </LineChart>
         )}
-        {!!api && <div style={{ textAlign: "center" }}>{api} API</div>}
       </span>
       <span>
+        {!!todayProduction && (
+          <>
+            <div>
+              Today:
+              <br />
+              Value: {formatCurrency(todayProduction.total)}
+              <br />
+              Production: {formatKwPrecise(todayProduction.productionNum)}
+              <br />
+              Off Peak: {formatKwPrecise(todayProduction.offUsage)}
+              <br />
+              Mid Peak: {formatKwPrecise(todayProduction.midUsage)}
+              <br />
+              On Peak: {formatKwPrecise(todayProduction.peakUsage)}
+            </div>
+            <br />
+          </>
+        )}
         {!!production && (
           <>
             Last {productionDays} Days:
@@ -130,8 +173,8 @@ function App() {
             /day)
             <br />
             Production: {totalProduction} (
-            {formatKw(totalProductionNumber / (productionDays || 1))}/day)
-            <br />
+            {formatKw((totalProductionNumber / (productionDays || 1)) as Watt)}
+            /day)
             <br />
             {getLast5(production).map((a) => (
               <React.Fragment key={a.startTime}>
@@ -158,7 +201,9 @@ function App() {
                 0
               ) ?? 0) / 1000
             ).toFixed(1);
-            const money = formatCurrency(productionData?.total ?? 0);
+            const money = formatCurrency(
+              productionData?.total ?? (0 as Dollar)
+            );
             return (
               <div key={date.getTime()}>
                 {dayFormatter.format(date)}: {formatKw(value)}
@@ -171,6 +216,8 @@ function App() {
               </div>
             );
           })}
+          <br />
+          {!!api && <div>Using {api} API</div>}
         </div>
       </span>
     </div>

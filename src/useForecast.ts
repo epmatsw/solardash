@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Body, Equator, Observer } from "astronomy-engine";
+import { Watt } from "./useProduction";
 
 export type Data = {
   watts: number;
@@ -9,9 +10,9 @@ export type Data = {
 
 type Response = {
   result: {
-    watt_hours: Record<string, number>;
-    watt_hours_day: Record<string, number>;
-    watts: Record<string, number>;
+    watt_hours: Record<string, Watt>;
+    watt_hours_day: Record<string, Watt>;
+    watts: Record<string, Watt>;
   };
 };
 
@@ -37,7 +38,7 @@ const privateUrl = apiKey
 
 export const useForecast = () => {
   const [forecast, setForecast] = useState<Required<Data>[]>();
-  const [days, setDays] = useState<{ date: Date; value: number }[]>();
+  const [days, setDays] = useState<{ date: Date; value: Watt }[]>();
   const [api, setApi] = useState<"Public" | "Personal" | "Cached">();
 
   useEffect(() => {
