@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
 import { Data, useForecast } from "./useForecast";
 import { useProduction } from "./useProduction";
@@ -10,7 +10,16 @@ const dayFormatter = new Intl.DateTimeFormat("en-US", {
   weekday: "long",
 });
 
-const formatKw = (value: number) => `${Math.round(value / 1000)}kW`;
+const getLast5 = <T,>(a: T[]): T[] => {
+  const len = a.length;
+  if (len < 5) {
+    return a.slice();
+  } else {
+    return a.slice(len - 5);
+  }
+};
+
+const formatKw = (value: number) => `${(value / 1000).toFixed(1)}kW`;
 const formatCurrency = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
@@ -40,9 +49,15 @@ function App() {
     production?.reduce((s: number, p) => (p.total > 0 ? s + 1 : s), 0) ?? 0;
   const perDay = daysForValue > 0 ? totalValue / daysForValue : 0;
 
-  const totalProduction = formatKw(
-    production?.reduce((sum: number, p) => sum + p.productionNum ?? 0, 0) ?? 0
-  );
+  let productionDays = 0;
+  const totalProductionNumber =
+    production?.reduce((sum: number, p) => {
+      if (typeof p.productionNum === "number") {
+        productionDays++;
+      }
+      return sum + p.productionNum ?? 0;
+    }, 0) ?? 0;
+  const totalProduction = formatKw(totalProductionNumber);
 
   const productionWithTimes: Data[] | undefined = production?.flatMap((p) => {
     return p.productionData.map((d, i) => {
@@ -109,12 +124,23 @@ function App() {
       <span>
         {!!production && (
           <>
-            Lifetime Value: {formatCurrency(totalValue)} (
-            {formatCurrency(perDay)}
+            Last {productionDays} Days:
+            <br />
+            Value: {formatCurrency(totalValue)} ({formatCurrency(perDay)}
             /day)
             <br />
-            Lifetime Production: {totalProduction}
+            Production: {totalProduction} (
+            {formatKw(totalProductionNumber / (productionDays || 1))}/day)
             <br />
+            <br />
+            {getLast5(production).map((a) => (
+              <React.Fragment key={a.startTime}>
+                <span>
+                  {dayFormatter.format(a.startTime)} {formatKw(a.productionNum)}
+                </span>
+                <br />
+              </React.Fragment>
+            ))}
             <br />
           </>
         )}

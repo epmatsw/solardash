@@ -40,7 +40,9 @@ const holidayDays = [
 const getValue = ({
   production: productionData,
   start_time,
+  ...rest
 }: RawProductionStat): ProductionStat => {
+  console.log(rest);
   let off = [],
     mid = [],
     peak = [];
