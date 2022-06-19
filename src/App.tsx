@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
-import { Data, useForecast } from "./useForecast";
+import { useForecast } from "./useForecast";
 import { Dollar, useProduction, Watt } from "./useProduction";
 import { isToday } from "date-fns";
 
@@ -69,10 +69,12 @@ function App() {
     }, 0 as Watt) ?? (0 as Watt);
   const totalProduction = formatKw(totalProductionNumber);
 
-  const productionWithTimes: Data[] | undefined = production?.flatMap((p) => {
+  const productionWithTimes:
+    | Array<{ watts: Watt | undefined; date: Date }>
+    | undefined = production?.flatMap((p) => {
     return p.productionData.map((d, i) => {
       return {
-        watts: (d ?? 0) * 4,
+        watts: d == null ? undefined : ((d * 4) as Watt),
         date: new Date(p.startTime + i * 15 * 60 * 1000),
       };
     });
@@ -84,7 +86,7 @@ function App() {
     );
     return {
       ...f,
-      production: production?.watts ?? 0,
+      production: production?.watts,
     };
   });
 
