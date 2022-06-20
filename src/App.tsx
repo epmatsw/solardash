@@ -1,4 +1,4 @@
-import React, { useDeferredValue, useEffect, useState } from "react";
+import React, { useDeferredValue, useEffect, useRef, useState } from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
 import { useForecast } from "./useForecast";
 import { Dollar, useProduction, Watt } from "./useProduction";
@@ -45,19 +45,22 @@ function App() {
   const chartHeight = useDeferredValue(_chartHeight);
   const chartWidth = useDeferredValue(_chartWidth);
 
+  const outerRef = useRef();
+
   useEffect(() => {
-    const update = () => {
-      requestAnimationFrame(() => {
-        setChartHeight(getChartHeight());
-        setChartWidth(getChartWidth());
-      });
-    };
-    window.addEventListener("orientationchange", update);
-    window.addEventListener("resize", update);
-    return () => {
-      window.removeEventListener("orientationchange", update);
-      window.removeEventListener("resize", update);
-    };
+    const listener = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+      const borderBoxSize = Array.isArray(entry.borderBoxSize) ? (entry.borderBoxSize[0]  as ResizeObserverSize) : (entry.borderBoxSize as any as ResizeObserverSize);
+      setChartHeight(borderBoxSize.blockSize / 3 - 20);
+      setChartWidth(borderBoxSize.inlineSize / 3 - 20);
+      }
+    })
+    if (outerRef.current) {
+      listener.observe(outerRef.current);
+      return () => {
+        listener.disconnect();
+      }
+    }
   }, []);
 
   if (!forecast && !days && !production) return <div>Loading...</div>;
@@ -109,6 +112,8 @@ function App() {
 
   return (
     <div
+      // @ts-expect-error
+      ref={outerRef}
       style={{
         boxSizing: "border-box",
         display: "flex",
@@ -116,6 +121,7 @@ function App() {
         justifyContent: "space-evenly",
         blockSize: "100svh",
         padding: "5px",
+        gap: "20px"
       }}
     >
       <span
