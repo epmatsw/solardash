@@ -36,9 +36,9 @@ const privateUrl = apiKey
   ? `https://api.forecast.solar/${apiKey}/estimate/${lat}/${long}/${dec}/-15/${maxKw}`
   : undefined;
 
-const forecastDataCacheKey = "forecast";
+export const forecastDataCacheKey = "forecast";
 
-export const useForecast = () => {
+export const useForecast = (fetchCount: number) => {
   const [forecast, setForecast] = useState<Required<Data>[]>();
   const [days, setDays] = useState<{ date: Date; value: Watt }[]>();
   const [api, setApi] = useState<"Public" | "Personal" | "Cached">();
@@ -120,7 +120,7 @@ export const useForecast = () => {
       setForecast(processed);
       setDays(days);
     })();
-  }, []);
+  }, [fetchCount]);
 
   const maxWatts = useMemo(() => {
     let max = -Infinity;

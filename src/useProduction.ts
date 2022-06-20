@@ -110,7 +110,7 @@ const getValue = ({
   };
 };
 
-export const useProduction = () => {
+export const useProduction = (fetchCount: number) => {
   const [production, setProduction] = useState<ProductionStat[]>();
   useEffect(() => {
     (async function () {
@@ -130,7 +130,7 @@ export const useProduction = () => {
         setProduction(stats.map((s: RawProductionStat) => getValue(s)));
       } catch {}
     })();
-  }, []);
+  }, [fetchCount]);
 
   return production;
 };

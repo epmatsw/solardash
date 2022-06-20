@@ -6,7 +6,7 @@ import React, {
   useState,
 } from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
-import { useForecast } from "./useForecast";
+import { forecastDataCacheKey, useForecast } from "./useForecast";
 import { Dollar, useProduction, Watt } from "./useProduction";
 import { isToday } from "date-fns";
 
@@ -18,6 +18,12 @@ const dayFormatter = new Intl.DateTimeFormat("en-US", {
 });
 const hourFormatter = new Intl.DateTimeFormat("en-US", {
   hour: "numeric",
+});
+
+const timeFormatter = new Intl.DateTimeFormat("en-US", {
+  hour: "numeric",
+  minute: "numeric",
+  second: "numeric",
 });
 
 const getLast5 = <T,>(a: T[]): T[] => {
@@ -40,8 +46,20 @@ const formatCurrency: (d: Dollar) => string = new Intl.NumberFormat("en-US", {
 const wrapWidth = 900;
 
 function App() {
-  const { forecast, days, api, maxWatts, maxWattHours } = useForecast();
-  const production = useProduction();
+  const [fetchCount, setFetchCount] = useState(Date.now());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFetchCount(Date.now());
+    }, 2 * 60 * 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  const { forecast, days, api, maxWatts, maxWattHours } =
+    useForecast(fetchCount);
+  const production = useProduction(fetchCount);
 
   const [big, setBig] = useState(
     window.matchMedia(`(min-width: ${wrapWidth}px)`).matches
@@ -136,131 +154,156 @@ function App() {
   const todayData = comboData?.filter((d) => isToday(d.date));
 
   return (
-    <div
-      // @ts-expect-error
-      ref={outerRef}
-      style={{
-        boxSizing: "border-box",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-evenly",
-        blockSize: "100svh",
-        inlineSize: "100svw",
-        padding: "5px",
-        gap: "20px",
-        flexWrap: big ? undefined : "wrap",
-      }}
-    >
-      <span
+    <>
+      <div
         style={{
           display: "flex",
-          flexDirection: "column",
-          blockSize: "100%",
-          justifyContent: "space-evenly",
-          minInlineSize: "400px",
-          alignItems: "center",
-          flexBasis: big ? "50svw" : "100%",
+          position: "fixed",
+          top: "5px",
+          right: "5px",
+          zIndex: 1000,
         }}
       >
-        {!!todayData && (
-          <LineChart width={chartWidth} height={chartHeight} data={todayData}>
-            <Line dataKey={"watts"} dot={false} strokeDasharray="2 2"></Line>
-            <Line dataKey={"production"} dot={false} strokeWidth={2}></Line>
-            <XAxis dataKey={"date"} tickFormatter={hourFormatter.format} />
-            <YAxis max={maxWatts} tickFormatter={formatKwVague} />
-          </LineChart>
-        )}
-        {!!comboData && (
-          <LineChart width={chartWidth} height={chartHeight} data={comboData}>
-            <Line dataKey={"watts"} dot={false} strokeDasharray="2 2"></Line>
-            <Line dataKey={"production"} dot={false} strokeWidth={2}></Line>
-            <XAxis dataKey={"date"} tickFormatter={formatter.format} />
-            <YAxis max={maxWatts} tickFormatter={formatKwVague} />
-          </LineChart>
-        )}
-        {!!days && (
-          <LineChart width={chartWidth} height={chartHeight} data={days}>
-            <Line dataKey={"value"} dot={false}></Line>
-            <XAxis dataKey={"date"} tickFormatter={dayFormatter.format} />
-            <YAxis max={maxWattHours} tickFormatter={formatKwVague} />
-          </LineChart>
-        )}
-      </span>
-      <span style={{ padding: "10px", flexBasis: big ? "50svw" : "100%" }}>
-        {!!todayProduction && (
-          <>
-            <div>
-              Today:
-              <br />
-              Value: {formatCurrency(todayProduction.total)}
-              <br />
-              Production: {formatKwPrecise(todayProduction.productionNum)}
-              <br />
-              Off Peak: {formatKwPrecise(todayProduction.offUsage)}
-              <br />
-              Mid Peak: {formatKwPrecise(todayProduction.midUsage)}
-              <br />
-              On Peak: {formatKwPrecise(todayProduction.peakUsage)}
-            </div>
-            <br />
-          </>
-        )}
-        {!!production && (
-          <>
-            Last {productionDays} Days:
-            <br />
-            Value: {formatCurrency(totalValue)} ({formatCurrency(perDay)}
-            /day)
-            <br />
-            Production: {totalProduction} (
-            {formatKw((totalProductionNumber / (productionDays || 1)) as Watt)}
-            /day)
-            <br />
-            {getLast5(production).map((a) => (
-              <React.Fragment key={a.startTime}>
-                <span>
-                  {dayFormatter.format(a.startTime)} {formatKw(a.productionNum)}
-                </span>
+        <button
+          onClick={() => {
+            if (process.env.NODE_ENV === "development") {
+              localStorage.removeItem(forecastDataCacheKey);
+            }
+            setFetchCount(Date.now());
+          }}
+        >
+          Refresh ({timeFormatter.format(fetchCount)})
+        </button>
+      </div>
+      <div
+        // @ts-expect-error
+        ref={outerRef}
+        style={{
+          boxSizing: "border-box",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+          blockSize: "100svh",
+          inlineSize: "100svw",
+          padding: "5px",
+          gap: "20px",
+          flexWrap: big ? undefined : "wrap",
+        }}
+      >
+        <span
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            blockSize: "100%",
+            justifyContent: "space-evenly",
+            minInlineSize: "400px",
+            alignItems: "center",
+            flexBasis: big ? "50svw" : "100%",
+          }}
+        >
+          {!!todayData && (
+            <LineChart width={chartWidth} height={chartHeight} data={todayData}>
+              <Line dataKey={"watts"} dot={false} strokeDasharray="2 2"></Line>
+              <Line dataKey={"production"} dot={false} strokeWidth={2}></Line>
+              <XAxis dataKey={"date"} tickFormatter={hourFormatter.format} />
+              <YAxis max={maxWatts} tickFormatter={formatKwVague} />
+            </LineChart>
+          )}
+          {!!comboData && (
+            <LineChart width={chartWidth} height={chartHeight} data={comboData}>
+              <Line dataKey={"watts"} dot={false} strokeDasharray="2 2"></Line>
+              <Line dataKey={"production"} dot={false} strokeWidth={2}></Line>
+              <XAxis dataKey={"date"} tickFormatter={formatter.format} />
+              <YAxis max={maxWatts} tickFormatter={formatKwVague} />
+            </LineChart>
+          )}
+          {!!days && (
+            <LineChart width={chartWidth} height={chartHeight} data={days}>
+              <Line dataKey={"value"} dot={false}></Line>
+              <XAxis dataKey={"date"} tickFormatter={dayFormatter.format} />
+              <YAxis max={maxWattHours} tickFormatter={formatKwVague} />
+            </LineChart>
+          )}
+        </span>
+        <span style={{ padding: "10px", flexBasis: big ? "50svw" : "100%" }}>
+          {!!todayProduction && (
+            <>
+              <div>
+                Today:
                 <br />
-              </React.Fragment>
-            ))}
-            <br />
-          </>
-        )}
-        <div>
-          {days?.map(({ value, date }) => {
-            const startOfDay = new Date(date);
-            startOfDay.setHours(0);
-            startOfDay.setMinutes(0);
-            const productionData = production?.find(
-              (p) => p.startTime === startOfDay.getTime()
-            );
-            const sum = (
-              (productionData?.productionData.reduce(
-                (r: number, v) => r + (v ?? 0),
-                0
-              ) ?? 0) / 1000
-            ).toFixed(1);
-            const money = formatCurrency(
-              productionData?.total ?? (0 as Dollar)
-            );
-            return (
-              <div key={date.getTime()}>
-                {dayFormatter.format(date)}: {formatKw(value)}
-                {!!production && (
-                  <>
-                    {" "}
-                    (Actual: {sum}kW, {money})
-                  </>
-                )}
+                Value: {formatCurrency(todayProduction.total)}
+                <br />
+                Production: {formatKwPrecise(todayProduction.productionNum)}
+                <br />
+                Off Peak: {formatKwPrecise(todayProduction.offUsage)}
+                <br />
+                Mid Peak: {formatKwPrecise(todayProduction.midUsage)}
+                <br />
+                On Peak: {formatKwPrecise(todayProduction.peakUsage)}
               </div>
-            );
-          })}
-          <br />
-          {!!api && <div>Using {api} API</div>}
-        </div>
-      </span>
-    </div>
+              <br />
+            </>
+          )}
+          {!!production && (
+            <>
+              Last {productionDays} Days:
+              <br />
+              Value: {formatCurrency(totalValue)} ({formatCurrency(perDay)}
+              /day)
+              <br />
+              Production: {totalProduction} (
+              {formatKw(
+                (totalProductionNumber / (productionDays || 1)) as Watt
+              )}
+              /day)
+              <br />
+              {getLast5(production).map((a) => (
+                <React.Fragment key={a.startTime}>
+                  <span>
+                    {dayFormatter.format(a.startTime)}{" "}
+                    {formatKw(a.productionNum)}
+                  </span>
+                  <br />
+                </React.Fragment>
+              ))}
+              <br />
+            </>
+          )}
+          <div>
+            {days?.map(({ value, date }) => {
+              const startOfDay = new Date(date);
+              startOfDay.setHours(0);
+              startOfDay.setMinutes(0);
+              const productionData = production?.find(
+                (p) => p.startTime === startOfDay.getTime()
+              );
+              const sum = (
+                (productionData?.productionData.reduce(
+                  (r: number, v) => r + (v ?? 0),
+                  0
+                ) ?? 0) / 1000
+              ).toFixed(1);
+              const money = formatCurrency(
+                productionData?.total ?? (0 as Dollar)
+              );
+              return (
+                <div key={date.getTime()}>
+                  {dayFormatter.format(date)}: {formatKw(value)}
+                  {!!production && (
+                    <>
+                      {" "}
+                      (Actual: {sum}kW, {money})
+                    </>
+                  )}
+                </div>
+              );
+            })}
+            <br />
+            {!!api && <div>Using {api} API</div>}
+          </div>
+        </span>
+      </div>
+    </>
   );
 }
 export default App;
