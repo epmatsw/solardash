@@ -1,10 +1,4 @@
-import React, {
-  useCallback,
-  useDeferredValue,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useDeferredValue, useEffect, useState } from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
 import { forecastDataCacheKey, useForecast } from "./useForecast";
 import { Dollar, useProduction, Watt } from "./useProduction";
@@ -64,48 +58,33 @@ function App() {
   const [big, setBig] = useState(
     window.matchMedia(`(min-width: ${wrapWidth}px)`).matches
   );
-  const getChartHeight = useCallback(
-    (h = window.innerHeight) => h / 3 - 20,
-    []
-  );
-  const getChartWidth = useCallback(
-    (w = window.innerWidth) => (big ? w / 2 - 20 : w),
-    [big]
-  );
-  const [_chartHeight, setChartHeight] = useState(getChartHeight());
-  const [_chartWidth, setChartWidth] = useState(getChartWidth());
+  const [_chartHeight, setChartHeight] = useState<number>();
+  const [_chartWidth, setChartWidth] = useState<number>();
 
   const chartHeight = useDeferredValue(_chartHeight);
   const chartWidth = useDeferredValue(_chartWidth);
 
   useEffect(() => {
-    const query = matchMedia(`(min-width: ${wrapWidth}px)`);
-    const update = (e: MediaQueryListEvent) => {
-      setBig(e.matches);
+    const update = () => {
+      const big = window.innerWidth >= wrapWidth;
+      if (big) {
+        setChartHeight(window.innerHeight / 3 - 20);
+        setChartWidth(window.innerWidth / 2 - 20);
+      } else {
+        setChartHeight(window.innerHeight / 2 - 20);
+        setChartWidth(window.innerWidth - 20);
+      }
+      setBig(big);
     };
-    query.addEventListener("change", update);
+    window.addEventListener("resize", update);
+    window.addEventListener("orientationchange", update);
+    update();
     return () => {
-      query.removeEventListener("change", update);
+      window.removeEventListener("resize", update);
+      window.removeEventListener("orientationchange", update);
     };
   }, []);
 
-  useEffect(() => {
-    const observer = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        setChartWidth(getChartWidth(entry.borderBoxSize[0].inlineSize - 20));
-        setChartHeight(getChartHeight());
-      }
-    });
-
-    if (outerRef.current) {
-      observer.observe(outerRef.current);
-      return () => {
-        observer.disconnect();
-      };
-    }
-  }, [getChartHeight, getChartWidth]);
-
-  const outerRef = useRef();
   if (!forecast && !days && !production) return <div>Loading...</div>;
 
   const totalValue =
@@ -176,8 +155,6 @@ function App() {
         </button>
       </div>
       <div
-        // @ts-expect-error
-        ref={outerRef}
         style={{
           boxSizing: "border-box",
           display: "flex",
@@ -194,7 +171,7 @@ function App() {
           style={{
             display: "flex",
             flexDirection: "column",
-            blockSize: "100%",
+            blockSize: big ? "100%" : "150%",
             justifyContent: "space-evenly",
             minInlineSize: "400px",
             alignItems: "center",
