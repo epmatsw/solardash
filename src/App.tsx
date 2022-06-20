@@ -1,4 +1,10 @@
-import React, { useDeferredValue, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useDeferredValue,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
 import { useForecast } from "./useForecast";
 import { Dollar, useProduction, Watt } from "./useProduction";
@@ -31,38 +37,53 @@ const formatCurrency: (d: Dollar) => string = new Intl.NumberFormat("en-US", {
   currency: "USD",
 }).format;
 
-const getChartHeight = () => window.innerHeight / 3 - 20;
-
-const getChartWidth = () => window.innerWidth / 2 - 20;
+const wrapWidth = 900;
 
 function App() {
   const { forecast, days, api, maxWatts, maxWattHours } = useForecast();
   const production = useProduction();
 
+  const [big, setBig] = useState(
+    window.matchMedia(`(min-width: ${wrapWidth}px)`).matches
+  );
+  const getChartHeight = useCallback(
+    (h = window.innerHeight) => h / 3 - 20,
+    []
+  );
+  const getChartWidth = useCallback(
+    (w = window.innerWidth) => (big ? w / 2 - 20 : w),
+    [big]
+  );
   const [_chartHeight, setChartHeight] = useState(getChartHeight());
   const [_chartWidth, setChartWidth] = useState(getChartWidth());
 
   const chartHeight = useDeferredValue(_chartHeight);
   const chartWidth = useDeferredValue(_chartWidth);
 
-  const outerRef = useRef();
-
   useEffect(() => {
-    const listener = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-      const borderBoxSize = Array.isArray(entry.borderBoxSize) ? (entry.borderBoxSize[0]  as ResizeObserverSize) : (entry.borderBoxSize as any as ResizeObserverSize);
-      setChartHeight(borderBoxSize.blockSize / 3 - 20);
-      setChartWidth(borderBoxSize.inlineSize / 3 - 20);
-      }
-    })
-    if (outerRef.current) {
-      listener.observe(outerRef.current);
-      return () => {
-        listener.disconnect();
-      }
+    const query = matchMedia(`(min-width: ${wrapWidth}px)`);
+    const update = (e: MediaQueryListEvent) => setBig(e.matches);
+    query.addEventListener("change", update);
+    return () => {
+      query.removeEventListener("change", update);
     }
   }, []);
 
+  useEffect(() => {
+    const update = () => {
+      setChartHeight(getChartHeight());
+      setChartWidth(getChartWidth());
+    };
+    update();
+    window.addEventListener("resize", update);
+    window.addEventListener("orientationchange", update);
+    return () => {
+      window.removeEventListener("resize", update);
+      window.removeEventListener("orientationchange", update);
+    };
+  }, [getChartHeight, getChartWidth, big]);
+
+  const outerRef = useRef();
   if (!forecast && !days && !production) return <div>Loading...</div>;
 
   const totalValue =
@@ -120,8 +141,10 @@ function App() {
         alignItems: "center",
         justifyContent: "space-evenly",
         blockSize: "100svh",
+        inlineSize: "100svw",
         padding: "5px",
-        gap: "20px"
+        gap: "20px",
+        flexWrap: big ? undefined : "wrap",
       }}
     >
       <span
@@ -130,6 +153,9 @@ function App() {
           flexDirection: "column",
           blockSize: "100%",
           justifyContent: "space-evenly",
+          minInlineSize: "400px",
+          alignItems: "center",
+          flexBasis: "100%",
         }}
       >
         {!!todayData && (
@@ -156,7 +182,7 @@ function App() {
           </LineChart>
         )}
       </span>
-      <span>
+      <span style={{ padding: "10px", flexBasis: "100%" }}>
         {!!todayProduction && (
           <>
             <div>
