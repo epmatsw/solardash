@@ -62,26 +62,30 @@ function App() {
 
   useEffect(() => {
     const query = matchMedia(`(min-width: ${wrapWidth}px)`);
-    const update = (e: MediaQueryListEvent) => setBig(e.matches);
+    const update = (e: MediaQueryListEvent) => {
+      setBig(e.matches);
+    };
     query.addEventListener("change", update);
     return () => {
       query.removeEventListener("change", update);
-    }
+    };
   }, []);
 
   useEffect(() => {
-    const update = () => {
-      setChartHeight(getChartHeight());
-      setChartWidth(getChartWidth());
-    };
-    update();
-    window.addEventListener("resize", update);
-    window.addEventListener("orientationchange", update);
-    return () => {
-      window.removeEventListener("resize", update);
-      window.removeEventListener("orientationchange", update);
-    };
-  }, [getChartHeight, getChartWidth, big]);
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setChartWidth(getChartWidth(entry.borderBoxSize[0].inlineSize - 20));
+        setChartHeight(getChartHeight());
+      }
+    });
+
+    if (outerRef.current) {
+      observer.observe(outerRef.current);
+      return () => {
+        observer.disconnect();
+      };
+    }
+  }, [getChartHeight, getChartWidth]);
 
   const outerRef = useRef();
   if (!forecast && !days && !production) return <div>Loading...</div>;
@@ -155,7 +159,7 @@ function App() {
           justifyContent: "space-evenly",
           minInlineSize: "400px",
           alignItems: "center",
-          flexBasis: "100%",
+          flexBasis: big ? "50svw" : "100%",
         }}
       >
         {!!todayData && (
@@ -182,7 +186,7 @@ function App() {
           </LineChart>
         )}
       </span>
-      <span style={{ padding: "10px", flexBasis: "100%" }}>
+      <span style={{ padding: "10px", flexBasis: big ? "50svw" : "100%" }}>
         {!!todayProduction && (
           <>
             <div>
