@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useDeferredValue, useEffect, useState } from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
 import { useForecast } from "./useForecast";
 import { Dollar, useProduction, Watt } from "./useProduction";
@@ -31,14 +31,27 @@ const formatCurrency: (d: Dollar) => string = new Intl.NumberFormat("en-US", {
   currency: "USD",
 }).format;
 
+const getChartHeight = () => window.innerHeight / 3 - 20;
+
+const getChartWidth = () => window.innerWidth / 2 - 20;
+
 function App() {
   const { forecast, days, api, maxWatts, maxWattHours } = useForecast();
   const production = useProduction();
 
-  const [, setUpdater] = useState(0);
+  const [_chartHeight, setChartHeight] = useState(getChartHeight());
+  const [_chartWidth, setChartWidth] = useState(getChartWidth());
+
+  const chartHeight = useDeferredValue(_chartHeight);
+  const chartWidth = useDeferredValue(_chartWidth);
 
   useEffect(() => {
-    const update = () => setUpdater((i) => i + 1);
+    const update = () => {
+      requestAnimationFrame(() => {
+        setChartHeight(getChartHeight());
+        setChartWidth(getChartWidth());
+      });
+    };
     window.addEventListener("orientationchange", update);
     window.addEventListener("resize", update);
     return () => {
@@ -101,7 +114,8 @@ function App() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-evenly",
-        blockSize: "100vh",
+        blockSize: "100svh",
+        padding: "5px",
       }}
     >
       <span
@@ -113,11 +127,7 @@ function App() {
         }}
       >
         {!!todayData && (
-          <LineChart
-            width={window.innerWidth / 2}
-            height={window.innerHeight / 3}
-            data={todayData}
-          >
+          <LineChart width={chartWidth} height={chartHeight} data={todayData}>
             <Line dataKey={"watts"} dot={false} strokeDasharray="2 2"></Line>
             <Line dataKey={"production"} dot={false} strokeWidth={2}></Line>
             <XAxis dataKey={"date"} tickFormatter={hourFormatter.format} />
@@ -125,11 +135,7 @@ function App() {
           </LineChart>
         )}
         {!!comboData && (
-          <LineChart
-            width={window.innerWidth / 2}
-            height={window.innerHeight / 3}
-            data={comboData}
-          >
+          <LineChart width={chartWidth} height={chartHeight} data={comboData}>
             <Line dataKey={"watts"} dot={false} strokeDasharray="2 2"></Line>
             <Line dataKey={"production"} dot={false} strokeWidth={2}></Line>
             <XAxis dataKey={"date"} tickFormatter={formatter.format} />
@@ -137,11 +143,7 @@ function App() {
           </LineChart>
         )}
         {!!days && (
-          <LineChart
-            width={window.innerWidth / 2}
-            height={window.innerHeight / 3}
-            data={days}
-          >
+          <LineChart width={chartWidth} height={chartHeight} data={days}>
             <Line dataKey={"value"} dot={false}></Line>
             <XAxis dataKey={"date"} tickFormatter={dayFormatter.format} />
             <YAxis max={maxWattHours} tickFormatter={formatKwVague} />
