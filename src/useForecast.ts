@@ -36,6 +36,8 @@ const privateUrl = apiKey
   ? `https://api.forecast.solar/${apiKey}/estimate/${lat}/${long}/${dec}/-15/${maxKw}`
   : undefined;
 
+const forecastDataCacheKey = "forecast";
+
 export const useForecast = () => {
   const [forecast, setForecast] = useState<Required<Data>[]>();
   const [days, setDays] = useState<{ date: Date; value: Watt }[]>();
@@ -44,35 +46,49 @@ export const useForecast = () => {
   useEffect(() => {
     (async function () {
       let result: Response["result"] | undefined = undefined;
-      if (privateUrl) {
-        try {
-          const fetchResult = await fetch(privateUrl);
-          if (fetchResult.status !== 200) {
-            throw new Error();
-          }
-          result = ((await fetchResult.json()) as Response).result;
-          setApi("Personal");
-          if (apiKey !== "fakekey") {
-            localStorage.setItem("apiKey", apiKey);
-          }
-        } catch {}
+
+      if (process.env.NODE_ENV === "development") {
+        const cachedValue = localStorage.getItem(forecastDataCacheKey);
+        if (cachedValue) {
+          setApi("Cached");
+          result = JSON.parse(cachedValue);
+        }
       }
-      if (!result) {
-        try {
-          const fetchResult = await fetch(publicUrl);
-          if (fetchResult.status !== 200) {
-            throw new Error();
-          }
-          result = ((await fetchResult.json()) as Response).result;
-          setApi("Public");
-        } catch {}
+
+      if (process.env.NODE_ENV !== "development" || !result) {
+        if (privateUrl) {
+          try {
+            const fetchResult = await fetch(privateUrl);
+            if (fetchResult.status !== 200) {
+              throw new Error();
+            }
+            result = ((await fetchResult.json()) as Response).result;
+            setApi("Personal");
+            localStorage.setItem(forecastDataCacheKey, JSON.stringify(result));
+            if (apiKey !== "fakekey") {
+              localStorage.setItem("apiKey", apiKey);
+            }
+          } catch {}
+        }
+        if (!result) {
+          try {
+            const fetchResult = await fetch(publicUrl);
+            if (fetchResult.status !== 200) {
+              throw new Error();
+            }
+            result = ((await fetchResult.json()) as Response).result;
+            localStorage.setItem(forecastDataCacheKey, JSON.stringify(result));
+            setApi("Public");
+          } catch {}
+        }
+        if (!result) {
+          const cachedValue = localStorage.getItem("forecast");
+          if (!cachedValue) throw new Error("Couldn't get data anywhere");
+          setApi("Cached");
+          result = JSON.parse(cachedValue);
+        }
       }
-      if (!result) {
-        const cachedValue = localStorage.getItem("forecast");
-        if (!cachedValue) throw new Error("Couldn't get data anywhere");
-        setApi("Cached");
-        result = JSON.parse(cachedValue);
-      }
+
       if (!result) {
         if (!result) throw new Error("Couldn't get data anywhere");
       }
