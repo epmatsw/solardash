@@ -17,6 +17,9 @@ export type ProductionStat = {
   offUsage: Watt;
   midUsage: Watt;
   peakUsage: Watt;
+  offTotal: Dollar;
+  midTotal: Dollar;
+  peakTotal: Dollar;
 };
 
 export type Watt = number & {
@@ -107,6 +110,9 @@ const getValue = ({
     offUsage,
     midUsage,
     peakUsage,
+    offTotal,
+    peakTotal,
+    midTotal,
   };
 };
 

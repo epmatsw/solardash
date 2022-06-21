@@ -224,13 +224,17 @@ function App() {
                 <br />
                 Value: {formatCurrency(todayProduction.total)}
                 <br />
-                Production: {formatKwPrecise(todayProduction.productionNum)}
+                Production: {formatKwPrecise(todayProduction.productionNum)} (
+                {formatCurrency(todayProduction.total)})
                 <br />
-                Off Peak: {formatKwPrecise(todayProduction.offUsage)}
+                Off Peak: {formatKwPrecise(todayProduction.offUsage)} (
+                {formatCurrency(todayProduction.offTotal)})
                 <br />
-                Mid Peak: {formatKwPrecise(todayProduction.midUsage)}
+                Mid Peak: {formatKwPrecise(todayProduction.midUsage)} (
+                {formatCurrency(todayProduction.midTotal)})
                 <br />
-                On Peak: {formatKwPrecise(todayProduction.peakUsage)}
+                On Peak: {formatKwPrecise(todayProduction.peakUsage)} (
+                {formatCurrency(todayProduction.peakTotal)})
               </div>
               <br />
             </>
@@ -253,7 +257,7 @@ function App() {
                 <React.Fragment key={a.startTime}>
                   <span>
                     {dayFormatter.format(a.startTime)}{" "}
-                    {formatKw(a.productionNum)}
+                    {formatKw(a.productionNum)} ({formatCurrency(a.total)})
                   </span>
                   <br />
                 </React.Fragment>
