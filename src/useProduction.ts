@@ -35,9 +35,9 @@ export type Dollar = number & {
   _dollar: any;
 };
 
-const offCost = 9 as Cent;
-const midCost = 18 as Cent;
-const peakCost = 26 as Cent;
+const offCost = 8.79 as Cent;
+const midCost = 16.06 as Cent;
+const peakCost = 23.34 as Cent;
 
 const centsToDollars = (c: Cent): Dollar => (c / 100) as Dollar;
 const wattsToKW = (w: Watt): Kilowatt => (w / 1000) as Kilowatt;
