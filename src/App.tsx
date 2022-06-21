@@ -1,7 +1,7 @@
 import React, { useDeferredValue, useEffect, useState } from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
 import { forecastDataCacheKey, useForecast } from "./useForecast";
-import { Dollar, useProduction, Watt } from "./useProduction";
+import { Dollar, ProductionStat, useProduction, Watt } from "./useProduction";
 import { isToday } from "date-fns";
 
 const formatter = new Intl.DateTimeFormat("en-US", {
@@ -20,7 +20,8 @@ const timeFormatter = new Intl.DateTimeFormat("en-US", {
   second: "numeric",
 });
 
-const getLast5 = <T,>(a: T[]): T[] => {
+const getLast5 = (i: ProductionStat[]): ProductionStat[] => {
+  const a = i.filter((e) => !isToday(e.startTime));
   const len = a.length;
   if (len < 5) {
     return a.slice();
@@ -246,6 +247,7 @@ function App() {
                 (totalProductionNumber / (productionDays || 1)) as Watt
               )}
               /day)
+              <br />
               <br />
               {getLast5(production).map((a) => (
                 <React.Fragment key={a.startTime}>

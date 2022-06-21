@@ -8,7 +8,7 @@ type RawProductionStat = {
   start_time: number;
 };
 
-type ProductionStat = {
+export type ProductionStat = {
   production: string;
   total: Dollar;
   productionData: Array<Watt | null>;
