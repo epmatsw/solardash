@@ -24,7 +24,8 @@ const dec = equ_ofdate.dec.toFixed(2);
 
 const apiKey =
   (new URLSearchParams(window.location.search).get("apiKey") ||
-    localStorage.getItem("apiKey")) ??
+    localStorage.getItem("apiKey") ||
+    process.env.REACT_APP_API_KEY) ??
   "fakekey";
 
 const maxKwAC = 7.67;
