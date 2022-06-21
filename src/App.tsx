@@ -150,10 +150,7 @@ function App() {
         {isStandalone && (
           <button
             onClick={() => {
-              if (process.env.NODE_ENV === "development") {
-                localStorage.removeItem(forecastDataCacheKey);
-              }
-              setFetchCount(Date.now());
+              window.location.reload();
             }}
           >
             Hard Refresh
