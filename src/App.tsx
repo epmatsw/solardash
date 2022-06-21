@@ -132,6 +132,10 @@ function App() {
 
   const todayData = comboData?.filter((d) => isToday(d.date));
 
+  const isStandalone =
+    (window.navigator as any).standalone === true ||
+    !!window.matchMedia("(display-mode: standalone)").matches;
+
   return (
     <>
       <div
@@ -143,6 +147,18 @@ function App() {
           zIndex: 1000,
         }}
       >
+        {isStandalone && (
+          <button
+            onClick={() => {
+              if (process.env.NODE_ENV === "development") {
+                localStorage.removeItem(forecastDataCacheKey);
+              }
+              setFetchCount(Date.now());
+            }}
+          >
+            Hard Refresh
+          </button>
+        )}
         <button
           onClick={() => {
             if (process.env.NODE_ENV === "development") {
