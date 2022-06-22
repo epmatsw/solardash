@@ -26,13 +26,13 @@ const timeFormatter = new Intl.DateTimeFormat("en-US", {
   second: "numeric",
 });
 
-const getLast5 = (i: ProductionStat[]): ProductionStat[] => {
+const getLast7 = (i: ProductionStat[]): ProductionStat[] => {
   const a = i.filter((e) => !isToday(e.startTime));
   const len = a.length;
-  if (len < 5) {
+  if (len < 7) {
     return a.slice();
   } else {
-    return a.slice(len - 5);
+    return a.slice(len - 7);
   }
 };
 
@@ -95,24 +95,25 @@ function App() {
 
   if (!forecast && !days && !production) return <div>Loading...</div>;
 
-  const totalValue =
-    production?.reduce<Dollar>(
-      (sum: Dollar, p) => (sum + p.total ?? 0) as Dollar,
-      0 as Dollar
-    ) ?? (0 as Dollar);
-  const daysForValue =
-    production?.reduce((s: number, p) => (p.total > 0 ? s + 1 : s), 0) ?? 0;
+  const [totalValue, totalProductionNumber, productionDays] =
+    production?.reduce<[Dollar, WattHour, number]>(
+      (sums: [Dollar, WattHour, number], p) => {
+        if (isToday(p.startTime) || typeof p.productionNum !== "number") {
+          return sums;
+        }
+        return [
+          (sums[0] + p.total) as Dollar,
+          (sums[1] + p.productionNum) as WattHour,
+          sums[2] + 1,
+        ];
+      },
+      [0 as Dollar, 0 as WattHour, 0]
+    ) ?? [0 as Dollar, 0 as WattHour, 0];
   const perDay =
-    daysForValue > 0 ? ((totalValue / daysForValue) as Dollar) : (0 as Dollar);
+    productionDays > 0
+      ? ((totalValue / productionDays) as Dollar)
+      : (0 as Dollar);
 
-  let productionDays = 0;
-  const totalProductionNumber =
-    production?.reduce<WattHour>((sum: WattHour, p) => {
-      if (typeof p.productionNum === "number") {
-        productionDays++;
-      }
-      return (sum + p.productionNum ?? 0) as WattHour;
-    }, 0 as WattHour) ?? (0 as WattHour);
   const totalProduction = formatKwh(totalProductionNumber);
 
   const productionWithTimes:
@@ -260,7 +261,7 @@ function App() {
               /day)
               <br />
               <br />
-              {getLast5(production).map((a) => (
+              {getLast7(production).map((a) => (
                 <React.Fragment key={a.startTime}>
                   <span>
                     {dayFormatter.format(a.startTime)}{" "}
