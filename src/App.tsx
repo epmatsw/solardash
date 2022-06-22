@@ -1,6 +1,6 @@
 import React, { useDeferredValue, useEffect, useState } from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
-import { forecastDataCacheKey, useForecast } from "./useForecast";
+import { Data, forecastDataCacheKey, useForecast } from "./useForecast";
 import {
   Dollar,
   ProductionStat,
@@ -8,7 +8,7 @@ import {
   Watt,
   WattHour,
 } from "./useProduction";
-import { isToday } from "date-fns";
+import { isToday, isYesterday } from "date-fns";
 
 const formatter = new Intl.DateTimeFormat("en-US", {
   weekday: "narrow",
@@ -127,15 +127,30 @@ function App() {
     });
   });
 
-  const comboData = forecast?.map((f) => {
+  const yesterdaysProduction = productionWithTimes?.filter(
+    (p): p is { date: Date; watts: Watt } =>
+      isYesterday(p.date) && p.watts != null
+  );
+
+  const comboData = forecast?.map((f: Partial<Data>) => {
     const production = productionWithTimes?.find(
-      (p) => p.date.getTime() === f.date.getTime()
+      (p) => p.date.getTime() === f.date?.getTime()
     );
     return {
       ...f,
+      date: f.date!,
       production: production?.watts,
     };
   });
+
+  if (comboData && yesterdaysProduction) {
+    comboData.unshift(
+      ...yesterdaysProduction.map((p) => ({
+        date: p.date,
+        production: p.watts,
+      }))
+    );
+  }
 
   const [maxProduction, maxDailyProduction] =
     production?.reduce<[WattHour, WattHour]>(
