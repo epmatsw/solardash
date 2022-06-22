@@ -1,17 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
 import { Body, Equator, Observer } from "astronomy-engine";
-import { Watt } from "./useProduction";
+import { Watt, WattHour } from "./useProduction";
 
 export type Data = {
-  watts: number;
-  wattHours?: number;
+  watts: Watt;
+  wattHours?: WattHour;
   date: Date;
 };
 
 type Response = {
   result: {
-    watt_hours: Record<string, Watt>;
-    watt_hours_day: Record<string, Watt>;
+    watt_hours: Record<string, WattHour>;
+    watt_hours_day: Record<string, WattHour>;
     watts: Record<string, Watt>;
   };
 };
@@ -41,7 +41,7 @@ export const forecastDataCacheKey = "forecast";
 
 export const useForecast = (fetchCount: number) => {
   const [forecast, setForecast] = useState<Required<Data>[]>();
-  const [days, setDays] = useState<{ date: Date; value: Watt }[]>();
+  const [days, setDays] = useState<{ date: Date; value: WattHour }[]>();
   const [api, setApi] = useState<"Public" | "Personal" | "Cached">();
 
   useEffect(() => {

@@ -1,7 +1,13 @@
 import React, { useDeferredValue, useEffect, useState } from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
 import { forecastDataCacheKey, useForecast } from "./useForecast";
-import { Dollar, ProductionStat, useProduction, Watt } from "./useProduction";
+import {
+  Dollar,
+  ProductionStat,
+  useProduction,
+  Watt,
+  WattHour,
+} from "./useProduction";
 import { isToday } from "date-fns";
 
 const formatter = new Intl.DateTimeFormat("en-US", {
@@ -30,9 +36,10 @@ const getLast5 = (i: ProductionStat[]): ProductionStat[] => {
   }
 };
 
-const formatKw = (value: Watt) => `${(value / 1000).toFixed(1)}kW`;
 const formatKwVague = (value: Watt) => `${Math.round(value / 1000)}kW`;
-const formatKwPrecise = (value: Watt) => `${(value / 1000).toFixed(2)}kW`;
+const formatKwh = (value: WattHour) => `${(value / 1000).toFixed(1)}kWh`;
+const formatKwhVague = (value: Watt) => `${Math.round(value / 1000)}kWh`;
+const formatKwhPrecise = (value: WattHour) => `${(value / 1000).toFixed(2)}kWh`;
 const formatCurrency: (d: Dollar) => string = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
@@ -100,13 +107,13 @@ function App() {
 
   let productionDays = 0;
   const totalProductionNumber =
-    production?.reduce<Watt>((sum: Watt, p) => {
+    production?.reduce<WattHour>((sum: WattHour, p) => {
       if (typeof p.productionNum === "number") {
         productionDays++;
       }
-      return (sum + p.productionNum ?? 0) as Watt;
-    }, 0 as Watt) ?? (0 as Watt);
-  const totalProduction = formatKw(totalProductionNumber);
+      return (sum + p.productionNum ?? 0) as WattHour;
+    }, 0 as WattHour) ?? (0 as WattHour);
+  const totalProduction = formatKwh(totalProductionNumber);
 
   const productionWithTimes:
     | Array<{ watts: Watt | undefined; date: Date }>
@@ -212,7 +219,7 @@ function App() {
             <LineChart width={chartWidth} height={chartHeight} data={days}>
               <Line dataKey={"value"} dot={false}></Line>
               <XAxis dataKey={"date"} tickFormatter={dayFormatter.format} />
-              <YAxis max={maxWattHours} tickFormatter={formatKwVague} />
+              <YAxis max={maxWattHours} tickFormatter={formatKwhVague} />
             </LineChart>
           )}
         </span>
@@ -224,16 +231,16 @@ function App() {
                 <br />
                 Value: {formatCurrency(todayProduction.total)}
                 <br />
-                Production: {formatKwPrecise(todayProduction.productionNum)} (
+                Production: {formatKwhPrecise(todayProduction.productionNum)} (
                 {formatCurrency(todayProduction.total)})
                 <br />
-                Off Peak: {formatKwPrecise(todayProduction.offUsage)} (
+                Off Peak: {formatKwhPrecise(todayProduction.offUsage)} (
                 {formatCurrency(todayProduction.offTotal)})
                 <br />
-                Mid Peak: {formatKwPrecise(todayProduction.midUsage)} (
+                Mid Peak: {formatKwhPrecise(todayProduction.midUsage)} (
                 {formatCurrency(todayProduction.midTotal)})
                 <br />
-                On Peak: {formatKwPrecise(todayProduction.peakUsage)} (
+                On Peak: {formatKwhPrecise(todayProduction.peakUsage)} (
                 {formatCurrency(todayProduction.peakTotal)})
               </div>
               <br />
@@ -247,8 +254,8 @@ function App() {
               /day)
               <br />
               Production: {totalProduction} (
-              {formatKw(
-                (totalProductionNumber / (productionDays || 1)) as Watt
+              {formatKwh(
+                (totalProductionNumber / (productionDays || 1)) as WattHour
               )}
               /day)
               <br />
@@ -257,7 +264,7 @@ function App() {
                 <React.Fragment key={a.startTime}>
                   <span>
                     {dayFormatter.format(a.startTime)}{" "}
-                    {formatKw(a.productionNum)} ({formatCurrency(a.total)})
+                    {formatKwh(a.productionNum)} ({formatCurrency(a.total)})
                   </span>
                   <br />
                 </React.Fragment>
@@ -273,22 +280,22 @@ function App() {
               const productionData = production?.find(
                 (p) => p.startTime === startOfDay.getTime()
               );
-              const sum = (
-                (productionData?.productionData.reduce(
-                  (r: number, v) => r + (v ?? 0),
-                  0
-                ) ?? 0) / 1000
-              ).toFixed(1);
+              const sum =
+                productionData?.productionData.reduce<WattHour>(
+                  (r: WattHour, v: WattHour | null) =>
+                    (r + (v ?? (0 as WattHour))) as WattHour,
+                  0 as WattHour
+                ) ?? (0 as WattHour);
               const money = formatCurrency(
                 productionData?.total ?? (0 as Dollar)
               );
               return (
                 <div key={date.getTime()}>
-                  {dayFormatter.format(date)}: {formatKw(value)}
+                  {dayFormatter.format(date)}: {formatKwh(value)}
                   {!!production && (
                     <>
                       {" "}
-                      (Actual: {sum}kW, {money})
+                      (Actual: {formatKwhPrecise(sum)}, {money})
                     </>
                   )}
                 </div>

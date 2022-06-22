@@ -4,19 +4,19 @@ import { isWeekend, isSameDay } from "date-fns";
 import holidays from "@date/holidays-us";
 
 type RawProductionStat = {
-  production: Array<Watt | null>;
+  production: Array<WattHour | null>;
   start_time: number;
 };
 
 export type ProductionStat = {
   production: string;
   total: Dollar;
-  productionData: Array<Watt | null>;
+  productionData: Array<WattHour | null>;
   startTime: number;
-  productionNum: Watt;
-  offUsage: Watt;
-  midUsage: Watt;
-  peakUsage: Watt;
+  productionNum: WattHour;
+  offUsage: WattHour;
+  midUsage: WattHour;
+  peakUsage: WattHour;
   offTotal: Dollar;
   midTotal: Dollar;
   peakTotal: Dollar;
@@ -26,8 +26,16 @@ export type Watt = number & {
   _watt: any;
 };
 
+export type WattHour = number & {
+  _wattHour: any;
+};
+
 export type Kilowatt = number & {
   _kw: any;
+};
+
+export type KilowattHour = number & {
+  _kwh: any;
 };
 
 type Cent = number & {
@@ -43,7 +51,8 @@ const midCost = 16.06 as Cent;
 const peakCost = 23.34 as Cent;
 
 const centsToDollars = (c: Cent): Dollar => (c / 100) as Dollar;
-const wattsToKW = (w: Watt): Kilowatt => (w / 1000) as Kilowatt;
+const wattHoursToKWh = (w: WattHour): KilowattHour =>
+  (w / 1000) as KilowattHour;
 
 const thisYear = new Date().getFullYear();
 const newYearsDay = holidays.newYearsDay(thisYear);
@@ -66,9 +75,9 @@ const getValue = ({
   production: productionData,
   start_time,
 }: RawProductionStat): ProductionStat => {
-  let off: Array<Watt | null> = [],
-    mid: Array<Watt | null> = [],
-    peak: Array<Watt | null> = [];
+  let off: Array<WattHour | null> = [],
+    mid: Array<WattHour | null> = [],
+    peak: Array<WattHour | null> = [];
   if (isWeekend(start_time * 1000)) {
     off.push(...productionData);
   } else if (holidayDays.some((day) => isSameDay(start_time * 1000, day))) {
@@ -82,23 +91,26 @@ const getValue = ({
     peak.push(...productionData.slice(60, 76));
   }
 
-  const offUsage = off.reduce<Watt>(
-    (total: Watt, val) => (total + (val ?? (0 as Watt))) as Watt,
-    0 as Watt
+  const offUsage = off.reduce<WattHour>(
+    (total: WattHour, val) => (total + (val ?? (0 as WattHour))) as WattHour,
+    0 as WattHour
   );
-  const midUsage = mid.reduce<Watt>(
-    (total: Watt, val) => (total + (val ?? (0 as Watt))) as Watt,
-    0 as Watt
+  const midUsage = mid.reduce<WattHour>(
+    (total: WattHour, val) => (total + (val ?? (0 as WattHour))) as WattHour,
+    0 as WattHour
   );
-  const peakUsage = peak.reduce<Watt>(
-    (total: Watt, val) => (total + (val ?? (0 as Watt))) as Watt,
-    0 as Watt
+  const peakUsage = peak.reduce<WattHour>(
+    (total: WattHour, val) => (total + (val ?? (0 as WattHour))) as WattHour,
+    0 as WattHour
   );
-  const totalUsage: Watt = (offUsage + midUsage + peakUsage) as Watt;
+  const totalUsage: WattHour = (offUsage + midUsage + peakUsage) as WattHour;
 
-  const offTotal = (centsToDollars(offCost) * wattsToKW(offUsage)) as Dollar;
-  const peakTotal = (centsToDollars(peakCost) * wattsToKW(peakUsage)) as Dollar;
-  const midTotal = (centsToDollars(midCost) * wattsToKW(midUsage)) as Dollar;
+  const offTotal = (centsToDollars(offCost) *
+    wattHoursToKWh(offUsage)) as Dollar;
+  const peakTotal = (centsToDollars(peakCost) *
+    wattHoursToKWh(peakUsage)) as Dollar;
+  const midTotal = (centsToDollars(midCost) *
+    wattHoursToKWh(midUsage)) as Dollar;
   const total = (offTotal + peakTotal + midTotal) as Dollar;
 
   return {
