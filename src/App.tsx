@@ -285,6 +285,7 @@ function App() {
               {formatKwh(
                 (totalProductionNumber / (productionDays || 1)) as WattHour
               )}
+              /day)
               <br />
               Max Output: {formatKwh((maxProduction * 4) as WattHour)}
               <br />
