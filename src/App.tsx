@@ -46,6 +46,7 @@ const formatCurrency: (d: Dollar) => string = new Intl.NumberFormat("en-US", {
 }).format;
 
 const wrapWidth = 900;
+const realBigWidth = 1600;
 
 function App() {
   const [fetchCount, setFetchCount] = useState(Date.now());
@@ -75,9 +76,14 @@ function App() {
   useEffect(() => {
     const update = () => {
       const big = window.innerWidth >= wrapWidth;
+      const realBig = window.innerWidth >= realBigWidth;
       if (big) {
         setChartHeight(window.innerHeight / 3 - 20);
-        setChartWidth(window.innerWidth / 2 - 20);
+        if (realBig) {
+          setChartWidth(window.innerWidth * 0.75 - 20);
+        } else {
+          setChartWidth(window.innerWidth / 2 - 20);
+        }
       } else {
         setChartHeight(window.innerHeight / 2 - 20);
         setChartWidth(window.innerWidth - 20);
