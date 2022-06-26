@@ -67,6 +67,9 @@ function App() {
   const [big, setBig] = useState(
     window.matchMedia(`(min-width: ${wrapWidth}px)`).matches
   );
+  const [realBig, setRealBig] = useState(
+    window.matchMedia(`(min-width: ${realBigWidth}px)`).matches
+  );
   const [_chartHeight, setChartHeight] = useState<number>();
   const [_chartWidth, setChartWidth] = useState<number>();
 
@@ -89,6 +92,7 @@ function App() {
         setChartWidth(window.innerWidth - 20);
       }
       setBig(big);
+      setRealBig(realBig);
     };
     window.addEventListener("resize", update);
     window.addEventListener("orientationchange", update);
@@ -230,7 +234,7 @@ function App() {
             justifyContent: "space-evenly",
             minInlineSize: "400px",
             alignItems: "center",
-            flexBasis: big ? "50svw" : "100%",
+            flexBasis: big ? (realBig ? "75svw" : "50svw") : "100%",
           }}
         >
           {!!todayData && (
@@ -257,7 +261,12 @@ function App() {
             </LineChart>
           )}
         </span>
-        <span style={{ padding: "10px", flexBasis: big ? "50svw" : "100%" }}>
+        <span
+          style={{
+            padding: "10px",
+            flexBasis: big ? (realBig ? "25svw" : "50svw") : "100%",
+          }}
+        >
           {!!todayProduction && (
             <>
               <div>
