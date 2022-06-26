@@ -112,6 +112,7 @@ export const useForecast = (fetchCount: number) => {
         if (!result.watt_hours_day.hasOwnProperty(key)) continue;
         const dateString = `${key}T00:00:00`;
         const date = new Date(dateString);
+        console.log(date, dateString);
         days.push({
           date,
           value: result.watt_hours_day[key],
@@ -124,7 +125,7 @@ export const useForecast = (fetchCount: number) => {
   }, [fetchCount]);
 
   const maxWatts = useMemo(() => {
-    let max = -Infinity;
+    let max = -1;
     if (!forecast) return 0;
     for (const item of forecast) {
       if (item.watts > max) max = item.watts;
@@ -133,7 +134,7 @@ export const useForecast = (fetchCount: number) => {
   }, [forecast]);
 
   const maxWattHours = useMemo(() => {
-    let max = -Infinity;
+    let max = -1;
     if (!forecast) return 0;
     for (const item of forecast) {
       if (item.wattHours > max) max = item.wattHours;

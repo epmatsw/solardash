@@ -8,7 +8,7 @@ import {
   Watt,
   WattHour,
 } from "./useProduction";
-import { isToday, isYesterday } from "date-fns";
+import { isPast, isToday, isYesterday } from "date-fns";
 
 const formatter = new Intl.DateTimeFormat("en-US", {
   weekday: "narrow",
@@ -171,16 +171,21 @@ function App() {
           Math.max(md, p.productionNum) as WattHour,
         ];
       },
-      [-Infinity as WattHour, -Infinity as WattHour]
+      [-1 as WattHour, -1 as WattHour]
     ) ?? ([0, 0] as [WattHour, WattHour]);
 
   const todayProduction = production?.find((p) => isToday(p.startTime));
 
-  const todayData = comboData?.filter((d) => isToday(d.date));
+  const todayData = comboData?.filter(
+    (d) =>
+      isToday(d.date) || (isPast(d.date) && typeof d.production === "undefined")
+  );
 
   const isStandalone =
     (window.navigator as any).standalone === true ||
     !!window.matchMedia("(display-mode: standalone)").matches;
+
+  console.log(comboData);
 
   return (
     <>
