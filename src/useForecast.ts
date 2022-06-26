@@ -110,7 +110,7 @@ export const useForecast = (fetchCount: number) => {
       const days = [];
       for (const key in result.watt_hours_day) {
         if (!result.watt_hours_day.hasOwnProperty(key)) continue;
-        const dateString = key.replace(" ", "T");
+        const dateString = `${key}T00:00:00`;
         const date = new Date(dateString);
         days.push({
           date,
