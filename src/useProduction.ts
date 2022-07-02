@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { isWeekend, isSameDay } from "date-fns";
+import { isWeekend, isSameDay, subDays } from "date-fns";
 // @ts-expect-error
 import holidays from "@date/holidays-us";
 
@@ -133,10 +133,13 @@ export const useProduction = (fetchCount: number) => {
   useEffect(() => {
     (async function () {
       try {
+        const month = new Date().getMonth() + 1;
+        const year = new Date().getFullYear();
+        const date = new Date().getDate();
         const fetchResult = await fetch(
           "https://api.allorigins.win/get?url=" +
             encodeURIComponent(
-              "https://enlighten.enphaseenergy.com/pv/public_systems/2875024/daily_energy?start_date=2022-06-01"
+              `https://enlighten.enphaseenergy.com/pv/public_systems/2875024/daily_energy?start_date=2022-06-01&end_date=${year}-${month}-${date}`
             ),
           {
             body: null,
