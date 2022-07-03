@@ -329,6 +329,7 @@ function App() {
               const startOfDay = new Date(date);
               startOfDay.setHours(0);
               startOfDay.setMinutes(0);
+
               const productionData = production?.find(
                 (p) => p.startTime === startOfDay.getTime()
               );
@@ -343,8 +344,9 @@ function App() {
               );
               return (
                 <div key={date.getTime()}>
-                  {dayFormatter.format(date)}: {formatKwh(value)}
-                  {!!production && (
+                  {isToday(date) ? "Today" : dayFormatter.format(date)}:{" "}
+                  {formatKwh(value)}
+                  {!!productionData && (
                     <>
                       {" "}
                       (Actual: {formatKwhPrecise(sum)}, {money})
