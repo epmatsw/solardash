@@ -17,7 +17,7 @@ type Response = {
 
 const lat = 39.8;
 const long = -105.08;
-const dec = 15;
+const dec = 18;
 
 const apiKey =
   (new URLSearchParams(window.location.search).get("apiKey") ||
