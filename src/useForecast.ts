@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import { Body, Equator, Observer } from "astronomy-engine";
 import { Watt, WattHour } from "./useProduction";
 
 export type Data = {
@@ -18,9 +17,7 @@ type Response = {
 
 const lat = 39.8;
 const long = -105.08;
-const observer = new Observer(lat, long, 0);
-const equ_ofdate = Equator(Body.Sun, new Date(), observer, true, true);
-const dec = equ_ofdate.dec.toFixed(2);
+const dec = 15;
 
 const apiKey =
   (new URLSearchParams(window.location.search).get("apiKey") ||
