@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { isWeekend, isSameDay } from "date-fns";
+import { isWeekend, isSameDay, getMonth } from "date-fns";
 // @ts-expect-error
 import holidays from "@date/holidays-us";
 
@@ -46,9 +46,12 @@ export type Dollar = number & {
   _dollar: any;
 };
 
-const offCost = 8.79 as Cent;
-const midCost = 16.06 as Cent;
-const peakCost = 23.34 as Cent;
+const offCostSummer = 10 as Cent;
+const midCostSummer = 19 as Cent;
+const peakCostSummer = 28 as Cent;
+const offCostWinter = 11 as Cent;
+const midCostWinter = 14 as Cent;
+const peakCostWinter = 17 as Cent;
 
 const centsToDollars = (c: Cent): Dollar => (c / 100) as Dollar;
 const wattHoursToKWh = (w: WattHour): KilowattHour =>
@@ -75,6 +78,8 @@ const getValue = ({
   production: productionData,
   start_time,
 }: RawProductionStat): ProductionStat => {
+  const month = getMonth(start_time);
+  const isWinter = month >= 9 || month < 5;
   let off: Array<WattHour | null> = [],
     mid: Array<WattHour | null> = [],
     peak: Array<WattHour | null> = [];
@@ -104,6 +109,10 @@ const getValue = ({
     0 as WattHour
   );
   const totalUsage: WattHour = (offUsage + midUsage + peakUsage) as WattHour;
+
+  const offCost = isWinter ? offCostWinter : offCostSummer;
+  const peakCost = isWinter ? peakCostWinter : peakCostSummer;
+  const midCost = isWinter ? midCostWinter : midCostSummer;
 
   const offTotal = (centsToDollars(offCost) *
     wattHoursToKWh(offUsage)) as Dollar;
