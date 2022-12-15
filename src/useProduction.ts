@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { isWeekend, isSameDay, getMonth } from "date-fns";
 // @ts-expect-error
 import holidays from "@date/holidays-us";
+import { subDays } from "date-fns/esm";
 
 type RawProductionStat = {
   production: Array<WattHour | null>;
@@ -137,30 +138,93 @@ const getValue = ({
   };
 };
 
-export const useProduction = (fetchCount: number) => {
+type DateInfo = {
+  year: number;
+  month: number;
+  date: number;
+};
+
+const firstDay = {
+  year: 2022,
+  month: 6,
+  date: 1,
+};
+
+const numToString = (n: number) => {
+  if (n < 10) {
+    return `0${n}`;
+  } else {
+    return n.toString();
+  }
+};
+
+const loadFromDate = async (from: DateInfo, to: DateInfo) => {
+  const fetchResult = await fetch(
+    "https://api.allorigins.win/get?url=" +
+      encodeURIComponent(
+        `https://enlighten.enphaseenergy.com/pv/public_systems/2875024/daily_energy?start_date=${
+          from.year
+        }-${numToString(from.month)}-${numToString(from.date)}&end_date=${
+          to.year
+        }-${numToString(to.month)}-${numToString(to.date)}`
+      ),
+    {
+      body: null,
+      method: "GET",
+    }
+  );
+  const proxyResponse = await fetchResult.json();
+  const { stats } = JSON.parse(proxyResponse.contents);
+  return (stats as any[]).map((s: RawProductionStat) => getValue(s));
+};
+const today = new Date();
+const month = today.getMonth() + 1;
+const year = today.getFullYear();
+const date = today.getDate();
+const recentDay = subDays(today, 5);
+const recentInfo = {
+  month: recentDay.getMonth() + 1,
+  year: recentDay.getFullYear(),
+  date: recentDay.getDate(),
+};
+
+let recent: ProductionStat[] | undefined;
+const recentPromise = (async function () {
+  try {
+    return await loadFromDate(recentInfo, {
+      year,
+      month,
+      date,
+    });
+  } catch {
+    return [];
+  }
+})();
+
+let old: ProductionStat[] | undefined;
+const oldPromise = (async function () {
+  try {
+    return await loadFromDate(firstDay, recentInfo);
+  } catch {
+    return [];
+  }
+})();
+
+export const useProduction = () => {
   const [production, setProduction] = useState<ProductionStat[]>();
   useEffect(() => {
     (async function () {
-      try {
-        const month = new Date().getMonth() + 1;
-        const year = new Date().getFullYear();
-        const date = new Date().getDate();
-        const fetchResult = await fetch(
-          "https://api.allorigins.win/get?url=" +
-            encodeURIComponent(
-              `https://enlighten.enphaseenergy.com/pv/public_systems/2875024/daily_energy?start_date=2022-06-01&end_date=${year}-${month}-${date}`
-            ),
-          {
-            body: null,
-            method: "GET",
-          }
-        );
-        const proxyResponse = await fetchResult.json();
-        const { stats } = JSON.parse(proxyResponse.contents);
-        setProduction(stats.map((s: RawProductionStat) => getValue(s)));
-      } catch {}
+      recent ??= await recentPromise;
+      if (old) {
+        setProduction([...old, ...recent]);
+        return;
+      } else {
+        setProduction(recent);
+      }
+      old ??= await oldPromise;
+      setProduction([...old, ...recent]);
     })();
-  }, [fetchCount]);
+  }, []);
 
   return production;
 };

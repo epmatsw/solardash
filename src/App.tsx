@@ -69,7 +69,7 @@ function App() {
 
   const { forecast, days, api, maxWatts, maxWattHours } =
     useForecast(fetchCount);
-  const production = useProduction(fetchCount);
+  const production = useProduction();
 
   const [big, setBig] = useState(
     window.matchMedia(`(min-width: ${wrapWidth}px)`).matches
