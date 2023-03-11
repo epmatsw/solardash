@@ -26,6 +26,11 @@ const timeFormatter = new Intl.DateTimeFormat("en-US", {
   second: "numeric",
 });
 
+const poundFormatter = new Intl.NumberFormat("en-US", {
+  minimumFractionDigits: 1,
+  maximumFractionDigits: 1
+});
+
 const getLast7 = (i: ProductionStat[]): ProductionStat[] => {
   const a = i.filter((e) => !isToday(e.startTime));
   const len = a.length;
@@ -47,6 +52,8 @@ const formatCurrency: (d: Dollar) => string = new Intl.NumberFormat("en-US", {
 
 const wrapWidth = 900;
 const realBigWidth = 1600;
+
+const cost = 21227;
 
 function App() {
   const [fetchCount, setFetchCount] = useState(Date.now());
@@ -125,6 +132,7 @@ function App() {
       : (0 as Dollar);
 
   const totalProduction = formatKwh(totalProductionNumber);
+  const yearsToPayOff = ((cost - totalValue) / (perDay * 365)).toFixed(1);
 
   const productionWithTimes:
     | Array<{ watts: Watt | undefined; date: Date }>
@@ -184,8 +192,6 @@ function App() {
   const isStandalone =
     (window.navigator as any).standalone === true ||
     !!window.matchMedia("(display-mode: standalone)").matches;
-
-  console.log(comboData);
 
   return (
     <>
@@ -306,6 +312,16 @@ function App() {
                 (totalProductionNumber / (productionDays || 1)) as WattHour
               )}
               /day)
+              <br />
+              Years Till Payoff: {yearsToPayOff} years
+              <br />
+              <a href="https://www.eia.gov/electricity/state/colorado/">
+                Tons of CO2 Saved
+              </a>
+              :{" "}
+              {poundFormatter.format(
+                ((totalProductionNumber / 1000) * 1.205) / 2000
+              )} tons
               <br />
               Max Output: {formatKwh((maxProduction * 4) as WattHour)}
               <br />
