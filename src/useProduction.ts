@@ -138,91 +138,25 @@ const getValue = ({
   };
 };
 
-type DateInfo = {
-  year: number;
-  month: number;
-  date: number;
-};
-
-const firstDay = {
-  year: 2022,
-  month: 6,
-  date: 1,
-};
-
-const numToString = (n: number) => {
-  if (n < 10) {
-    return `0${n}`;
-  } else {
-    return n.toString();
-  }
-};
-
-const loadFromDate = async (from: DateInfo, to: DateInfo) => {
+const loadFromDate = async () => {
   const fetchResult = await fetch(
-    "https://api.allorigins.win/get?url=" +
-      encodeURIComponent(
-        `https://enlighten.enphaseenergy.com/pv/public_systems/2875024/daily_energy?start_date=${
-          from.year
-        }-${numToString(from.month)}-${numToString(from.date)}&end_date=${
-          to.year
-        }-${numToString(to.month)}-${numToString(to.date)}`
-      ),
+    "./data.json",
     {
       body: null,
+      cache: "no-cache",
       method: "GET",
     }
   );
-  const proxyResponse = await fetchResult.json();
-  const { stats } = JSON.parse(proxyResponse.contents);
+  const { stats }= await fetchResult.json();
   return (stats as any[]).map((s: RawProductionStat) => getValue(s));
 };
-const today = new Date();
-const month = today.getMonth() + 1;
-const year = today.getFullYear();
-const date = today.getDate();
-const recentDay = subDays(today, 5);
-const recentInfo = {
-  month: recentDay.getMonth() + 1,
-  year: recentDay.getFullYear(),
-  date: recentDay.getDate(),
-};
-
-let recent: ProductionStat[] | undefined;
-const recentPromise = (async function () {
-  try {
-    return await loadFromDate(recentInfo, {
-      year,
-      month,
-      date,
-    });
-  } catch {
-    return [];
-  }
-})();
-
-let old: ProductionStat[] | undefined;
-const oldPromise = (async function () {
-  try {
-    return await loadFromDate(firstDay, recentInfo);
-  } catch {
-    return [];
-  }
-})();
 
 export const useProduction = () => {
   const [production, setProduction] = useState<ProductionStat[]>();
   useEffect(() => {
-    (async function () {
-      recent ??= await recentPromise;
-      if (old) {
-        setProduction([...old, ...recent]);
-        return;
-      } else {
-        setProduction(recent);
-      }
-      old ??= await oldPromise;
-      setProduction([...old, ...recent]);
+    (async () => {
+    const old = await loadFromDate();
+    setProduction(old);
     })();
   }, []);
 
