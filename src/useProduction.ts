@@ -154,10 +154,13 @@ const loadFromDate = async () => {
 export const useProduction = () => {
   const [production, setProduction] = useState<ProductionStat[]>();
   useEffect(() => {
-    (async () => {
-    const old = await loadFromDate();
-    setProduction(old);
-    })();
+    const update = async () => {
+      const old = await loadFromDate();
+      setProduction(old);
+    };
+    update();
+    const handle = setInterval(update, 5 * 60 * 1000);
+    return () => clearInterval(handle);
   }, []);
 
   return production;
