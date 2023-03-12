@@ -52,21 +52,15 @@ const update = async () => {
     encoding: "utf8",
   });
 
-  execFileSync("git", [
-    "add",
-    "./public/data.json",
-  ]);
+  execFileSync("git", ["add", "./public/data.json"]);
 
-  execFileSync("git", [
-    "commit",
-    "-n",
-    "-m",
-    `'Update data at ${now}'`,
-  ]);
+  execFileSync("npm", ["run", "build"]);
 
-  execFileSync("git", [
-    "push"
-  ]);
+  execFileSync("git", ["add", "./docs"]);
+
+  execFileSync("git", ["commit", "-n", "-m", `'Update data at ${now}'`]);
+
+  execFileSync("git", ["push"]);
 
   console.log(`Finished update at ${now}`);
 };
