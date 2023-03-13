@@ -58,7 +58,7 @@ const update = async () => {
 
   execFileSync("git", ["add", "./docs"]);
 
-  execFileSync("git", ["commit", "-n", "-m", `'Update data at ${now}'`]);
+  execFileSync("git", ["commit", "--no-gpg-sign", "-n", "-m", `'Update data at ${now}'`]);
 
   execFileSync("git", ["push"]);
 
