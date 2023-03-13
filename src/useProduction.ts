@@ -21,6 +21,7 @@ export type ProductionStat = {
   offTotal: Dollar;
   midTotal: Dollar;
   peakTotal: Dollar;
+  optimalTotal: Dollar;
 };
 
 export type Watt = number & {
@@ -123,6 +124,8 @@ const getValue = ({
     wattHoursToKWh(midUsage)) as Dollar;
   const total = (offTotal + peakTotal + midTotal) as Dollar;
 
+  const optimalTotal = (wattHoursToKWh(totalUsage) * centsToDollars(peakCost)) as Dollar;
+
   return {
     productionData,
     startTime: start_time * 1000,
@@ -135,6 +138,7 @@ const getValue = ({
     offTotal,
     peakTotal,
     midTotal,
+    optimalTotal
   };
 };
 

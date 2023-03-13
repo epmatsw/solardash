@@ -28,7 +28,7 @@ const timeFormatter = new Intl.DateTimeFormat("en-US", {
 
 const poundFormatter = new Intl.NumberFormat("en-US", {
   minimumFractionDigits: 1,
-  maximumFractionDigits: 1
+  maximumFractionDigits: 1,
 });
 
 const getLast7 = (i: ProductionStat[]): ProductionStat[] => {
@@ -132,7 +132,11 @@ function App() {
       : (0 as Dollar);
 
   const totalProduction = formatKwh(totalProductionNumber);
-  const yearsToPayOff = ((cost - totalValue) / (perDay * 365)).toFixed(1);
+  const rawYearsToPayOff = (cost - totalValue) / (perDay * 365);
+  const monthsToPayOff = Math.floor(
+    12 * (((cost - totalValue) / (perDay * 365)) % 1)
+  );
+  const yearsToPayOff = Math.floor(rawYearsToPayOff);
 
   const productionWithTimes:
     | Array<{ watts: Watt | undefined; date: Date }>
@@ -188,6 +192,16 @@ function App() {
     (d) =>
       isToday(d.date) || (isPast(d.date) && typeof d.production === "undefined")
   );
+
+  const optimalTotal =
+    production?.reduce<Dollar>(
+      (res, { optimalTotal }) => (res + optimalTotal) as Dollar,
+      0 as Dollar
+    ) ?? (0 as Dollar);
+  const optimalTotalString = formatCurrency(optimalTotal);
+  const diffFromOptimal = (optimalTotal - totalValue) as Dollar;
+  const diffFromOptimalPerDay = diffFromOptimal / (production?.length ?? 1);
+  const diffFromOptimalPerYear = (diffFromOptimalPerDay * 365) as Dollar;
 
   const isStandalone =
     (window.navigator as any).standalone === true ||
@@ -305,7 +319,12 @@ function App() {
               Last {productionDays} Days:
               <br />
               Value: {formatCurrency(totalValue)} ({formatCurrency(perDay)}
-              /day)
+              /day, {formatCurrency((perDay * 365) as Dollar)}
+              /year)
+              <br />
+              Optimal Value: {optimalTotalString} (Diff:{" "}
+              {formatCurrency(diffFromOptimal)},{" "}
+              {formatCurrency(diffFromOptimalPerYear)}/year)
               <br />
               Production: {totalProduction} (
               {formatKwh(
@@ -313,7 +332,7 @@ function App() {
               )}
               /day)
               <br />
-              Years Till Payoff: {yearsToPayOff} years
+              Time Till Payoff: {yearsToPayOff} years, {monthsToPayOff} months
               <br />
               <a href="https://www.eia.gov/electricity/state/colorado/">
                 Tons of CO2 Saved
@@ -321,7 +340,8 @@ function App() {
               :{" "}
               {poundFormatter.format(
                 ((totalProductionNumber / 1000) * 1.205) / 2000
-              )} tons
+              )}{" "}
+              tons
               <br />
               Max Output: {formatKwh((maxProduction * 4) as WattHour)}
               <br />
