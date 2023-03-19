@@ -1,0 +1,29 @@
+name: Update data
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+jobs:
+  date:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the branch
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          ref: "gh-pages"
+
+      - name: Update data
+        run: |
+          npm ci
+          node ./pull.mjs
+
+      - name: setup git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+      - name: commit
+        run: |
+          git add .
+          git commit -m "Update data"
+          git push origin gh-pages
