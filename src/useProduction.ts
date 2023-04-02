@@ -79,7 +79,7 @@ const getValue = ({
   production: productionData,
   start_time,
 }: RawProductionStat): ProductionStat => {
-  const month = getMonth(start_time);
+  const month = getMonth(start_time * 1000);
   const isWinter = month >= 9 || month < 5;
   let off: Array<WattHour | null> = [],
     mid: Array<WattHour | null> = [],
