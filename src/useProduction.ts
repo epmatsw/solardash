@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { isWeekend, isSameDay, getMonth } from "date-fns";
 // @ts-expect-error
 import holidays from "@date/holidays-us";
-import { subDays } from "date-fns/esm";
 
 type RawProductionStat = {
   production: Array<WattHour | null>;

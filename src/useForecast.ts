@@ -26,7 +26,7 @@ const apiKey =
   "fakekey";
 
 const maxKwAC = 7.67;
-const maxKwDC = 9.88;
+// const maxKwDC = 9.88;
 const maxKw = maxKwAC;
 
 const publicUrl = `https://api.forecast.solar/estimate/${lat}/${long}/${dec}/-15/${maxKw}`;
