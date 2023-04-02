@@ -174,17 +174,19 @@ function App() {
     );
   }
 
-  const [maxProduction, maxDailyProduction] =
-    production?.reduce<[WattHour, WattHour]>(
-      ([mw, md], p) => {
+  const [maxProduction, maxDailyProduction, maxDailyValue] =
+    production?.reduce<[WattHour, WattHour, Dollar]>(
+      ([mw, md, mdv], p) => {
         const prodNumbers = p.productionData.filter((n): n is WattHour => !!n);
+
         return [
           Math.max(mw, ...prodNumbers) as WattHour,
           Math.max(md, p.productionNum) as WattHour,
+          Math.max(mdv, p.total) as Dollar,
         ];
       },
-      [-1 as WattHour, -1 as WattHour]
-    ) ?? ([0, 0] as [WattHour, WattHour]);
+      [-1 as WattHour, -1 as WattHour, -1 as Dollar]
+    ) ?? ([0, 0, 0] as [WattHour, WattHour, Dollar]);
 
   const todayProduction = production?.find((p) => isToday(p.startTime));
 
@@ -345,7 +347,7 @@ function App() {
               <br />
               Max Output: {formatKwh((maxProduction * 4) as WattHour)}
               <br />
-              Max Daily: {formatKwh(maxDailyProduction)}
+              Max Daily: {formatKwh(maxDailyProduction)} ({formatCurrency(maxDailyValue)})
               <br />
               <br />
               {getLast7(production).map((a) => (
