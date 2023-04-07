@@ -35273,10 +35273,10 @@
                 1790,
                 1838,
                 1883,
-                1308,
-                null,
-                null,
-                null,
+                1903,
+                1914,
+                1922,
+                66,
                 null,
                 null,
                 null,
@@ -35340,7 +35340,7 @@
             "start_time": 1680847200,
             "interval_length": 900,
             "totals": {
-                "production": 21284
+                "production": 25781
             }
         }
     ]
