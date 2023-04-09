@@ -35526,10 +35526,10 @@
                 1800,
                 1743,
                 1708,
-                1402,
-                null,
-                null,
-                null,
+                1643,
+                1563,
+                1487,
+                280,
                 null,
                 null,
                 null,
@@ -35578,7 +35578,7 @@
             "start_time": 1681020000,
             "interval_length": 900,
             "totals": {
-                "production": 45283
+                "production": 48854
             }
         }
     ]
