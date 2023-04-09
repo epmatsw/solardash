@@ -35523,8 +35523,8 @@
                 1840,
                 1874,
                 1838,
-                295,
-                null,
+                1800,
+                298,
                 null,
                 null,
                 null,
@@ -35578,7 +35578,7 @@
             "start_time": 1681020000,
             "interval_length": 900,
             "totals": {
-                "production": 38925
+                "production": 40728
             }
         }
     ]
