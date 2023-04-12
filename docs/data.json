@@ -35870,8 +35870,8 @@
                 1778,
                 1842,
                 1889,
-                104,
-                null,
+                1903,
+                120,
                 null,
                 null,
                 null,
@@ -35935,7 +35935,7 @@
             "start_time": 1681279200,
             "interval_length": 900,
             "totals": {
-                "production": 22984
+                "production": 24903
             }
         }
     ]
