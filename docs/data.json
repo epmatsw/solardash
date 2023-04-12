@@ -35873,10 +35873,10 @@
                 1903,
                 1923,
                 1892,
-                1211,
-                null,
-                null,
-                null,
+                1399,
+                1642,
+                1028,
+                139,
                 null,
                 null,
                 null,
@@ -35935,7 +35935,7 @@
             "start_time": 1681279200,
             "interval_length": 900,
             "totals": {
-                "production": 29809
+                "production": 32806
             }
         }
     ]
