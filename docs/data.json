@@ -36104,10 +36104,10 @@
                 102,
                 110,
                 152,
-                109,
-                null,
-                null,
-                null,
+                179,
+                195,
+                187,
+                0,
                 null,
                 null,
                 null,
@@ -36173,7 +36173,7 @@
             "start_time": 1681452000,
             "interval_length": 900,
             "totals": {
-                "production": 1473
+                "production": 1925
             }
         }
     ]
