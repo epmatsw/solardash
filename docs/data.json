@@ -36352,10 +36352,10 @@
                 1923,
                 1923,
                 1923,
-                1032,
-                null,
-                null,
-                null,
+                1922,
+                1918,
+                1901,
+                1667,
                 null,
                 null,
                 null,
@@ -36411,7 +36411,7 @@
             "start_time": 1681624800,
             "interval_length": 900,
             "totals": {
-                "production": 37109
+                "production": 43485
             }
         }
     ]
