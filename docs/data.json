@@ -36468,8 +36468,8 @@
                 1900,
                 1906,
                 1917,
-                165,
-                null,
+                1919,
+                176,
                 null,
                 null,
                 null,
@@ -36530,7 +36530,7 @@
             "start_time": 1681711200,
             "interval_length": 900,
             "totals": {
-                "production": 29954
+                "production": 31884
             }
         }
     ]
