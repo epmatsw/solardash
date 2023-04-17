@@ -36465,10 +36465,10 @@
                 1844,
                 1872,
                 1891,
-                132,
-                null,
-                null,
-                null,
+                1900,
+                1906,
+                1917,
+                165,
                 null,
                 null,
                 null,
@@ -36530,7 +36530,7 @@
             "start_time": 1681711200,
             "interval_length": 900,
             "totals": {
-                "production": 24198
+                "production": 29954
             }
         }
     ]
