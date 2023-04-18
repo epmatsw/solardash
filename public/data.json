@@ -36605,9 +36605,9 @@
                 774,
                 868,
                 667,
-                543,
+                550,
+                313,
                 1,
-                null,
                 null,
                 null,
                 null,
@@ -36649,7 +36649,7 @@
             "start_time": 1681797600,
             "interval_length": 900,
             "totals": {
-                "production": 49987
+                "production": 50307
             }
         }
     ]
