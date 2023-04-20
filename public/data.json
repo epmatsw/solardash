@@ -36833,8 +36833,8 @@
                 1790,
                 1923,
                 1923,
-                45,
-                null,
+                1923,
+                50,
                 null,
                 null,
                 null,
@@ -36887,7 +36887,7 @@
             "start_time": 1681970400,
             "interval_length": 900,
             "totals": {
-                "production": 44807
+                "production": 46735
             }
         }
     ]
