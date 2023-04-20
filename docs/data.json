@@ -36827,10 +36827,10 @@
                 1858,
                 1732,
                 1923,
-                1262,
-                null,
-                null,
-                null,
+                1788,
+                1887,
+                1446,
+                5,
                 null,
                 null,
                 null,
@@ -36887,7 +36887,7 @@
             "start_time": 1681970400,
             "interval_length": 900,
             "totals": {
-                "production": 35260
+                "production": 39124
             }
         }
     ]
