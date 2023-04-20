@@ -36823,8 +36823,8 @@
                 1907,
                 1922,
                 1903,
-                1751,
-                0,
+                1801,
+                563,
                 null,
                 null,
                 null,
@@ -36887,7 +36887,7 @@
             "start_time": 1681970400,
             "interval_length": 900,
             "totals": {
-                "production": 28435
+                "production": 29048
             }
         }
     ]
