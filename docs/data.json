@@ -37302,11 +37302,11 @@
                 1923,
                 1923,
                 1923,
-                1572,
-                null,
-                null,
-                null,
-                null,
+                1924,
+                1923,
+                1922,
+                1461,
+                216,
                 null,
                 null,
                 null,
@@ -37363,7 +37363,7 @@
             "start_time": 1682316000,
             "interval_length": 900,
             "totals": {
-                "production": 28983
+                "production": 34857
             }
         }
     ]
