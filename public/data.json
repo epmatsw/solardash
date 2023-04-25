@@ -37403,11 +37403,11 @@
                 522,
                 688,
                 838,
-                787,
-                null,
-                null,
-                null,
-                null,
+                986,
+                1113,
+                1226,
+                1334,
+                225,
                 null,
                 null,
                 null,
@@ -37482,7 +37482,7 @@
             "start_time": 1682402400,
             "interval_length": 900,
             "totals": {
-                "production": 3609
+                "production": 7706
             }
         }
     ]
