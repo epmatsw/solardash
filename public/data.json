@@ -37420,8 +37420,8 @@
                 1923,
                 1867,
                 1725,
-                867,
-                null,
+                919,
+                430,
                 null,
                 null,
                 null,
@@ -37482,7 +37482,7 @@
             "start_time": 1682402400,
             "interval_length": 900,
             "totals": {
-                "production": 30801
+                "production": 31283
             }
         }
     ]
