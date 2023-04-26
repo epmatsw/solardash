@@ -37532,10 +37532,10 @@
                 502,
                 728,
                 559,
-                83,
-                null,
-                null,
-                null,
+                462,
+                613,
+                1396,
+                260,
                 null,
                 null,
                 null,
@@ -37601,7 +37601,7 @@
             "start_time": 1682488800,
             "interval_length": 900,
             "totals": {
-                "production": 4477
+                "production": 7125
             }
         }
     ]
