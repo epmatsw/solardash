@@ -37662,8 +37662,8 @@
                 1921,
                 1924,
                 1888,
-                1154,
-                null,
+                1601,
+                429,
                 null,
                 null,
                 null,
@@ -37720,7 +37720,7 @@
             "start_time": 1682575200,
             "interval_length": 900,
             "totals": {
-                "production": 39179
+                "production": 40055
             }
         }
     ]
