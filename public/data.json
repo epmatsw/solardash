@@ -37657,12 +37657,12 @@
                 1895,
                 1923,
                 1921,
-                1918,
-                403,
-                null,
-                null,
-                null,
-                null,
+                1923,
+                1922,
+                1921,
+                1924,
+                1888,
+                1154,
                 null,
                 null,
                 null,
@@ -37720,7 +37720,7 @@
             "start_time": 1682575200,
             "interval_length": 900,
             "totals": {
-                "production": 30768
+                "production": 39179
             }
         }
     ]
