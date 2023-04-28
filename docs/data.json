@@ -37763,11 +37763,11 @@
                 1003,
                 952,
                 1297,
-                1407,
-                106,
-                null,
-                null,
-                null,
+                1413,
+                1540,
+                1297,
+                1645,
+                162,
                 null,
                 null,
                 null,
@@ -37839,7 +37839,7 @@
             "start_time": 1682661600,
             "interval_length": 900,
             "totals": {
-                "production": 8483
+                "production": 13027
             }
         }
     ]
