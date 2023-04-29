@@ -37901,16 +37901,16 @@
                 1876,
                 1907,
                 1798,
-                929,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1172,
+                1200,
+                1689,
+                1497,
+                1818,
+                1700,
+                1639,
+                1729,
+                1223,
+                256,
                 null,
                 null,
                 null,
@@ -37958,7 +37958,7 @@
             "start_time": 1682748000,
             "interval_length": 900,
             "totals": {
-                "production": 40634
+                "production": 53628
             }
         }
     ]
