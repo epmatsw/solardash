@@ -37872,14 +37872,14 @@
                 4,
                 21,
                 40,
-                52,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                70,
+                117,
+                224,
+                381,
+                549,
+                715,
+                860,
+                394,
                 null,
                 null,
                 null,
@@ -37958,7 +37958,7 @@
             "start_time": 1682748000,
             "interval_length": 900,
             "totals": {
-                "production": 117
+                "production": 3375
             }
         }
     ]
