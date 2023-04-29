@@ -37887,11 +37887,11 @@
                 1500,
                 1578,
                 1645,
-                1402,
-                null,
-                null,
-                null,
-                null,
+                1706,
+                1748,
+                1793,
+                1828,
+                1616,
                 null,
                 null,
                 null,
@@ -37958,7 +37958,7 @@
             "start_time": 1682748000,
             "interval_length": 900,
             "totals": {
-                "production": 15154
+                "production": 22443
             }
         }
     ]
