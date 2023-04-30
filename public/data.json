@@ -38019,11 +38019,11 @@
                 1920,
                 1917,
                 1915,
-                1001,
-                null,
-                null,
-                null,
-                null,
+                1902,
+                1903,
+                1906,
+                1696,
+                1414,
                 null,
                 null,
                 null,
@@ -38077,7 +38077,7 @@
             "start_time": 1682834400,
             "interval_length": 900,
             "totals": {
-                "production": 39041
+                "production": 46861
             }
         }
     ]
