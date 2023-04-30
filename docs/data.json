@@ -38007,13 +38007,13 @@
                 1571,
                 1646,
                 1715,
-                511,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1760,
+                1805,
+                1850,
+                1878,
+                1899,
+                1901,
+                444,
                 null,
                 null,
                 null,
@@ -38077,7 +38077,7 @@
             "start_time": 1682834400,
             "interval_length": 900,
             "totals": {
-                "production": 15933
+                "production": 26959
             }
         }
     ]
