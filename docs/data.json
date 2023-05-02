@@ -38228,10 +38228,10 @@
                 0,
                 10,
                 36,
-                44,
-                null,
-                null,
-                null,
+                61,
+                94,
+                156,
+                227,
                 null,
                 null,
                 null,
@@ -38315,7 +38315,7 @@
             "start_time": 1683007200,
             "interval_length": 900,
             "totals": {
-                "production": 90
+                "production": 584
             }
         }
     ]
