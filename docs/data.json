@@ -38355,11 +38355,11 @@
                 321,
                 382,
                 454,
-                37,
-                null,
-                null,
-                null,
-                null,
+                622,
+                846,
+                830,
+                1033,
+                971,
                 null,
                 null,
                 null,
@@ -38434,7 +38434,7 @@
             "start_time": 1683093600,
             "interval_length": 900,
             "totals": {
-                "production": 2010
+                "production": 6275
             }
         }
     ]
