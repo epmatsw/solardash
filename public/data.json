@@ -38359,10 +38359,10 @@
                 846,
                 830,
                 1033,
-                971,
-                null,
-                null,
-                null,
+                1163,
+                1104,
+                1353,
+                101,
                 null,
                 null,
                 null,
@@ -38434,7 +38434,7 @@
             "start_time": 1683093600,
             "interval_length": 900,
             "totals": {
-                "production": 6275
+                "production": 9025
             }
         }
     ]
