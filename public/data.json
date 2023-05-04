@@ -38503,12 +38503,12 @@
                 1284,
                 478,
                 126,
-                10,
-                null,
-                null,
-                null,
-                null,
-                null,
+                51,
+                50,
+                33,
+                43,
+                79,
+                18,
                 null,
                 null,
                 null,
@@ -38553,7 +38553,7 @@
             "start_time": 1683180000,
             "interval_length": 900,
             "totals": {
-                "production": 24184
+                "production": 24448
             }
         }
     ]
