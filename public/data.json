@@ -38500,8 +38500,8 @@
                 1849,
                 1790,
                 1729,
-                1179,
-                null,
+                1284,
+                435,
                 null,
                 null,
                 null,
@@ -38553,7 +38553,7 @@
             "start_time": 1683180000,
             "interval_length": 900,
             "totals": {
-                "production": 23465
+                "production": 24005
             }
         }
     ]
