@@ -38603,13 +38603,13 @@
                 1638,
                 1700,
                 1748,
-                1580,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1797,
+                1844,
+                1873,
+                1896,
+                1907,
+                1920,
+                1578,
                 null,
                 null,
                 null,
@@ -38672,7 +38672,7 @@
             "start_time": 1683266400,
             "interval_length": 900,
             "totals": {
-                "production": 18759
+                "production": 29994
             }
         }
     ]
