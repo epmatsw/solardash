@@ -38610,9 +38610,9 @@
                 1907,
                 1920,
                 1923,
-                1060,
-                null,
-                null,
+                1843,
+                1379,
+                578,
                 null,
                 null,
                 null,
@@ -38672,7 +38672,7 @@
             "start_time": 1683266400,
             "interval_length": 900,
             "totals": {
-                "production": 31399
+                "production": 34139
             }
         }
     ]
