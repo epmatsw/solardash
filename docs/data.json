@@ -38592,11 +38592,11 @@
                 366,
                 549,
                 710,
-                144,
-                null,
-                null,
-                null,
-                null,
+                845,
+                979,
+                1104,
+                1214,
+                268,
                 null,
                 null,
                 null,
@@ -38672,7 +38672,7 @@
             "start_time": 1683266400,
             "interval_length": 900,
             "totals": {
-                "production": 2277
+                "production": 6543
             }
         }
     ]
