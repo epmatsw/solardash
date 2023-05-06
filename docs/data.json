@@ -38735,12 +38735,12 @@
                 1750,
                 1580,
                 1468,
-                995,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1452,
+                970,
+                1222,
+                762,
+                1551,
+                153,
                 null,
                 null,
                 null,
@@ -38791,7 +38791,7 @@
             "start_time": 1683352800,
             "interval_length": 900,
             "totals": {
-                "production": 38397
+                "production": 43512
             }
         }
     ]
