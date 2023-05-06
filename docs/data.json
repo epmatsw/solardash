@@ -38717,14 +38717,14 @@
                 1241,
                 1346,
                 1439,
-                1084,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1523,
+                1607,
+                1687,
+                1770,
+                1832,
+                1905,
+                1916,
+                1356,
                 null,
                 null,
                 null,
@@ -38791,7 +38791,7 @@
             "start_time": 1683352800,
             "interval_length": 900,
             "totals": {
-                "production": 10435
+                "production": 22947
             }
         }
     ]
