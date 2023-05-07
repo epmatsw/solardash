@@ -38860,9 +38860,9 @@
                 800,
                 609,
                 606,
-                216,
-                null,
-                null,
+                503,
+                450,
+                91,
                 null,
                 null,
                 null,
@@ -38910,7 +38910,7 @@
             "start_time": 1683439200,
             "interval_length": 900,
             "totals": {
-                "production": 37754
+                "production": 38582
             }
         }
     ]
