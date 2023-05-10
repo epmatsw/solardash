@@ -39204,11 +39204,11 @@
                 619,
                 465,
                 333,
-                222,
-                null,
-                null,
-                null,
-                null,
+                259,
+                220,
+                305,
+                339,
+                60,
                 null,
                 null,
                 null,
@@ -39267,7 +39267,7 @@
             "start_time": 1683698400,
             "interval_length": 900,
             "totals": {
-                "production": 5345
+                "production": 6306
             }
         }
     ]
