@@ -39426,9 +39426,9 @@
                 195,
                 230,
                 336,
-                196,
-                null,
-                null,
+                446,
+                391,
+                88,
                 null,
                 null,
                 null,
@@ -39505,7 +39505,7 @@
             "start_time": 1683871200,
             "interval_length": 900,
             "totals": {
-                "production": 1279
+                "production": 2008
             }
         }
     ]
