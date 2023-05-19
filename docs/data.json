@@ -40271,9 +40271,9 @@
                 131,
                 41,
                 37,
-                68,
-                null,
-                null,
+                84,
+                105,
+                23,
                 null,
                 null,
                 null,
@@ -40338,7 +40338,7 @@
             "start_time": 1684476000,
             "interval_length": 900,
             "totals": {
-                "production": 1875
+                "production": 2019
             }
         }
     ]
