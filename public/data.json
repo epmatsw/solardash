@@ -40280,9 +40280,9 @@
                 741,
                 594,
                 343,
-                224,
-                10,
-                null,
+                225,
+                160,
+                97,
                 null,
                 null,
                 null,
@@ -40338,7 +40338,7 @@
             "start_time": 1684476000,
             "interval_length": 900,
             "totals": {
-                "production": 5383
+                "production": 5631
             }
         }
     ]
