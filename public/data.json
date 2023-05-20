@@ -40370,9 +40370,9 @@
                 6,
                 37,
                 71,
-                55,
-                null,
-                null,
+                110,
+                177,
+                18,
                 null,
                 null,
                 null,
@@ -40457,7 +40457,7 @@
             "start_time": 1684562400,
             "interval_length": 900,
             "totals": {
-                "production": 169
+                "production": 419
             }
         }
     ]
