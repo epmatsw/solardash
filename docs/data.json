@@ -40619,10 +40619,10 @@
                 639,
                 727,
                 819,
-                747,
-                null,
-                null,
-                null,
+                903,
+                970,
+                1036,
+                106,
                 null,
                 null,
                 null,
@@ -40695,7 +40695,7 @@
             "start_time": 1684735200,
             "interval_length": 900,
             "totals": {
-                "production": 5261
+                "production": 7529
             }
         }
     ]
