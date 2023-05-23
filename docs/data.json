@@ -40751,11 +40751,11 @@
                 1684,
                 1703,
                 1724,
-                1727,
-                70,
-                null,
-                null,
-                null,
+                1732,
+                1741,
+                1717,
+                1710,
+                1174,
                 null,
                 null,
                 null,
@@ -40814,7 +40814,7 @@
             "start_time": 1684821600,
             "interval_length": 900,
             "totals": {
-                "production": 26155
+                "production": 32432
             }
         }
     ]
