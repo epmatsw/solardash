@@ -40877,10 +40877,10 @@
                 54,
                 68,
                 117,
-                98,
-                null,
-                null,
-                null,
+                249,
+                514,
+                367,
+                37,
                 null,
                 null,
                 null,
@@ -40933,7 +40933,7 @@
             "start_time": 1684908000,
             "interval_length": 900,
             "totals": {
-                "production": 19278
+                "production": 20347
             }
         }
     ]
