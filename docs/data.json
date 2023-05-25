@@ -40971,11 +40971,11 @@
                 112,
                 180,
                 395,
-                427,
-                null,
-                null,
-                null,
-                null,
+                631,
+                852,
+                1002,
+                1108,
+                78,
                 null,
                 null,
                 null,
@@ -41052,7 +41052,7 @@
             "start_time": 1684994400,
             "interval_length": 900,
             "totals": {
-                "production": 1425
+                "production": 4669
             }
         }
     ]
