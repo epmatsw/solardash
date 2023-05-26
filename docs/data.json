@@ -41120,9 +41120,9 @@
                 15,
                 10,
                 34,
-                108,
-                null,
-                null,
+                213,
+                1102,
+                160,
                 null,
                 null,
                 null,
@@ -41171,7 +41171,7 @@
             "start_time": 1685080800,
             "interval_length": 900,
             "totals": {
-                "production": 28682
+                "production": 30049
             }
         }
     ]
