@@ -41112,13 +41112,13 @@
                 588,
                 624,
                 480,
-                269,
-                8,
+                270,
+                41,
+                1,
                 null,
-                null,
-                null,
-                null,
-                null,
+                1,
+                15,
+                4,
                 null,
                 null,
                 null,
@@ -41171,7 +41171,7 @@
             "start_time": 1685080800,
             "interval_length": 900,
             "totals": {
-                "production": 28479
+                "production": 28534
             }
         }
     ]
