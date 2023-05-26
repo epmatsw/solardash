@@ -41123,8 +41123,8 @@
                 213,
                 1102,
                 1653,
-                1178,
-                null,
+                1364,
+                200,
                 null,
                 null,
                 null,
@@ -41171,7 +41171,7 @@
             "start_time": 1685080800,
             "interval_length": 900,
             "totals": {
-                "production": 32720
+                "production": 33106
             }
         }
     ]
