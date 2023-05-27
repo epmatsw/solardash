@@ -41230,9 +41230,9 @@
                 1823,
                 1853,
                 1902,
-                1830,
-                4,
-                null,
+                1908,
+                1471,
+                2,
                 null,
                 null,
                 null,
@@ -41290,7 +41290,7 @@
             "start_time": 1685167200,
             "interval_length": 900,
             "totals": {
-                "production": 35136
+                "production": 36683
             }
         }
     ]
