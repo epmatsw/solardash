@@ -41210,8 +41210,8 @@
                 168,
                 386,
                 634,
-                626,
-                null,
+                856,
+                861,
                 null,
                 null,
                 null,
@@ -41290,7 +41290,7 @@
             "start_time": 1685167200,
             "interval_length": 900,
             "totals": {
-                "production": 2192
+                "production": 3283
             }
         }
     ]
