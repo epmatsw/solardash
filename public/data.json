@@ -41332,10 +41332,10 @@
                 863,
                 1017,
                 1139,
-                1005,
-                null,
-                null,
-                null,
+                1238,
+                1331,
+                1418,
+                1126,
                 null,
                 null,
                 null,
@@ -41409,7 +41409,7 @@
             "start_time": 1685253600,
             "interval_length": 900,
             "totals": {
-                "production": 5636
+                "production": 9744
             }
         }
     ]
