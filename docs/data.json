@@ -41464,9 +41464,9 @@
                 1852,
                 1912,
                 1907,
-                1492,
-                1,
-                null,
+                1632,
+                1629,
+                40,
                 null,
                 null,
                 null,
@@ -41528,7 +41528,7 @@
             "start_time": 1685340000,
             "interval_length": 900,
             "totals": {
-                "production": 26959
+                "production": 28767
             }
         }
     ]
