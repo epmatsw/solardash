@@ -41454,13 +41454,13 @@
                 1217,
                 1311,
                 1385,
-                894,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1462,
+                1535,
+                1583,
+                1629,
+                1642,
+                1606,
+                119,
                 null,
                 null,
                 null,
@@ -41528,7 +41528,7 @@
             "start_time": 1685340000,
             "interval_length": 900,
             "totals": {
-                "production": 9358
+                "production": 18040
             }
         }
     ]
