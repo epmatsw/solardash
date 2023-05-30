@@ -41564,10 +41564,10 @@
                 71,
                 80,
                 97,
-                123,
-                3,
-                null,
-                null,
+                155,
+                363,
+                618,
+                42,
                 null,
                 null,
                 null,
@@ -41647,7 +41647,7 @@
             "start_time": 1685426400,
             "interval_length": 900,
             "totals": {
-                "production": 533
+                "production": 1585
             }
         }
     ]
