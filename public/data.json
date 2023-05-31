@@ -41722,9 +41722,9 @@
                 1070,
                 768,
                 441,
-                263,
-                0,
-                null,
+                279,
+                203,
+                3,
                 null,
                 null,
                 null,
@@ -41766,7 +41766,7 @@
             "start_time": 1685512800,
             "interval_length": 900,
             "totals": {
-                "production": 37912
+                "production": 38134
             }
         }
     ]
