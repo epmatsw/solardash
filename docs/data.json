@@ -41699,12 +41699,12 @@
                 1768,
                 1843,
                 1850,
-                636,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1584,
+                1851,
+                1802,
+                1652,
+                1562,
+                257,
                 null,
                 null,
                 null,
@@ -41766,7 +41766,7 @@
             "start_time": 1685512800,
             "interval_length": 900,
             "totals": {
-                "production": 20890
+                "production": 28962
             }
         }
     ]
