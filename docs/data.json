@@ -41707,11 +41707,11 @@
                 1264,
                 532,
                 392,
-                212,
-                null,
-                null,
-                null,
-                null,
+                231,
+                113,
+                67,
+                84,
+                131,
                 null,
                 null,
                 null,
@@ -41766,7 +41766,7 @@
             "start_time": 1685512800,
             "interval_length": 900,
             "totals": {
-                "production": 31105
+                "production": 31519
             }
         }
     ]
