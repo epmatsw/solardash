@@ -41688,11 +41688,11 @@
                 623,
                 835,
                 1003,
-                859,
-                3,
-                null,
-                null,
-                null,
+                1120,
+                1224,
+                1313,
+                1071,
+                5,
                 null,
                 null,
                 null,
@@ -41766,7 +41766,7 @@
             "start_time": 1685512800,
             "interval_length": 900,
             "totals": {
-                "production": 4297
+                "production": 8168
             }
         }
     ]
