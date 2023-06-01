@@ -41830,14 +41830,14 @@
                 1124,
                 605,
                 1007,
-                327,
-                12,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                328,
+                128,
+                168,
+                780,
+                887,
+                688,
+                1123,
+                143,
                 null,
                 null,
                 null,
@@ -41885,7 +41885,7 @@
             "start_time": 1685599200,
             "interval_length": 900,
             "totals": {
-                "production": 22312
+                "production": 26218
             }
         }
     ]
