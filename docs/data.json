@@ -42060,9 +42060,9 @@
                 645,
                 522,
                 480,
-                266,
-                null,
-                null,
+                484,
+                340,
+                60,
                 null,
                 null,
                 null,
@@ -42123,7 +42123,7 @@
             "start_time": 1685772000,
             "interval_length": 900,
             "totals": {
-                "production": 9668
+                "production": 10286
             }
         }
     ]
