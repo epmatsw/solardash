@@ -42042,14 +42042,14 @@
                 67,
                 135,
                 192,
-                152,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                297,
+                327,
+                309,
+                318,
+                340,
+                489,
+                496,
+                515,
                 null,
                 null,
                 null,
@@ -42123,7 +42123,7 @@
             "start_time": 1685772000,
             "interval_length": 900,
             "totals": {
-                "production": 668
+                "production": 3607
             }
         }
     ]
