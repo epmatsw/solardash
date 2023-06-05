@@ -42310,8 +42310,8 @@
                 844,
                 520,
                 375,
-                198,
-                null,
+                216,
+                35,
                 null,
                 null,
                 null,
@@ -42361,7 +42361,7 @@
             "start_time": 1685944800,
             "interval_length": 900,
             "totals": {
-                "production": 39062
+                "production": 39115
             }
         }
     ]
