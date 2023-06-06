@@ -42390,9 +42390,9 @@
                 null,
                 null,
                 1,
-                14,
-                null,
-                null,
+                17,
+                33,
+                17,
                 null,
                 null,
                 null,
@@ -42480,7 +42480,7 @@
             "start_time": 1686031200,
             "interval_length": 900,
             "totals": {
-                "production": 15
+                "production": 68
             }
         }
     ]
