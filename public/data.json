@@ -42756,14 +42756,14 @@
                 92,
                 144,
                 323,
-                450,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                602,
+                784,
+                976,
+                1136,
+                1208,
+                1257,
+                1383,
+                930,
                 null,
                 null,
                 null,
@@ -42837,7 +42837,7 @@
             "start_time": 1686290400,
             "interval_length": 900,
             "totals": {
-                "production": 1310
+                "production": 9136
             }
         }
     ]
