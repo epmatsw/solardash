@@ -43118,10 +43118,10 @@
                 1037,
                 1196,
                 1246,
-                483,
-                null,
-                null,
-                null,
+                1123,
+                1031,
+                1259,
+                88,
                 null,
                 null,
                 null,
@@ -43194,7 +43194,7 @@
             "start_time": 1686549600,
             "interval_length": 900,
             "totals": {
-                "production": 6093
+                "production": 9111
             }
         }
     ]
