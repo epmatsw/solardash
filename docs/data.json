@@ -43107,16 +43107,16 @@
                 6,
                 26,
                 59,
-                85,
-                12,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                86,
+                107,
+                151,
+                211,
+                168,
+                173,
+                377,
+                767,
+                878,
+                1,
                 null,
                 null,
                 null,
@@ -43194,7 +43194,7 @@
             "start_time": 1686549600,
             "interval_length": 900,
             "totals": {
-                "production": 188
+                "production": 3010
             }
         }
     ]
