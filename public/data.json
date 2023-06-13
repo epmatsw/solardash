@@ -43228,8 +43228,8 @@
                 83,
                 115,
                 140,
-                135,
-                10,
+                137,
+                65,
                 null,
                 null,
                 null,
@@ -43313,7 +43313,7 @@
             "start_time": 1686636000,
             "interval_length": 900,
             "totals": {
-                "production": 562
+                "production": 619
             }
         }
     ]
