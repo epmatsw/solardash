@@ -43233,8 +43233,8 @@
                 90,
                 155,
                 232,
-                148,
-                null,
+                201,
+                193,
                 null,
                 null,
                 null,
@@ -43313,7 +43313,7 @@
             "start_time": 1686636000,
             "interval_length": 900,
             "totals": {
-                "production": 1273
+                "production": 1519
             }
         }
     ]
