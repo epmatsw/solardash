@@ -43381,10 +43381,10 @@
                 972,
                 964,
                 1160,
-                853,
-                null,
-                null,
-                null,
+                1080,
+                1365,
+                780,
+                200,
                 null,
                 null,
                 null,
@@ -43432,7 +43432,7 @@
             "start_time": 1686722400,
             "interval_length": 900,
             "totals": {
-                "production": 45182
+                "production": 47754
             }
         }
     ]
