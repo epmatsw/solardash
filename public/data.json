@@ -43357,10 +43357,10 @@
                 1018,
                 1118,
                 1212,
-                491,
-                null,
-                null,
-                null,
+                1302,
+                1396,
+                1484,
+                389,
                 null,
                 null,
                 null,
@@ -43432,7 +43432,7 @@
             "start_time": 1686722400,
             "interval_length": 900,
             "totals": {
-                "production": 7248
+                "production": 11328
             }
         }
     ]
