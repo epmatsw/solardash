@@ -43368,11 +43368,11 @@
                 1789,
                 1812,
                 1832,
-                1827,
-                138,
-                null,
-                null,
-                null,
+                1832,
+                1848,
+                1839,
+                1630,
+                1301,
                 null,
                 null,
                 null,
@@ -43432,7 +43432,7 @@
             "start_time": 1686722400,
             "interval_length": 900,
             "totals": {
-                "production": 26673
+                "production": 33158
             }
         }
     ]
