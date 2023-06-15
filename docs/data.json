@@ -43480,11 +43480,11 @@
                 1398,
                 1552,
                 1497,
-                1250,
-                null,
-                null,
-                null,
-                null,
+                1652,
+                1650,
+                1524,
+                1780,
+                132,
                 null,
                 null,
                 null,
@@ -43551,7 +43551,7 @@
             "start_time": 1686808800,
             "interval_length": 900,
             "totals": {
-                "production": 9790
+                "production": 15278
             }
         }
     ]
