@@ -43466,11 +43466,11 @@
                 42,
                 41,
                 58,
-                6,
-                null,
-                null,
-                null,
-                null,
+                91,
+                154,
+                206,
+                250,
+                35,
                 null,
                 null,
                 null,
@@ -43551,7 +43551,7 @@
             "start_time": 1686808800,
             "interval_length": 900,
             "totals": {
-                "production": 212
+                "production": 942
             }
         }
     ]
