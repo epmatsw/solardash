@@ -43609,14 +43609,14 @@
                 450,
                 679,
                 681,
-                112,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                309,
+                560,
+                602,
+                173,
+                169,
+                47,
+                163,
+                187,
                 null,
                 null,
                 null,
@@ -43670,7 +43670,7 @@
             "start_time": 1686895200,
             "interval_length": 900,
             "totals": {
-                "production": 10218
+                "production": 12316
             }
         }
     ]
