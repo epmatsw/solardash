@@ -43733,11 +43733,11 @@
                 1394,
                 1903,
                 1907,
-                1818,
-                140,
-                null,
-                null,
-                null,
+                1868,
+                1809,
+                1314,
+                1211,
+                99,
                 null,
                 null,
                 null,
@@ -43789,7 +43789,7 @@
             "start_time": 1686981600,
             "interval_length": 900,
             "totals": {
-                "production": 29857
+                "production": 34200
             }
         }
     ]
