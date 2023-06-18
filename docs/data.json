@@ -43830,10 +43830,10 @@
                 655,
                 822,
                 982,
-                1084,
-                136,
-                null,
-                null,
+                1107,
+                1223,
+                1305,
+                36,
                 null,
                 null,
                 null,
@@ -43908,7 +43908,7 @@
             "start_time": 1687068000,
             "interval_length": 900,
             "totals": {
-                "production": 4657
+                "production": 7108
             }
         }
     ]
