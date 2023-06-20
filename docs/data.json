@@ -44095,8 +44095,8 @@
                 1683,
                 1633,
                 1601,
-                1339,
-                null,
+                1533,
+                1033,
                 null,
                 null,
                 null,
@@ -44146,7 +44146,7 @@
             "start_time": 1687240800,
             "interval_length": 900,
             "totals": {
-                "production": 34005
+                "production": 35232
             }
         }
     ]
