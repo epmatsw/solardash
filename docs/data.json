@@ -44176,10 +44176,10 @@
                 null,
                 2,
                 19,
-                34,
-                1,
-                null,
-                null,
+                35,
+                48,
+                59,
+                37,
                 null,
                 null,
                 null,
@@ -44265,7 +44265,7 @@
             "start_time": 1687327200,
             "interval_length": 900,
             "totals": {
-                "production": 56
+                "production": 200
             }
         }
     ]
