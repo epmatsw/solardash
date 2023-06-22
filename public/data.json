@@ -44297,9 +44297,9 @@
                 6,
                 17,
                 44,
-                27,
-                null,
-                null,
+                63,
+                64,
+                10,
                 null,
                 null,
                 null,
@@ -44384,7 +44384,7 @@
             "start_time": 1687413600,
             "interval_length": 900,
             "totals": {
-                "production": 94
+                "production": 204
             }
         }
     ]
