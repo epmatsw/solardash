@@ -44319,13 +44319,13 @@
                 1752,
                 1781,
                 1816,
-                1809,
-                140,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1810,
+                1847,
+                1859,
+                1884,
+                1720,
+                1447,
+                219,
                 null,
                 null,
                 null,
@@ -44384,7 +44384,7 @@
             "start_time": 1687413600,
             "interval_length": 900,
             "totals": {
-                "production": 24697
+                "production": 33534
             }
         }
     ]
