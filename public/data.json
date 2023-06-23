@@ -44423,11 +44423,11 @@
                 312,
                 302,
                 488,
-                223,
-                null,
-                null,
-                null,
-                null,
+                733,
+                916,
+                839,
+                1188,
+                981,
                 null,
                 null,
                 null,
@@ -44503,7 +44503,7 @@
             "start_time": 1687500000,
             "interval_length": 900,
             "totals": {
-                "production": 2154
+                "production": 6588
             }
         }
     ]
