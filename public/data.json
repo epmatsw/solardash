@@ -44572,10 +44572,10 @@
                 1644,
                 1594,
                 1539,
-                866,
-                null,
-                null,
-                null,
+                1488,
+                1414,
+                1320,
+                1098,
                 null,
                 null,
                 null,
@@ -44622,7 +44622,7 @@
             "start_time": 1687586400,
             "interval_length": 900,
             "totals": {
-                "production": 50694
+                "production": 55148
             }
         }
     ]
