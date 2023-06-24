@@ -44543,8 +44543,8 @@
                 246,
                 524,
                 753,
-                780,
-                null,
+                956,
+                795,
                 null,
                 null,
                 null,
@@ -44622,7 +44622,7 @@
             "start_time": 1687586400,
             "interval_length": 900,
             "totals": {
-                "production": 2837
+                "production": 3808
             }
         }
     ]
