@@ -44783,10 +44783,10 @@
                 717,
                 922,
                 1087,
-                1025,
-                null,
-                null,
-                null,
+                1191,
+                1285,
+                1063,
+                5,
                 null,
                 null,
                 null,
@@ -44860,7 +44860,7 @@
             "start_time": 1687759200,
             "interval_length": 900,
             "totals": {
-                "production": 4943
+                "production": 7462
             }
         }
     ]
