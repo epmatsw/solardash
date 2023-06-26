@@ -44800,11 +44800,11 @@
                 1826,
                 1829,
                 1827,
-                786,
-                null,
-                null,
-                null,
-                null,
+                1811,
+                1804,
+                1788,
+                1765,
+                186,
                 null,
                 null,
                 null,
@@ -44860,7 +44860,7 @@
             "start_time": 1687759200,
             "interval_length": 900,
             "totals": {
-                "production": 32485
+                "production": 39053
             }
         }
     ]
