@@ -44791,13 +44791,13 @@
                 1574,
                 1629,
                 1674,
-                351,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1708,
+                1737,
+                1777,
+                1795,
+                1798,
+                1816,
+                1490,
                 null,
                 null,
                 null,
@@ -44860,7 +44860,7 @@
             "start_time": 1687759200,
             "interval_length": 900,
             "totals": {
-                "production": 15937
+                "production": 27707
             }
         }
     ]
