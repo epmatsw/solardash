@@ -44890,8 +44890,8 @@
                 null,
                 0,
                 3,
-                3,
-                null,
+                23,
+                24,
                 null,
                 null,
                 null,
@@ -44979,7 +44979,7 @@
             "start_time": 1687845600,
             "interval_length": 900,
             "totals": {
-                "production": 6
+                "production": 50
             }
         }
     ]
