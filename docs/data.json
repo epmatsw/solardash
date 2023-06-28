@@ -45011,13 +45011,13 @@
                 8,
                 34,
                 48,
-                14,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                57,
+                74,
+                98,
+                112,
+                136,
+                234,
+                382,
                 null,
                 null,
                 null,
@@ -45098,7 +45098,7 @@
             "start_time": 1687932000,
             "interval_length": 900,
             "totals": {
-                "production": 104
+                "production": 1183
             }
         }
     ]
