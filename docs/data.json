@@ -45376,14 +45376,14 @@
                 204,
                 463,
                 699,
-                210,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                892,
+                1057,
+                1168,
+                1270,
+                1361,
+                1442,
+                1515,
+                764,
                 null,
                 null,
                 null,
@@ -45455,7 +45455,7 @@
             "start_time": 1688191200,
             "interval_length": 900,
             "totals": {
-                "production": 2043
+                "production": 11302
             }
         }
     ]
