@@ -45496,11 +45496,11 @@
                 452,
                 679,
                 864,
-                670,
-                null,
-                null,
-                null,
-                null,
+                1023,
+                1125,
+                1227,
+                1285,
+                5,
                 null,
                 null,
                 null,
@@ -45574,7 +45574,7 @@
             "start_time": 1688277600,
             "interval_length": 900,
             "totals": {
-                "production": 3349
+                "production": 7344
             }
         }
     ]
