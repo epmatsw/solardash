@@ -45486,12 +45486,12 @@
                 0,
                 12,
                 30,
-                44,
-                5,
-                null,
-                null,
-                null,
-                null,
+                45,
+                56,
+                67,
+                78,
+                86,
+                10,
                 null,
                 null,
                 null,
@@ -45574,7 +45574,7 @@
             "start_time": 1688277600,
             "interval_length": 900,
             "totals": {
-                "production": 91
+                "production": 384
             }
         }
     ]
