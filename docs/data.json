@@ -45504,10 +45504,10 @@
                 1532,
                 1560,
                 1600,
-                1668,
-                176,
-                null,
-                null,
+                1670,
+                1693,
+                1597,
+                10,
                 null,
                 null,
                 null,
@@ -45574,7 +45574,7 @@
             "start_time": 1688277600,
             "interval_length": 900,
             "totals": {
-                "production": 15345
+                "production": 18471
             }
         }
     ]
