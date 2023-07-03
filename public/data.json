@@ -45609,17 +45609,17 @@
                 56,
                 65,
                 73,
-                35,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                82,
+                100,
+                202,
+                454,
+                687,
+                881,
+                1041,
+                1152,
+                1252,
+                1335,
+                1279,
                 null,
                 null,
                 null,
@@ -45693,7 +45693,7 @@
             "start_time": 1688364000,
             "interval_length": 900,
             "totals": {
-                "production": 318
+                "production": 8748
             }
         }
     ]
