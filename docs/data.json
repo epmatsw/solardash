@@ -45735,10 +45735,10 @@
                 706,
                 633,
                 1024,
-                1230,
-                3,
-                null,
-                null,
+                1248,
+                525,
+                1067,
+                15,
                 null,
                 null,
                 null,
@@ -45812,7 +45812,7 @@
             "start_time": 1688450400,
             "interval_length": 900,
             "totals": {
-                "production": 5112
+                "production": 6734
             }
         }
     ]
