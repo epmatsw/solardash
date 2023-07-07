@@ -46100,12 +46100,12 @@
                 1536,
                 1591,
                 1643,
-                1671,
-                41,
-                null,
-                null,
-                null,
-                null,
+                1691,
+                1725,
+                1758,
+                1788,
+                1803,
+                744,
                 null,
                 null,
                 null,
@@ -46169,7 +46169,7 @@
             "start_time": 1688709600,
             "interval_length": 900,
             "totals": {
-                "production": 16956
+                "production": 24753
             }
         }
     ]
