@@ -46334,17 +46334,17 @@
                 1216,
                 1301,
                 1378,
-                1056,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1451,
+                1512,
+                1569,
+                1620,
+                1656,
+                1701,
+                1739,
+                1761,
+                1783,
+                1755,
+                257,
                 null,
                 null,
                 null,
@@ -46407,7 +46407,7 @@
             "start_time": 1688882400,
             "interval_length": 900,
             "totals": {
-                "production": 9676
+                "production": 25424
             }
         }
     ]
