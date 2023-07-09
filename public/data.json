@@ -46328,11 +46328,11 @@
                 200,
                 425,
                 651,
-                202,
-                null,
-                null,
-                null,
-                null,
+                838,
+                993,
+                1112,
+                1216,
+                1115,
                 null,
                 null,
                 null,
@@ -46407,7 +46407,7 @@
             "start_time": 1688882400,
             "interval_length": 900,
             "totals": {
-                "production": 1984
+                "production": 7056
             }
         }
     ]
