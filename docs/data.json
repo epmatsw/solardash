@@ -46345,10 +46345,10 @@
                 1783,
                 1803,
                 1841,
-                679,
-                null,
-                null,
-                null,
+                1548,
+                1211,
+                1083,
+                537,
                 null,
                 null,
                 null,
@@ -46407,7 +46407,7 @@
             "start_time": 1688882400,
             "interval_length": 900,
             "totals": {
-                "production": 27735
+                "production": 31435
             }
         }
     ]
