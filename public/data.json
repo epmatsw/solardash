@@ -46825,9 +46825,9 @@
                 1813,
                 1816,
                 1798,
-                1737,
-                63,
-                null,
+                1746,
+                1745,
+                592,
                 null,
                 null,
                 null,
@@ -46883,7 +46883,7 @@
             "start_time": 1689228000,
             "interval_length": 900,
             "totals": {
-                "production": 34519
+                "production": 36802
             }
         }
     ]
