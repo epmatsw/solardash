@@ -48148,8 +48148,8 @@
                 499,
                 369,
                 171,
-                12,
-                null,
+                64,
+                4,
                 null,
                 null,
                 null,
@@ -48192,7 +48192,7 @@
             "start_time": 1690178400,
             "interval_length": 900,
             "totals": {
-                "production": 49231
+                "production": 49287
             }
         }
     ]
