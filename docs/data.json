@@ -48121,10 +48121,10 @@
                 1194,
                 1401,
                 1464,
-                1009,
-                null,
-                null,
-                null,
+                1513,
+                1565,
+                1418,
+                27,
                 null,
                 null,
                 null,
@@ -48192,7 +48192,7 @@
             "start_time": 1690178400,
             "interval_length": 900,
             "totals": {
-                "production": 12105
+                "production": 15619
             }
         }
     ]
