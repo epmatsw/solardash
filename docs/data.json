@@ -48240,8 +48240,8 @@
                 388,
                 426,
                 615,
-                747,
-                null,
+                1010,
+                1011,
                 null,
                 null,
                 null,
@@ -48311,7 +48311,7 @@
             "start_time": 1690264800,
             "interval_length": 900,
             "totals": {
-                "production": 6637
+                "production": 7911
             }
         }
     ]
