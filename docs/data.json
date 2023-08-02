@@ -49185,11 +49185,11 @@
                 440,
                 651,
                 625,
-                926,
-                1,
-                null,
-                null,
-                null,
+                970,
+                1084,
+                1194,
+                1216,
+                6,
                 null,
                 null,
                 null,
@@ -49263,7 +49263,7 @@
             "start_time": 1690956000,
             "interval_length": 900,
             "totals": {
-                "production": 3287
+                "production": 6830
             }
         }
     ]
