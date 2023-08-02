@@ -49190,11 +49190,11 @@
                 1194,
                 1366,
                 1246,
-                452,
-                null,
-                null,
-                null,
-                null,
+                666,
+                723,
+                1091,
+                1266,
+                43,
                 null,
                 null,
                 null,
@@ -49263,7 +49263,7 @@
             "start_time": 1690956000,
             "interval_length": 900,
             "totals": {
-                "production": 8672
+                "production": 12009
             }
         }
     ]
