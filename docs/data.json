@@ -49441,10 +49441,10 @@
                 1822,
                 1836,
                 1868,
-                1098,
-                null,
-                null,
-                null,
+                1766,
+                1778,
+                1646,
+                132,
                 null,
                 null,
                 null,
@@ -49501,7 +49501,7 @@
             "start_time": 1691128800,
             "interval_length": 900,
             "totals": {
-                "production": 31348
+                "production": 35572
             }
         }
     ]
