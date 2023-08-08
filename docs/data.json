@@ -49922,9 +49922,9 @@
                 1179,
                 800,
                 925,
-                779,
-                null,
-                null,
+                896,
+                844,
+                44,
                 null,
                 null,
                 null,
@@ -49977,7 +49977,7 @@
             "start_time": 1691474400,
             "interval_length": 900,
             "totals": {
-                "production": 34513
+                "production": 35518
             }
         }
     ]
