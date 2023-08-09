@@ -50035,9 +50035,9 @@
                 1801,
                 1811,
                 1822,
-                1541,
-                null,
-                null,
+                1822,
+                1804,
+                163,
                 null,
                 null,
                 null,
@@ -50096,7 +50096,7 @@
             "start_time": 1691560800,
             "interval_length": 900,
             "totals": {
-                "production": 30142
+                "production": 32390
             }
         }
     ]
