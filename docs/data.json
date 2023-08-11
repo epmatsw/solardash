@@ -50217,6 +50217,26 @@
             "totals": {
                 "production": 40945
             }
+        },
+        {
+            "grid_changes": {},
+            "production": [],
+            "consumption": [],
+            "generator": [],
+            "grid_import": [],
+            "solar_home": [],
+            "solar_battery": [],
+            "solar_grid": [],
+            "generator_home": [],
+            "generator_battery": [],
+            "generator_grid": [],
+            "battery_home": [],
+            "battery_grid": [],
+            "grid_battery": [],
+            "grid_home": [],
+            "start_time": 1691733600,
+            "interval_length": 900,
+            "totals": {}
         }
     ]
 }
