@@ -51677,11 +51677,11 @@
                 1,
                 22,
                 49,
-                3,
-                null,
-                null,
-                null,
-                null,
+                80,
+                126,
+                136,
+                117,
+                15,
                 null,
                 null,
                 null,
@@ -51762,7 +51762,7 @@
             "start_time": 1692770400,
             "interval_length": 900,
             "totals": {
-                "production": 75
+                "production": 546
             }
         }
     ]
