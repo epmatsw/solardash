@@ -52180,9 +52180,9 @@
                 1535,
                 1850,
                 1786,
-                1007,
-                15,
-                null,
+                1091,
+                1181,
+                9,
                 null,
                 null,
                 null,
@@ -52238,7 +52238,7 @@
             "start_time": 1693116000,
             "interval_length": 900,
             "totals": {
-                "production": 32722
+                "production": 33981
             }
         }
     ]
