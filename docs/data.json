@@ -52417,9 +52417,9 @@
                 1809,
                 1819,
                 1797,
-                1703,
-                11,
-                null,
+                1781,
+                1737,
+                110,
                 null,
                 null,
                 null,
@@ -52476,7 +52476,7 @@
             "start_time": 1693288800,
             "interval_length": 900,
             "totals": {
-                "production": 34146
+                "production": 36060
             }
         }
     ]
