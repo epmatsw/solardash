@@ -52632,9 +52632,9 @@
                 48,
                 99,
                 216,
-                343,
-                null,
-                null,
+                379,
+                546,
+                58,
                 null,
                 null,
                 null,
@@ -52714,7 +52714,7 @@
             "start_time": 1693461600,
             "interval_length": 900,
             "totals": {
-                "production": 747
+                "production": 1387
             }
         }
     ]
