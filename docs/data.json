@@ -52669,9 +52669,9 @@
                 886,
                 739,
                 528,
-                283,
-                2,
-                null,
+                317,
+                128,
+                0,
                 null,
                 null,
                 null,
@@ -52714,7 +52714,7 @@
             "start_time": 1693461600,
             "interval_length": 900,
             "totals": {
-                "production": 50753
+                "production": 50913
             }
         }
     ]
