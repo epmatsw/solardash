@@ -52747,13 +52747,13 @@
                 null,
                 0,
                 5,
-                20,
-                0,
-                null,
-                null,
-                null,
-                null,
-                null,
+                26,
+                46,
+                100,
+                218,
+                381,
+                544,
+                124,
                 null,
                 null,
                 null,
@@ -52833,7 +52833,7 @@
             "start_time": 1693548000,
             "interval_length": 900,
             "totals": {
-                "production": 25
+                "production": 1444
             }
         }
     ]
