@@ -53110,8 +53110,8 @@
                 218,
                 365,
                 527,
-                187,
-                null,
+                555,
+                3,
                 null,
                 null,
                 null,
@@ -53190,7 +53190,7 @@
             "start_time": 1693807200,
             "interval_length": 900,
             "totals": {
-                "production": 1463
+                "production": 1834
             }
         }
     ]
