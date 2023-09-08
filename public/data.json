@@ -53614,11 +53614,11 @@
                 1602,
                 1556,
                 1505,
-                558,
-                null,
-                null,
-                null,
-                null,
+                1452,
+                1380,
+                1269,
+                1061,
+                494,
                 null,
                 null,
                 null,
@@ -53666,7 +53666,7 @@
             "start_time": 1694152800,
             "interval_length": 900,
             "totals": {
-                "production": 43802
+                "production": 48900
             }
         }
     ]
