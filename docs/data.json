@@ -53587,9 +53587,9 @@
                 357,
                 515,
                 669,
-                719,
-                4,
-                null,
+                801,
+                705,
+                1,
                 null,
                 null,
                 null,
@@ -53666,7 +53666,7 @@
             "start_time": 1694152800,
             "interval_length": 900,
             "totals": {
-                "production": 2661
+                "production": 3445
             }
         }
     ]
