@@ -53597,14 +53597,14 @@
                 1487,
                 1544,
                 1603,
-                950,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1645,
+                1676,
+                1713,
+                1730,
+                1745,
+                1761,
+                1764,
+                804,
                 null,
                 null,
                 null,
@@ -53666,7 +53666,7 @@
             "start_time": 1694152800,
             "interval_length": 900,
             "totals": {
-                "production": 15433
+                "production": 27321
             }
         }
     ]
