@@ -53707,13 +53707,13 @@
                 529,
                 685,
                 816,
-                130,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                939,
+                1051,
+                1155,
+                1250,
+                1339,
+                1415,
+                232,
                 null,
                 null,
                 null,
@@ -53785,7 +53785,7 @@
             "start_time": 1694239200,
             "interval_length": 900,
             "totals": {
-                "production": 2927
+                "production": 10178
             }
         }
     ]
