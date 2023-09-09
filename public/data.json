@@ -53713,11 +53713,11 @@
                 1250,
                 1339,
                 1415,
-                232,
-                null,
-                null,
-                null,
-                null,
+                1482,
+                1540,
+                1594,
+                1643,
+                1349,
                 null,
                 null,
                 null,
@@ -53785,7 +53785,7 @@
             "start_time": 1694239200,
             "interval_length": 900,
             "totals": {
-                "production": 10178
+                "production": 17554
             }
         }
     ]
