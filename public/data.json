@@ -54057,8 +54057,8 @@
                 null,
                 1,
                 18,
-                11,
-                null,
+                40,
+                4,
                 null,
                 null,
                 null,
@@ -54142,7 +54142,7 @@
             "start_time": 1694498400,
             "interval_length": 900,
             "totals": {
-                "production": 30
+                "production": 63
             }
         }
     ]
