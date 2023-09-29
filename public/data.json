@@ -56117,9 +56117,9 @@
                 1254,
                 985,
                 826,
-                512,
-                null,
-                null,
+                715,
+                541,
+                0,
                 null,
                 null,
                 null,
@@ -56165,7 +56165,7 @@
             "start_time": 1695967200,
             "interval_length": 900,
             "totals": {
-                "production": 46041
+                "production": 46785
             }
         }
     ]
