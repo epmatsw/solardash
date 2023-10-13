@@ -57783,8 +57783,8 @@
                 1300,
                 1195,
                 1036,
-                715,
-                null,
+                837,
+                500,
                 null,
                 null,
                 null,
@@ -57831,7 +57831,7 @@
             "start_time": 1697176800,
             "interval_length": 900,
             "totals": {
-                "production": 47810
+                "production": 48432
             }
         }
     ]
