@@ -57870,8 +57870,8 @@
                 112,
                 222,
                 233,
-                250,
-                null,
+                360,
+                644,
                 null,
                 null,
                 null,
@@ -57950,7 +57950,7 @@
             "start_time": 1697263200,
             "interval_length": 900,
             "totals": {
-                "production": 849
+                "production": 1603
             }
         }
     ]
