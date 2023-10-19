@@ -58480,8 +58480,8 @@
                 1609,
                 1630,
                 1648,
-                1644,
-                66,
+                1661,
+                1234,
                 null,
                 null,
                 null,
@@ -58545,7 +58545,7 @@
             "start_time": 1697695200,
             "interval_length": 900,
             "totals": {
-                "production": 19599
+                "production": 20784
             }
         }
     ]
