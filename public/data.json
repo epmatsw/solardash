@@ -58462,15 +58462,15 @@
                 null,
                 0,
                 9,
-                26,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                41,
+                108,
+                120,
+                135,
+                502,
+                668,
+                839,
+                991,
+                773,
                 null,
                 null,
                 null,
@@ -58545,7 +58545,7 @@
             "start_time": 1697695200,
             "interval_length": 900,
             "totals": {
-                "production": 35
+                "production": 4186
             }
         }
     ]
