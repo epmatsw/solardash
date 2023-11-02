@@ -60131,8 +60131,8 @@
                 8,
                 31,
                 45,
-                50,
-                null,
+                77,
+                211,
                 null,
                 null,
                 null,
@@ -60211,7 +60211,7 @@
             "start_time": 1698904800,
             "interval_length": 900,
             "totals": {
-                "production": 134
+                "production": 372
             }
         }
     ]
