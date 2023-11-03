@@ -60278,8 +60278,8 @@
                 1465,
                 1384,
                 1239,
-                551,
-                null,
+                651,
+                281,
                 null,
                 null,
                 null,
@@ -60330,7 +60330,7 @@
             "start_time": 1698991200,
             "interval_length": 900,
             "totals": {
-                "production": 28566
+                "production": 28947
             }
         }
     ]
