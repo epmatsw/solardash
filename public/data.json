@@ -60368,8 +60368,8 @@
                 0,
                 8,
                 29,
-                3,
-                null,
+                42,
+                4,
                 null,
                 null,
                 null,
@@ -60449,7 +60449,7 @@
             "start_time": 1699077600,
             "interval_length": 900,
             "totals": {
-                "production": 40
+                "production": 83
             }
         }
     ]
