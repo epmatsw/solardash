@@ -60759,9 +60759,9 @@
                 800,
                 661,
                 671,
-                459,
-                null,
-                null,
+                584,
+                456,
+                63,
                 null,
                 null,
                 null,
@@ -60810,7 +60810,7 @@
             "start_time": 1699340400,
             "interval_length": 900,
             "totals": {
-                "production": 37895
+                "production": 38539
             }
         }
     ]
