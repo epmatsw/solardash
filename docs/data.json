@@ -61444,16 +61444,16 @@
                 169,
                 307,
                 359,
-                195,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                414,
+                452,
+                582,
+                741,
+                903,
+                1017,
+                1136,
+                1192,
+                1266,
+                12,
                 null,
                 null,
                 null,
@@ -61524,7 +61524,7 @@
             "start_time": 1699858800,
             "interval_length": 900,
             "totals": {
-                "production": 1136
+                "production": 8656
             }
         }
     ]
