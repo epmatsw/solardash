@@ -61702,10 +61702,10 @@
                 1053,
                 1111,
                 1446,
-                1426,
-                85,
-                null,
-                null,
+                1434,
+                1367,
+                1296,
+                256,
                 null,
                 null,
                 null,
@@ -61762,7 +61762,7 @@
             "start_time": 1700031600,
             "interval_length": 900,
             "totals": {
-                "production": 19866
+                "production": 22708
             }
         }
     ]
