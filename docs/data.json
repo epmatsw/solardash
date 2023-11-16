@@ -61798,9 +61798,9 @@
                 1,
                 17,
                 25,
-                28,
-                null,
-                null,
+                40,
+                68,
+                21,
                 null,
                 null,
                 null,
@@ -61881,7 +61881,7 @@
             "start_time": 1700118000,
             "interval_length": 900,
             "totals": {
-                "production": 71
+                "production": 172
             }
         }
     ]
