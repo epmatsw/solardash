@@ -62658,9 +62658,9 @@
                 214,
                 170,
                 146,
-                146,
-                4,
-                null,
+                150,
+                125,
+                8,
                 null,
                 null,
                 null,
@@ -62714,7 +62714,7 @@
             "start_time": 1700722800,
             "interval_length": 900,
             "totals": {
-                "production": 8209
+                "production": 8342
             }
         }
     ]
