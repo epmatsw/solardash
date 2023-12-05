@@ -64073,8 +64073,8 @@
                 571,
                 789,
                 954,
-                87,
-                null,
+                1024,
+                199,
                 null,
                 null,
                 null,
@@ -64142,7 +64142,7 @@
             "start_time": 1701759600,
             "interval_length": 900,
             "totals": {
-                "production": 5064
+                "production": 6200
             }
         }
     ]
