@@ -64330,9 +64330,9 @@
                 734,
                 361,
                 139,
-                101,
-                1,
-                null,
+                103,
+                44,
+                3,
                 null,
                 null,
                 null,
@@ -64380,7 +64380,7 @@
             "start_time": 1701932400,
             "interval_length": 900,
             "totals": {
-                "production": 25038
+                "production": 25086
             }
         }
     ]
