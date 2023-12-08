@@ -64435,8 +64435,8 @@
                 603,
                 480,
                 383,
-                157,
-                null,
+                210,
+                149,
                 null,
                 null,
                 null,
@@ -64499,7 +64499,7 @@
             "start_time": 1702018800,
             "interval_length": 900,
             "totals": {
-                "production": 6604
+                "production": 6806
             }
         }
     ]
