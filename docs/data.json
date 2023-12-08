@@ -64450,8 +64450,8 @@
                 86,
                 61,
                 43,
-                7,
-                null,
+                26,
+                1,
                 null,
                 null,
                 null,
@@ -64499,7 +64499,7 @@
             "start_time": 1702018800,
             "interval_length": 900,
             "totals": {
-                "production": 10209
+                "production": 10229
             }
         }
     ]
