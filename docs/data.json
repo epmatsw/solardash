@@ -65277,10 +65277,10 @@
                 1243,
                 1160,
                 1074,
-                798,
-                null,
-                null,
-                null,
+                991,
+                885,
+                764,
+                10,
                 null,
                 null,
                 null,
@@ -65332,7 +65332,7 @@
             "start_time": 1702623600,
             "interval_length": 900,
             "totals": {
-                "production": 22099
+                "production": 23951
             }
         }
     ]
