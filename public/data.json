@@ -66203,8 +66203,8 @@
                 1,
                 26,
                 43,
-                1,
-                null,
+                71,
+                11,
                 null,
                 null,
                 null,
@@ -66284,7 +66284,7 @@
             "start_time": 1703314800,
             "interval_length": 900,
             "totals": {
-                "production": 71
+                "production": 152
             }
         }
     ]
