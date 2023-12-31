@@ -67175,9 +67175,9 @@
                 1350,
                 1005,
                 1160,
-                749,
-                37,
-                null,
+                755,
+                664,
+                54,
                 null,
                 null,
                 null,
@@ -67236,7 +67236,7 @@
             "start_time": 1704006000,
             "interval_length": 900,
             "totals": {
-                "production": 12108
+                "production": 12795
             }
         }
     ]
