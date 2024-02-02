@@ -70963,10 +70963,10 @@
                 6,
                 34,
                 61,
-                45,
-                null,
-                null,
-                null,
+                94,
+                171,
+                190,
+                2,
                 null,
                 null,
                 null,
@@ -71044,7 +71044,7 @@
             "start_time": 1706857200,
             "interval_length": 900,
             "totals": {
-                "production": 146
+                "production": 558
             }
         }
     ]
