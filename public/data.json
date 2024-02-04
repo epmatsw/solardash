@@ -71232,10 +71232,10 @@
                 310,
                 269,
                 238,
-                190,
-                3,
-                null,
-                null,
+                207,
+                150,
+                90,
+                0,
                 null,
                 null,
                 null,
@@ -71282,7 +71282,7 @@
             "start_time": 1707030000,
             "interval_length": 900,
             "totals": {
-                "production": 4886
+                "production": 5140
             }
         }
     ]
