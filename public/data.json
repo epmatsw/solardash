@@ -71448,8 +71448,8 @@
                 418,
                 504,
                 583,
-                141,
-                null,
+                641,
+                2,
                 null,
                 null,
                 null,
@@ -71520,7 +71520,7 @@
             "start_time": 1707202800,
             "interval_length": 900,
             "totals": {
-                "production": 3835
+                "production": 4337
             }
         }
     ]
