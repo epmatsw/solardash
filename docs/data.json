@@ -71442,9 +71442,9 @@
                 166,
                 261,
                 433,
-                386,
-                3,
-                null,
+                429,
+                304,
+                67,
                 null,
                 null,
                 null,
@@ -71520,7 +71520,7 @@
             "start_time": 1707202800,
             "interval_length": 900,
             "totals": {
-                "production": 1411
+                "production": 1822
             }
         }
     ]
