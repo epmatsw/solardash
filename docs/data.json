@@ -72191,9 +72191,9 @@
                 338,
                 480,
                 646,
-                798,
-                1,
-                null,
+                882,
+                635,
+                3,
                 null,
                 null,
                 null,
@@ -72242,7 +72242,7 @@
             "start_time": 1707721200,
             "interval_length": 900,
             "totals": {
-                "production": 24540
+                "production": 25261
             }
         }
     ]
