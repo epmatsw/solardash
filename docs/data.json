@@ -72165,11 +72165,11 @@
                 293,
                 353,
                 371,
-                330,
-                1,
-                null,
-                null,
-                null,
+                401,
+                444,
+                499,
+                474,
+                4,
                 null,
                 null,
                 null,
@@ -72242,7 +72242,7 @@
             "start_time": 1707721200,
             "interval_length": 900,
             "totals": {
-                "production": 1607
+                "production": 3098
             }
         }
     ]
