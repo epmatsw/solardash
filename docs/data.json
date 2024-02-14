@@ -72400,9 +72400,9 @@
                 9,
                 32,
                 67,
-                146,
+                184,
+                263,
                 2,
-                null,
                 null,
                 null,
                 null,
@@ -72484,7 +72484,7 @@
             "start_time": 1707894000,
             "interval_length": 900,
             "totals": {
-                "production": 256
+                "production": 557
             }
         }
     ]
