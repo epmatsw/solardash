@@ -72787,9 +72787,9 @@
                 736,
                 807,
                 880,
-                908,
+                958,
+                931,
                 33,
-                null,
                 null,
                 null,
                 null,
@@ -72847,7 +72847,7 @@
             "start_time": 1708153200,
             "interval_length": 900,
             "totals": {
-                "production": 6583
+                "production": 7564
             }
         }
     ]
