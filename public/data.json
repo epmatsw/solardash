@@ -73276,9 +73276,9 @@
                 877,
                 1120,
                 1312,
-                1130,
-                22,
-                null,
+                1157,
+                1184,
+                76,
                 null,
                 null,
                 null,
@@ -73331,7 +73331,7 @@
             "start_time": 1708498800,
             "interval_length": 900,
             "totals": {
-                "production": 41729
+                "production": 42994
             }
         }
     ]
