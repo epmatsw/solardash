@@ -76408,8 +76408,8 @@
                 1886,
                 1903,
                 1915,
-                1446,
-                null,
+                1915,
+                1620,
                 null,
                 null,
                 null,
@@ -76473,7 +76473,7 @@
             "start_time": 1710741600,
             "interval_length": 900,
             "totals": {
-                "production": 26385
+                "production": 28474
             }
         }
     ]
