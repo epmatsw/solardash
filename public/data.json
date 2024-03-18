@@ -76409,14 +76409,14 @@
                 1903,
                 1915,
                 1915,
-                1620,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1920,
+                1919,
+                1912,
+                1895,
+                1886,
+                1866,
+                1828,
+                1494,
                 null,
                 null,
                 null,
@@ -76473,7 +76473,7 @@
             "start_time": 1710741600,
             "interval_length": 900,
             "totals": {
-                "production": 28474
+                "production": 41574
             }
         }
     ]
