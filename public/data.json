@@ -77134,11 +77134,11 @@
                 3,
                 1,
                 10,
-                1,
-                null,
-                null,
-                null,
-                null,
+                5,
+                10,
+                18,
+                16,
+                0,
                 null,
                 null,
                 null,
@@ -77199,7 +77199,7 @@
             "start_time": 1711346400,
             "interval_length": 900,
             "totals": {
-                "production": 29
+                "production": 77
             }
         }
     ]
