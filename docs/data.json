@@ -77250,8 +77250,8 @@
                 310,
                 319,
                 329,
-                264,
-                null,
+                361,
+                283,
                 null,
                 null,
                 null,
@@ -77320,7 +77320,7 @@
             "start_time": 1711432800,
             "interval_length": 900,
             "totals": {
-                "production": 2954
+                "production": 3334
             }
         }
     ]
