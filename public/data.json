@@ -77853,19 +77853,19 @@
                 923,
                 1693,
                 1605,
-                802,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1688,
+                1788,
+                1837,
+                1877,
+                1907,
+                1907,
+                1909,
+                1914,
+                1920,
+                1920,
+                1918,
+                1652,
+                1,
                 null,
                 null,
                 null,
@@ -77925,7 +77925,7 @@
             "start_time": 1711864800,
             "interval_length": 900,
             "totals": {
-                "production": 9894
+                "production": 31330
             }
         }
     ]
