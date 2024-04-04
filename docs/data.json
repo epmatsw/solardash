@@ -78357,10 +78357,10 @@
                 1610,
                 1620,
                 1379,
-                1238,
-                131,
-                null,
-                null,
+                1248,
+                1467,
+                1002,
+                8,
                 null,
                 null,
                 null,
@@ -78409,7 +78409,7 @@
             "start_time": 1712210400,
             "interval_length": 900,
             "totals": {
-                "production": 51072
+                "production": 53428
             }
         }
     ]
