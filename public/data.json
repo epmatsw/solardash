@@ -78348,9 +78348,9 @@
                 1918,
                 1917,
                 1912,
-                1324,
-                null,
-                null,
+                1909,
+                1856,
+                80,
                 null,
                 null,
                 null,
@@ -78409,7 +78409,7 @@
             "start_time": 1712210400,
             "interval_length": 900,
             "totals": {
-                "production": 35535
+                "production": 38056
             }
         }
     ]
