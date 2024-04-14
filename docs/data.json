@@ -79542,12 +79542,12 @@
                 916,
                 1024,
                 1121,
-                725,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1214,
+                1222,
+                1016,
+                1206,
+                1072,
+                627,
                 null,
                 null,
                 null,
@@ -79619,7 +79619,7 @@
             "start_time": 1713074400,
             "interval_length": 900,
             "totals": {
-                "production": 6810
+                "production": 12442
             }
         }
     ]
