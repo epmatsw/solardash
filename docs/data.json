@@ -79532,14 +79532,14 @@
                 1,
                 20,
                 41,
-                31,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                66,
+                156,
+                282,
+                425,
+                561,
+                673,
+                799,
+                496,
                 null,
                 null,
                 null,
@@ -79619,7 +79619,7 @@
             "start_time": 1713074400,
             "interval_length": 900,
             "totals": {
-                "production": 93
+                "production": 3520
             }
         }
     ]
