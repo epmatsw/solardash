@@ -79921,9 +79921,9 @@
                 1042,
                 1234,
                 1293,
-                784,
-                23,
-                null,
+                800,
+                778,
+                40,
                 null,
                 null,
                 null,
@@ -79982,7 +79982,7 @@
             "start_time": 1713333600,
             "interval_length": 900,
             "totals": {
-                "production": 20458
+                "production": 21269
             }
         }
     ]
