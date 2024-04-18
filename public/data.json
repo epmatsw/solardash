@@ -80057,8 +80057,8 @@
                 97,
                 75,
                 44,
-                34,
-                0,
+                41,
+                27,
                 null,
                 null,
                 null,
@@ -80103,7 +80103,7 @@
             "start_time": 1713420000,
             "interval_length": 900,
             "totals": {
-                "production": 8924
+                "production": 8958
             }
         }
     ]
