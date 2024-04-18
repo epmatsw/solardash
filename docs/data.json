@@ -80045,9 +80045,9 @@
                 302,
                 279,
                 329,
-                316,
-                1,
-                null,
+                357,
+                342,
+                0,
                 null,
                 null,
                 null,
@@ -80103,7 +80103,7 @@
             "start_time": 1713420000,
             "interval_length": 900,
             "totals": {
-                "production": 6526
+                "production": 6908
             }
         }
     ]
