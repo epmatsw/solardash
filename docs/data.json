@@ -80270,9 +80270,9 @@
                 8,
                 12,
                 17,
-                22,
-                2,
-                null,
+                24,
+                37,
+                1,
                 null,
                 null,
                 null,
@@ -80345,7 +80345,7 @@
             "start_time": 1713592800,
             "interval_length": 900,
             "totals": {
-                "production": 77
+                "production": 115
             }
         }
     ]
