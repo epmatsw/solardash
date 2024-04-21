@@ -80389,10 +80389,10 @@
                 804,
                 866,
                 953,
-                794,
-                null,
-                null,
-                null,
+                1038,
+                1126,
+                1174,
+                49,
                 null,
                 null,
                 null,
@@ -80466,7 +80466,7 @@
             "start_time": 1713679200,
             "interval_length": 900,
             "totals": {
-                "production": 5117
+                "production": 7710
             }
         }
     ]
