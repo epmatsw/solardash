@@ -81128,9 +81128,9 @@
                 56,
                 80,
                 116,
-                120,
-                1,
-                null,
+                134,
+                168,
+                2,
                 null,
                 null,
                 null,
@@ -81192,7 +81192,7 @@
             "start_time": 1714197600,
             "interval_length": 900,
             "totals": {
-                "production": 1347
+                "production": 1530
             }
         }
     ]
