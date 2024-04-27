@@ -81139,9 +81139,9 @@
                 404,
                 490,
                 655,
-                592,
-                0,
-                null,
+                647,
+                667,
+                24,
                 null,
                 null,
                 null,
@@ -81192,7 +81192,7 @@
             "start_time": 1714197600,
             "interval_length": 900,
             "totals": {
-                "production": 5826
+                "production": 6572
             }
         }
     ]
