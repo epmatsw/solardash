@@ -81491,11 +81491,11 @@
                 1514,
                 1150,
                 1303,
-                686,
-                null,
-                null,
-                null,
-                null,
+                1379,
+                1300,
+                1077,
+                1111,
+                0,
                 null,
                 null,
                 null,
@@ -81555,7 +81555,7 @@
             "start_time": 1714456800,
             "interval_length": 900,
             "totals": {
-                "production": 24864
+                "production": 29045
             }
         }
     ]
