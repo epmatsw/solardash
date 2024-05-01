@@ -81618,8 +81618,8 @@
                 811,
                 434,
                 590,
-                101,
-                null,
+                422,
+                4,
                 null,
                 null,
                 null,
@@ -81676,7 +81676,7 @@
             "start_time": 1714543200,
             "interval_length": 900,
             "totals": {
-                "production": 28687
+                "production": 29012
             }
         }
     ]
