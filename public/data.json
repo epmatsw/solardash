@@ -82090,9 +82090,9 @@
                 202,
                 209,
                 224,
-                216,
-                13,
-                null,
+                220,
+                312,
+                45,
                 null,
                 null,
                 null,
@@ -82160,7 +82160,7 @@
             "start_time": 1714888800,
             "interval_length": 900,
             "totals": {
-                "production": 6605
+                "production": 6953
             }
         }
     ]
