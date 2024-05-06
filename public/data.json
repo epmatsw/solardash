@@ -82200,9 +82200,9 @@
                 483,
                 718,
                 866,
-                969,
-                4,
-                null,
+                1058,
+                1168,
+                50,
                 null,
                 null,
                 null,
@@ -82281,7 +82281,7 @@
             "start_time": 1714975200,
             "interval_length": 900,
             "totals": {
-                "production": 3778
+                "production": 5081
             }
         }
     ]
