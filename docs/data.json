@@ -82285,7 +82285,7 @@
             }
         },
         {
-            "grid_changes": {},
+            "grid_changes": null,
             "production": [
                 null,
                 null,
@@ -82333,9 +82333,9 @@
                 462,
                 473,
                 484,
-                657,
-                15,
-                null,
+                716,
+                540,
+                11,
                 null,
                 null,
                 null,
@@ -82402,7 +82402,7 @@
             "start_time": 1715061600,
             "interval_length": 900,
             "totals": {
-                "production": 14714
+                "production": 15309
             }
         }
     ]
