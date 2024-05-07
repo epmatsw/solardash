@@ -82346,10 +82346,10 @@
                 1350,
                 1032,
                 1226,
-                748,
-                null,
-                null,
-                null,
+                1119,
+                1046,
+                1328,
+                62,
                 null,
                 null,
                 null,
@@ -82402,7 +82402,7 @@
             "start_time": 1715061600,
             "interval_length": 900,
             "totals": {
-                "production": 27285
+                "production": 30092
             }
         }
     ]
