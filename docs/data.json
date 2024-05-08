@@ -82472,12 +82472,12 @@
                 1145,
                 1370,
                 1288,
-                350,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1074,
+                1231,
+                1094,
+                972,
+                859,
+                51,
                 null,
                 null,
                 null,
@@ -82523,7 +82523,7 @@
             "start_time": 1715148000,
             "interval_length": 900,
             "totals": {
-                "production": 38615
+                "production": 43546
             }
         }
     ]
