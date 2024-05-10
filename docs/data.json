@@ -82703,8 +82703,8 @@
                 433,
                 527,
                 508,
-                58,
-                null,
+                520,
+                70,
                 null,
                 null,
                 null,
@@ -82765,7 +82765,7 @@
             "start_time": 1715320800,
             "interval_length": 900,
             "totals": {
-                "production": 11387
+                "production": 11919
             }
         }
     ]
