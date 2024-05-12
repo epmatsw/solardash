@@ -82920,8 +82920,8 @@
                 null,
                 null,
                 0,
-                0,
-                null,
+                19,
+                3,
                 null,
                 null,
                 null,
@@ -83007,7 +83007,7 @@
             "start_time": 1715493600,
             "interval_length": 900,
             "totals": {
-                "production": 0
+                "production": 22
             }
         }
     ]
