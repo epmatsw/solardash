@@ -83160,8 +83160,8 @@
                 24,
                 39,
                 53,
-                20,
-                null,
+                111,
+                49,
                 null,
                 null,
                 null,
@@ -83249,7 +83249,7 @@
             "start_time": 1715666400,
             "interval_length": 900,
             "totals": {
-                "production": 136
+                "production": 276
             }
         }
     ]
