@@ -83555,13 +83555,13 @@
                 1594,
                 1223,
                 1205,
-                1039,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1389,
+                1488,
+                1528,
+                1476,
+                1188,
+                1315,
+                158,
                 null,
                 null,
                 null,
@@ -83612,7 +83612,7 @@
             "start_time": 1715925600,
             "interval_length": 900,
             "totals": {
-                "production": 34877
+                "production": 42380
             }
         }
     ]
