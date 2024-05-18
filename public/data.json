@@ -83681,13 +83681,13 @@
                 802,
                 569,
                 750,
-                1208,
-                91,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1217,
+                1182,
+                493,
+                512,
+                481,
+                610,
+                71,
                 null,
                 null,
                 null,
@@ -83733,7 +83733,7 @@
             "start_time": 1716012000,
             "interval_length": 900,
             "totals": {
-                "production": 32310
+                "production": 35577
             }
         }
     ]
