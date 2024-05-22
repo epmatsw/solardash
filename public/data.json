@@ -84132,9 +84132,9 @@
                 70,
                 79,
                 92,
-                121,
-                null,
-                null,
+                135,
+                335,
+                18,
                 null,
                 null,
                 null,
@@ -84217,7 +84217,7 @@
             "start_time": 1716357600,
             "interval_length": 900,
             "totals": {
-                "production": 507
+                "production": 874
             }
         }
     ]
