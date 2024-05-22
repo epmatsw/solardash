@@ -84127,8 +84127,8 @@
                 0,
                 9,
                 31,
-                12,
-                null,
+                46,
+                29,
                 null,
                 null,
                 null,
@@ -84217,7 +84217,7 @@
             "start_time": 1716357600,
             "interval_length": 900,
             "totals": {
-                "production": 52
+                "production": 115
             }
         }
     ]
