@@ -84370,9 +84370,9 @@
                 11,
                 31,
                 45,
-                57,
-                7,
-                null,
+                58,
+                67,
+                14,
                 null,
                 null,
                 null,
@@ -84459,7 +84459,7 @@
             "start_time": 1716530400,
             "interval_length": 900,
             "totals": {
-                "production": 151
+                "production": 226
             }
         }
     ]
