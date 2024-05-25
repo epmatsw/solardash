@@ -84493,8 +84493,8 @@
                 35,
                 56,
                 70,
-                17,
-                null,
+                83,
+                1,
                 null,
                 null,
                 null,
@@ -84580,7 +84580,7 @@
             "start_time": 1716616800,
             "interval_length": 900,
             "totals": {
-                "production": 219
+                "production": 286
             }
         }
     ]
