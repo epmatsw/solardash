@@ -84530,9 +84530,9 @@
                 383,
                 800,
                 980,
-                551,
-                22,
-                null,
+                571,
+                466,
+                17,
                 null,
                 null,
                 null,
@@ -84580,7 +84580,7 @@
             "start_time": 1716616800,
             "interval_length": 900,
             "totals": {
-                "production": 32040
+                "production": 32521
             }
         }
     ]
