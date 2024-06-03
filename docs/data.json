@@ -85580,8 +85580,8 @@
                 11,
                 38,
                 75,
-                43,
-                null,
+                82,
+                41,
                 null,
                 null,
                 null,
@@ -85669,7 +85669,7 @@
             "start_time": 1717394400,
             "interval_length": 900,
             "totals": {
-                "production": 167
+                "production": 247
             }
         }
     ]
