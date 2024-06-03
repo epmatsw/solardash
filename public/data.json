@@ -85602,10 +85602,10 @@
                 495,
                 698,
                 828,
-                1198,
-                64,
-                null,
-                null,
+                1268,
+                1543,
+                1303,
+                15,
                 null,
                 null,
                 null,
@@ -85669,7 +85669,7 @@
             "start_time": 1717394400,
             "interval_length": 900,
             "totals": {
-                "production": 12649
+                "production": 15516
             }
         }
     ]
