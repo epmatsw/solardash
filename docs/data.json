@@ -85711,10 +85711,10 @@
                 464,
                 520,
                 424,
-                360,
-                null,
-                null,
-                null,
+                505,
+                1036,
+                1381,
+                64,
                 null,
                 null,
                 null,
@@ -85790,7 +85790,7 @@
             "start_time": 1717480800,
             "interval_length": 900,
             "totals": {
-                "production": 4057
+                "production": 6683
             }
         }
     ]
