@@ -85940,11 +85940,11 @@
                 null,
                 null,
                 1,
-                8,
-                null,
-                null,
-                null,
-                null,
+                16,
+                32,
+                44,
+                54,
+                20,
                 null,
                 null,
                 null,
@@ -86032,7 +86032,7 @@
             "start_time": 1717653600,
             "interval_length": 900,
             "totals": {
-                "production": 9
+                "production": 167
             }
         }
     ]
