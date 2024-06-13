@@ -86789,17 +86789,17 @@
                 1,
                 17,
                 34,
-                37,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                48,
+                59,
+                70,
+                78,
+                87,
+                102,
+                187,
+                422,
+                667,
+                832,
+                416,
                 null,
                 null,
                 null,
@@ -86879,7 +86879,7 @@
             "start_time": 1718258400,
             "interval_length": 900,
             "totals": {
-                "production": 89
+                "production": 3020
             }
         }
     ]
