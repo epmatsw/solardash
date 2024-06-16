@@ -87158,10 +87158,10 @@
                 93,
                 112,
                 136,
-                196,
-                30,
-                null,
-                null,
+                202,
+                407,
+                617,
+                33,
                 null,
                 null,
                 null,
@@ -87242,7 +87242,7 @@
             "start_time": 1718517600,
             "interval_length": 900,
             "totals": {
-                "production": 845
+                "production": 1878
             }
         }
     ]
