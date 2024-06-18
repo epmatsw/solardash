@@ -87420,9 +87420,9 @@
                 1863,
                 1868,
                 1878,
-                1765,
-                97,
-                null,
+                1878,
+                1797,
+                56,
                 null,
                 null,
                 null,
@@ -87484,7 +87484,7 @@
             "start_time": 1718690400,
             "interval_length": 900,
             "totals": {
-                "production": 27347
+                "production": 29216
             }
         }
     ]
