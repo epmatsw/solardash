@@ -87758,8 +87758,8 @@
                 9,
                 25,
                 69,
-                15,
-                null,
+                100,
+                35,
                 null,
                 null,
                 null,
@@ -87847,7 +87847,7 @@
             "start_time": 1718949600,
             "interval_length": 900,
             "totals": {
-                "production": 118
+                "production": 238
             }
         }
     ]
