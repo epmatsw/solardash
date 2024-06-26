@@ -88391,9 +88391,9 @@
                 1717,
                 1731,
                 1711,
-                1221,
-                103,
-                null,
+                1309,
+                615,
+                3,
                 null,
                 null,
                 null,
@@ -88452,7 +88452,7 @@
             "start_time": 1719381600,
             "interval_length": 900,
             "totals": {
-                "production": 32694
+                "production": 33297
             }
         }
     ]
