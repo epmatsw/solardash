@@ -89223,13 +89223,13 @@
                 1120,
                 1213,
                 1298,
-                484,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1392,
+                1473,
+                1533,
+                1584,
+                1641,
+                1677,
+                333,
                 null,
                 null,
                 null,
@@ -89299,7 +89299,7 @@
             "start_time": 1719986400,
             "interval_length": 900,
             "totals": {
-                "production": 7525
+                "production": 16674
             }
         }
     ]
