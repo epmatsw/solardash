@@ -89342,9 +89342,9 @@
                 819,
                 1014,
                 1144,
-                1146,
-                70,
-                null,
+                1248,
+                1209,
+                17,
                 null,
                 null,
                 null,
@@ -89420,7 +89420,7 @@
             "start_time": 1720072800,
             "interval_length": 900,
             "totals": {
-                "production": 5768
+                "production": 7026
             }
         }
     ]
