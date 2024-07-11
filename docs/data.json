@@ -90183,10 +90183,10 @@
                 81,
                 91,
                 105,
-                154,
-                18,
-                null,
-                null,
+                164,
+                351,
+                582,
+                49,
                 null,
                 null,
                 null,
@@ -90267,7 +90267,7 @@
             "start_time": 1720677600,
             "interval_length": 900,
             "totals": {
-                "production": 655
+                "production": 1629
             }
         }
     ]
