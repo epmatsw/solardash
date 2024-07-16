@@ -90787,9 +90787,9 @@
                 246,
                 223,
                 222,
-                254,
-                1,
-                null,
+                269,
+                285,
+                14,
                 null,
                 null,
                 null,
@@ -90872,7 +90872,7 @@
             "start_time": 1721109600,
             "interval_length": 900,
             "totals": {
-                "production": 1281
+                "production": 1594
             }
         }
     ]
