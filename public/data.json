@@ -91030,9 +91030,9 @@
                 96,
                 112,
                 133,
-                191,
-                46,
-                null,
+                192,
+                353,
+                31,
                 null,
                 null,
                 null,
@@ -91114,7 +91114,7 @@
             "start_time": 1721282400,
             "interval_length": 900,
             "totals": {
-                "production": 784
+                "production": 1123
             }
         }
     ]
