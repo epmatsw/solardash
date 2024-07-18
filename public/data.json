@@ -91028,8 +91028,8 @@
                 61,
                 79,
                 96,
-                80,
-                null,
+                112,
+                94,
                 null,
                 null,
                 null,
@@ -91114,7 +91114,7 @@
             "start_time": 1721282400,
             "interval_length": 900,
             "totals": {
-                "production": 382
+                "production": 508
             }
         }
     ]
