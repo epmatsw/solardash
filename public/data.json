@@ -91062,9 +91062,9 @@
                 270,
                 285,
                 366,
-                343,
-                45,
-                null,
+                344,
+                256,
+                32,
                 null,
                 null,
                 null,
@@ -91114,7 +91114,7 @@
             "start_time": 1721282400,
             "interval_length": 900,
             "totals": {
-                "production": 38130
+                "production": 38374
             }
         }
     ]
