@@ -91158,8 +91158,8 @@
                 700,
                 595,
                 391,
-                304,
-                2,
+                376,
+                384,
                 null,
                 null,
                 null,
@@ -91235,7 +91235,7 @@
             "start_time": 1721368800,
             "interval_length": 900,
             "totals": {
-                "production": 4441
+                "production": 4895
             }
         }
     ]
