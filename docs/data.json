@@ -91170,8 +91170,8 @@
                 599,
                 1005,
                 1433,
-                1436,
-                null,
+                1546,
+                304,
                 null,
                 null,
                 null,
@@ -91235,7 +91235,7 @@
             "start_time": 1721368800,
             "interval_length": 900,
             "totals": {
-                "production": 13292
+                "production": 13706
             }
         }
     ]
