@@ -91150,9 +91150,9 @@
                 59,
                 80,
                 99,
-                115,
-                4,
-                null,
+                123,
+                155,
+                2,
                 null,
                 null,
                 null,
@@ -91235,7 +91235,7 @@
             "start_time": 1721368800,
             "interval_length": 900,
             "totals": {
-                "production": 494
+                "production": 655
             }
         }
     ]
