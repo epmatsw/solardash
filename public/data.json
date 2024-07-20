@@ -91272,9 +91272,9 @@
                 133,
                 121,
                 132,
-                159,
-                1,
-                null,
+                211,
+                367,
+                103,
                 null,
                 null,
                 null,
@@ -91356,7 +91356,7 @@
             "start_time": 1721455200,
             "interval_length": 900,
             "totals": {
-                "production": 726
+                "production": 1247
             }
         }
     ]
