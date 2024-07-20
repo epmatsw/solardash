@@ -91292,13 +91292,13 @@
                 1736,
                 1762,
                 1766,
-                1133,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1768,
+                1761,
+                1736,
+                1795,
+                1785,
+                1666,
+                1319,
                 null,
                 null,
                 null,
@@ -91356,7 +91356,7 @@
             "start_time": 1721455200,
             "interval_length": 900,
             "totals": {
-                "production": 25580
+                "production": 36277
             }
         }
     ]
