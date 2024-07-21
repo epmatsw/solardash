@@ -91420,8 +91420,8 @@
                 103,
                 201,
                 379,
-                532,
-                null,
+                630,
+                622,
                 null,
                 null,
                 null,
@@ -91477,7 +91477,7 @@
             "start_time": 1721541600,
             "interval_length": 900,
             "totals": {
-                "production": 26910
+                "production": 27630
             }
         }
     ]
