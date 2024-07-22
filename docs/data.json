@@ -91520,9 +91520,9 @@
                 638,
                 754,
                 860,
-                772,
-                null,
-                null,
+                962,
+                932,
+                1,
                 null,
                 null,
                 null,
@@ -91598,7 +91598,7 @@
             "start_time": 1721628000,
             "interval_length": 900,
             "totals": {
-                "production": 4886
+                "production": 6009
             }
         }
     ]
