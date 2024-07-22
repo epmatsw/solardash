@@ -91521,10 +91521,10 @@
                 754,
                 860,
                 962,
-                932,
-                1,
-                null,
-                null,
+                1044,
+                1139,
+                1214,
+                150,
                 null,
                 null,
                 null,
@@ -91598,7 +91598,7 @@
             "start_time": 1721628000,
             "interval_length": 900,
             "totals": {
-                "production": 6009
+                "production": 8623
             }
         }
     ]
