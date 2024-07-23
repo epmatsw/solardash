@@ -91642,11 +91642,11 @@
                 768,
                 887,
                 1000,
-                1005,
-                36,
-                null,
-                null,
-                null,
+                1099,
+                1184,
+                1262,
+                1330,
+                274,
                 null,
                 null,
                 null,
@@ -91719,7 +91719,7 @@
             "start_time": 1721714400,
             "interval_length": 900,
             "totals": {
-                "production": 6327
+                "production": 10435
             }
         }
     ]
