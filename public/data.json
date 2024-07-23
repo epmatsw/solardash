@@ -91632,10 +91632,10 @@
                 40,
                 72,
                 107,
-                140,
-                22,
-                null,
-                null,
+                141,
+                177,
+                216,
+                241,
                 null,
                 null,
                 null,
@@ -91719,7 +91719,7 @@
             "start_time": 1721714400,
             "interval_length": 900,
             "totals": {
-                "production": 396
+                "production": 1009
             }
         }
     ]
