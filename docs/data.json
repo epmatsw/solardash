@@ -91792,9 +91792,9 @@
                 1142,
                 1090,
                 828,
-                376,
-                null,
-                null,
+                428,
+                331,
+                96,
                 null,
                 null,
                 null,
@@ -91840,7 +91840,7 @@
             "start_time": 1721800800,
             "interval_length": 900,
             "totals": {
-                "production": 45160
+                "production": 45639
             }
         }
     ]
