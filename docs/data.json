@@ -91877,9 +91877,9 @@
                 113,
                 135,
                 164,
-                99,
-                null,
-                null,
+                236,
+                392,
+                39,
                 null,
                 null,
                 null,
@@ -91961,7 +91961,7 @@
             "start_time": 1721887200,
             "interval_length": 900,
             "totals": {
-                "production": 722
+                "production": 1290
             }
         }
     ]
