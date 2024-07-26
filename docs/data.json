@@ -92021,9 +92021,9 @@
                 313,
                 354,
                 371,
-                120,
-                null,
-                null,
+                240,
+                200,
+                7,
                 null,
                 null,
                 null,
@@ -92082,7 +92082,7 @@
             "start_time": 1721973600,
             "interval_length": 900,
             "totals": {
-                "production": 19031
+                "production": 19358
             }
         }
     ]
