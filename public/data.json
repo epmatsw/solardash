@@ -92020,8 +92020,8 @@
                 348,
                 313,
                 354,
-                307,
-                null,
+                371,
+                120,
                 null,
                 null,
                 null,
@@ -92082,7 +92082,7 @@
             "start_time": 1721973600,
             "interval_length": 900,
             "totals": {
-                "production": 18847
+                "production": 19031
             }
         }
     ]
