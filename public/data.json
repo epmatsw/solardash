@@ -92028,12 +92028,12 @@
                 100,
                 103,
                 244,
-                181,
-                null,
-                null,
-                null,
-                null,
-                null,
+                317,
+                214,
+                84,
+                89,
+                366,
+                191,
                 null,
                 null,
                 null,
@@ -92082,7 +92082,7 @@
             "start_time": 1721973600,
             "interval_length": 900,
             "totals": {
-                "production": 20356
+                "production": 21436
             }
         }
     ]
