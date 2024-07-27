@@ -92121,11 +92121,11 @@
                 226,
                 215,
                 214,
-                243,
-                null,
-                null,
-                null,
-                null,
+                327,
+                811,
+                414,
+                936,
+                61,
                 null,
                 null,
                 null,
@@ -92203,7 +92203,7 @@
             "start_time": 1722060000,
             "interval_length": 900,
             "totals": {
-                "production": 1239
+                "production": 3545
             }
         }
     ]
