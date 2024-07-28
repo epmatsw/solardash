@@ -92241,10 +92241,10 @@
                 88,
                 112,
                 199,
-                351,
-                11,
-                null,
-                null,
+                403,
+                596,
+                709,
+                17,
                 null,
                 null,
                 null,
@@ -92324,7 +92324,7 @@
             "start_time": 1722146400,
             "interval_length": 900,
             "totals": {
-                "production": 977
+                "production": 2340
             }
         }
     ]
