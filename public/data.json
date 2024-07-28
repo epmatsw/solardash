@@ -92240,8 +92240,8 @@
                 74,
                 88,
                 112,
-                181,
-                15,
+                199,
+                268,
                 null,
                 null,
                 null,
@@ -92324,7 +92324,7 @@
             "start_time": 1722146400,
             "interval_length": 900,
             "totals": {
-                "production": 612
+                "production": 883
             }
         }
     ]
