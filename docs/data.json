@@ -92388,8 +92388,8 @@
                 1751,
                 1732,
                 1707,
-                1293,
-                null,
+                1551,
+                2,
                 null,
                 null,
                 null,
@@ -92445,7 +92445,7 @@
             "start_time": 1722232800,
             "interval_length": 900,
             "totals": {
-                "production": 40097
+                "production": 40357
             }
         }
     ]
