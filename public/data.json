@@ -92367,10 +92367,10 @@
                 825,
                 941,
                 1066,
-                1118,
-                8,
-                null,
-                null,
+                1176,
+                1270,
+                1116,
+                3,
                 null,
                 null,
                 null,
@@ -92445,7 +92445,7 @@
             "start_time": 1722232800,
             "interval_length": 900,
             "totals": {
-                "production": 5636
+                "production": 8075
             }
         }
     ]
