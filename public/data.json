@@ -92481,11 +92481,11 @@
                 52,
                 61,
                 69,
-                87,
-                6,
-                null,
-                null,
-                null,
+                91,
+                201,
+                435,
+                652,
+                646,
                 null,
                 null,
                 null,
@@ -92566,7 +92566,7 @@
             "start_time": 1722319200,
             "interval_length": 900,
             "totals": {
-                "production": 347
+                "production": 2279
             }
         }
     ]
