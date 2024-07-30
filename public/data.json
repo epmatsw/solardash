@@ -92501,10 +92501,10 @@
                 1735,
                 1753,
                 1766,
-                1454,
-                null,
-                null,
-                null,
+                1789,
+                1790,
+                1644,
+                29,
                 null,
                 null,
                 null,
@@ -92566,7 +92566,7 @@
             "start_time": 1722319200,
             "interval_length": 900,
             "totals": {
-                "production": 26259
+                "production": 30057
             }
         }
     ]
