@@ -92515,10 +92515,10 @@
                 1567,
                 1202,
                 1139,
-                342,
-                null,
-                null,
-                null,
+                842,
+                1003,
+                863,
+                230,
                 null,
                 null,
                 null,
@@ -92566,7 +92566,7 @@
             "start_time": 1722319200,
             "interval_length": 900,
             "totals": {
-                "production": 47985
+                "production": 50581
             }
         }
     ]
