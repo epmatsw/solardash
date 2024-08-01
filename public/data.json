@@ -92730,9 +92730,9 @@
                 743,
                 861,
                 990,
-                964,
-                null,
-                null,
+                1104,
+                1145,
+                12,
                 null,
                 null,
                 null,
@@ -92808,7 +92808,7 @@
             "start_time": 1722492000,
             "interval_length": 900,
             "totals": {
-                "production": 5296
+                "production": 6593
             }
         }
     ]
