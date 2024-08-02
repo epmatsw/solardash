@@ -92843,8 +92843,8 @@
                 45,
                 67,
                 90,
-                29,
-                null,
+                102,
+                3,
                 null,
                 null,
                 null,
@@ -92929,7 +92929,7 @@
             "start_time": 1722578400,
             "interval_length": 900,
             "totals": {
-                "production": 260
+                "production": 336
             }
         }
     ]
