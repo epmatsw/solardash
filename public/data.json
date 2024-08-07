@@ -93458,11 +93458,11 @@
                 1010,
                 1117,
                 859,
-                707,
-                204,
-                null,
-                null,
-                null,
+                709,
+                1447,
+                1100,
+                1415,
+                7,
                 null,
                 null,
                 null,
@@ -93534,7 +93534,7 @@
             "start_time": 1723010400,
             "interval_length": 900,
             "totals": {
-                "production": 7188
+                "production": 10955
             }
         }
     ]
