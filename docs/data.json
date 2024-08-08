@@ -93570,9 +93570,9 @@
                 25,
                 53,
                 66,
-                48,
-                null,
-                null,
+                81,
+                52,
+                2,
                 null,
                 null,
                 null,
@@ -93655,7 +93655,7 @@
             "start_time": 1723096800,
             "interval_length": 900,
             "totals": {
-                "production": 200
+                "production": 287
             }
         }
     ]
