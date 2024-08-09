@@ -93715,8 +93715,8 @@
                 380,
                 323,
                 405,
-                530,
-                null,
+                570,
+                191,
                 null,
                 null,
                 null,
@@ -93776,7 +93776,7 @@
             "start_time": 1723183200,
             "interval_length": 900,
             "totals": {
-                "production": 9392
+                "production": 9623
             }
         }
     ]
