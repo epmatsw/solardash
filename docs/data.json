@@ -94213,8 +94213,8 @@
                 127,
                 85,
                 37,
-                1,
-                null,
+                39,
+                6,
                 null,
                 null,
                 null,
@@ -94260,7 +94260,7 @@
             "start_time": 1723528800,
             "interval_length": 900,
             "totals": {
-                "production": 30950
+                "production": 30994
             }
         }
     ]
