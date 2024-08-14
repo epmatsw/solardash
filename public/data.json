@@ -94332,11 +94332,11 @@
                 1203,
                 971,
                 1133,
-                954,
-                2,
-                null,
-                null,
-                null,
+                1024,
+                717,
+                360,
+                120,
+                17,
                 null,
                 null,
                 null,
@@ -94381,7 +94381,7 @@
             "start_time": 1723615200,
             "interval_length": 900,
             "totals": {
-                "production": 36143
+                "production": 37425
             }
         }
     ]
