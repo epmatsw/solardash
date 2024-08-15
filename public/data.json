@@ -94422,10 +94422,10 @@
                 481,
                 661,
                 831,
-                961,
-                79,
-                null,
-                null,
+                965,
+                1093,
+                1079,
+                6,
                 null,
                 null,
                 null,
@@ -94502,7 +94502,7 @@
             "start_time": 1723701600,
             "interval_length": 900,
             "totals": {
-                "production": 3608
+                "production": 5711
             }
         }
     ]
