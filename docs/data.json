@@ -96353,11 +96353,11 @@
                 33,
                 53,
                 92,
-                166,
-                10,
-                null,
-                null,
-                null,
+                189,
+                333,
+                506,
+                665,
+                104,
                 null,
                 null,
                 null,
@@ -96438,7 +96438,7 @@
             "start_time": 1725084000,
             "interval_length": 900,
             "totals": {
-                "production": 364
+                "production": 1985
             }
         }
     ]
