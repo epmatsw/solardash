@@ -96360,11 +96360,11 @@
                 800,
                 919,
                 1027,
-                1109,
-                165,
-                null,
-                null,
-                null,
+                1128,
+                1217,
+                1303,
+                1380,
+                457,
                 null,
                 null,
                 null,
@@ -96438,7 +96438,7 @@
             "start_time": 1725084000,
             "interval_length": 900,
             "totals": {
-                "production": 5905
+                "production": 10116
             }
         }
     ]
