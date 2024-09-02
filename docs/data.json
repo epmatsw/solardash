@@ -96602,7 +96602,7 @@
                 800,
                 920,
                 1033,
-                159,
+                960,
                 null,
                 null,
                 null,
@@ -96680,7 +96680,7 @@
             "start_time": 1725256800,
             "interval_length": 900,
             "totals": {
-                "production": 4815
+                "production": 5616
             }
         }
     ]
