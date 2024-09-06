@@ -97084,9 +97084,9 @@
                 500,
                 662,
                 806,
-                800,
-                null,
-                null,
+                932,
+                1050,
+                122,
                 null,
                 null,
                 null,
@@ -97164,7 +97164,7 @@
             "start_time": 1725602400,
             "interval_length": 900,
             "totals": {
-                "production": 3480
+                "production": 4784
             }
         }
     ]
