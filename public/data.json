@@ -97235,10 +97235,10 @@
                 1365,
                 1228,
                 1036,
-                845,
-                81,
-                null,
-                null,
+                848,
+                643,
+                429,
+                43,
                 null,
                 null,
                 null,
@@ -97285,7 +97285,7 @@
             "start_time": 1725688800,
             "interval_length": 900,
             "totals": {
-                "production": 46948
+                "production": 47985
             }
         }
     ]
