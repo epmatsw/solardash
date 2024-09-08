@@ -97342,9 +97342,9 @@
                 1066,
                 752,
                 1473,
-                1592,
-                null,
-                null,
+                1850,
+                1844,
+                190,
                 null,
                 null,
                 null,
@@ -97406,7 +97406,7 @@
             "start_time": 1725775200,
             "interval_length": 900,
             "totals": {
-                "production": 25115
+                "production": 27407
             }
         }
     ]
