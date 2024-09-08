@@ -97345,9 +97345,9 @@
                 1850,
                 1844,
                 1255,
-                1387,
-                null,
-                null,
+                1539,
+                1729,
+                89,
                 null,
                 null,
                 null,
@@ -97406,7 +97406,7 @@
             "start_time": 1725775200,
             "interval_length": 900,
             "totals": {
-                "production": 29859
+                "production": 31829
             }
         }
     ]
