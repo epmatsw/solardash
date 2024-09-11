@@ -97723,8 +97723,8 @@
                 311,
                 394,
                 208,
-                204,
-                8,
+                205,
+                178,
                 null,
                 null,
                 null,
@@ -97769,7 +97769,7 @@
             "start_time": 1726034400,
             "interval_length": 900,
             "totals": {
-                "production": 35841
+                "production": 36012
             }
         }
     ]
