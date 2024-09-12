@@ -97830,9 +97830,9 @@
                 1772,
                 1780,
                 1777,
-                1709,
-                51,
-                null,
+                1753,
+                1720,
+                726,
                 null,
                 null,
                 null,
@@ -97890,7 +97890,7 @@
             "start_time": 1726120800,
             "interval_length": 900,
             "totals": {
-                "production": 32573
+                "production": 35012
             }
         }
     ]
