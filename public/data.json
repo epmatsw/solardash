@@ -97826,9 +97826,9 @@
                 1820,
                 1811,
                 1787,
-                1738,
-                92,
-                null,
+                1778,
+                1753,
+                128,
                 null,
                 null,
                 null,
@@ -97890,7 +97890,7 @@
             "start_time": 1726120800,
             "interval_length": 900,
             "totals": {
-                "production": 25536
+                "production": 27365
             }
         }
     ]
