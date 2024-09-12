@@ -97840,8 +97840,8 @@
                 1407,
                 1278,
                 1085,
-                372,
-                null,
+                784,
+                8,
                 null,
                 null,
                 null,
@@ -97890,7 +97890,7 @@
             "start_time": 1726120800,
             "interval_length": 900,
             "totals": {
-                "production": 46296
+                "production": 46716
             }
         }
     ]
