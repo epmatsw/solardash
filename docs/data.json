@@ -97842,9 +97842,9 @@
                 1085,
                 835,
                 621,
-                283,
-                27,
-                null,
+                284,
+                172,
+                24,
                 null,
                 null,
                 null,
@@ -97890,7 +97890,7 @@
             "start_time": 1726120800,
             "interval_length": 900,
             "totals": {
-                "production": 47690
+                "production": 47860
             }
         }
     ]
