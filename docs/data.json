@@ -98411,10 +98411,10 @@
                 14,
                 37,
                 195,
-                344,
-                81,
-                null,
-                null,
+                346,
+                499,
+                648,
+                85,
                 null,
                 null,
                 null,
@@ -98495,7 +98495,7 @@
             "start_time": 1726552800,
             "interval_length": 900,
             "totals": {
-                "production": 678
+                "production": 1831
             }
         }
     ]
