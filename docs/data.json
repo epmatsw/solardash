@@ -99141,11 +99141,11 @@
                 476,
                 635,
                 782,
-                915,
-                132,
-                null,
-                null,
-                null,
+                921,
+                1050,
+                1159,
+                1258,
+                1017,
                 null,
                 null,
                 null,
@@ -99221,7 +99221,7 @@
             "start_time": 1727071200,
             "interval_length": 900,
             "totals": {
-                "production": 3540
+                "production": 7898
             }
         }
     ]
