@@ -99255,12 +99255,12 @@
                 null,
                 null,
                 0,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                22,
+                75,
+                247,
+                383,
+                409,
+                358,
                 null,
                 null,
                 null,
@@ -99342,7 +99342,7 @@
             "start_time": 1727157600,
             "interval_length": 900,
             "totals": {
-                "production": 0
+                "production": 1494
             }
         }
     ]
