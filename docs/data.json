@@ -99270,14 +99270,14 @@
                 1295,
                 1438,
                 1505,
-                1517,
-                24,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1560,
+                1622,
+                1681,
+                1693,
+                1645,
+                1734,
+                1738,
+                419,
                 null,
                 null,
                 null,
@@ -99342,7 +99342,7 @@
             "start_time": 1727157600,
             "interval_length": 900,
             "totals": {
-                "production": 13619
+                "production": 24170
             }
         }
     ]
