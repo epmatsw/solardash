@@ -99395,10 +99395,10 @@
                 1620,
                 1651,
                 1681,
-                656,
-                null,
-                null,
-                null,
+                1711,
+                1728,
+                1619,
+                19,
                 null,
                 null,
                 null,
@@ -99463,7 +99463,7 @@
             "start_time": 1727244000,
             "interval_length": 900,
             "totals": {
-                "production": 19639
+                "production": 24060
             }
         }
     ]
