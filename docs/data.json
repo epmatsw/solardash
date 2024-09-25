@@ -99415,9 +99415,9 @@
                 968,
                 770,
                 569,
-                368,
-                35,
-                null,
+                370,
+                181,
+                7,
                 null,
                 null,
                 null,
@@ -99463,7 +99463,7 @@
             "start_time": 1727244000,
             "interval_length": 900,
             "totals": {
-                "production": 48656
+                "production": 48811
             }
         }
     ]
