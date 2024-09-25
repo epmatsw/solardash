@@ -99386,10 +99386,10 @@
                 906,
                 1026,
                 1136,
-                1071,
-                null,
-                null,
-                null,
+                1232,
+                1319,
+                1398,
+                662,
                 null,
                 null,
                 null,
@@ -99463,7 +99463,7 @@
             "start_time": 1727244000,
             "interval_length": 900,
             "totals": {
-                "production": 6588
+                "production": 10128
             }
         }
     ]
