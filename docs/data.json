@@ -99657,9 +99657,9 @@
                 934,
                 645,
                 429,
-                300,
-                null,
-                null,
+                374,
+                207,
+                30,
                 null,
                 null,
                 null,
@@ -99705,7 +99705,7 @@
             "start_time": 1727416800,
             "interval_length": 900,
             "totals": {
-                "production": 45703
+                "production": 46014
             }
         }
     ]
