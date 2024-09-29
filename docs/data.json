@@ -99866,10 +99866,10 @@
                 311,
                 481,
                 339,
-                483,
-                0,
-                null,
-                null,
+                510,
+                545,
+                738,
+                74,
                 null,
                 null,
                 null,
@@ -99947,7 +99947,7 @@
             "start_time": 1727589600,
             "interval_length": 900,
             "totals": {
-                "production": 1941
+                "production": 3325
             }
         }
     ]
