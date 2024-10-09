@@ -101103,11 +101103,11 @@
                 1142,
                 795,
                 1471,
-                783,
-                null,
-                null,
-                null,
-                null,
+                1317,
+                1260,
+                1197,
+                566,
+                58,
                 null,
                 null,
                 null,
@@ -101157,7 +101157,7 @@
             "start_time": 1728453600,
             "interval_length": 900,
             "totals": {
-                "production": 37166
+                "production": 40781
             }
         }
     ]
