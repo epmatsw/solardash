@@ -101437,11 +101437,11 @@
                 6,
                 20,
                 103,
-                131,
-                null,
-                null,
-                null,
-                null,
+                209,
+                311,
+                423,
+                551,
+                1,
                 null,
                 null,
                 null,
@@ -101520,7 +101520,7 @@
             "start_time": 1728712800,
             "interval_length": 900,
             "totals": {
-                "production": 260
+                "production": 1624
             }
         }
     ]
