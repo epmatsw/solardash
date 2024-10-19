@@ -102290,9 +102290,9 @@
                 211,
                 317,
                 657,
-                582,
-                null,
-                null,
+                840,
+                850,
+                150,
                 null,
                 null,
                 null,
@@ -102367,7 +102367,7 @@
             "start_time": 1729317600,
             "interval_length": 900,
             "totals": {
-                "production": 2015
+                "production": 3273
             }
         }
     ]
