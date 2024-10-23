@@ -102788,11 +102788,11 @@
                 1552,
                 1581,
                 1562,
-                1026,
-                null,
-                null,
-                null,
-                null,
+                1580,
+                1562,
+                1565,
+                1398,
+                16,
                 null,
                 null,
                 null,
@@ -102851,7 +102851,7 @@
             "start_time": 1729663200,
             "interval_length": 900,
             "totals": {
-                "production": 22652
+                "production": 27747
             }
         }
     ]
