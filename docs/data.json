@@ -104132,10 +104132,10 @@
                 545,
                 363,
                 263,
-                203,
+                223,
+                131,
+                52,
                 0,
-                null,
-                null,
                 null,
                 null,
                 null,
@@ -104186,7 +104186,7 @@
             "start_time": 1730613600,
             "interval_length": 900,
             "totals": {
-                "production": 28527
+                "production": 28730
             }
         }
     ]
