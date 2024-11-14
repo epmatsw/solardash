@@ -105437,9 +105437,9 @@
                 301,
                 349,
                 357,
-                405,
-                70,
-                null,
+                408,
+                548,
+                80,
                 null,
                 null,
                 null,
@@ -105517,7 +105517,7 @@
             "start_time": 1731567600,
             "interval_length": 900,
             "totals": {
-                "production": 2023
+                "production": 2584
             }
         }
     ]
