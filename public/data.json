@@ -106887,11 +106887,11 @@
                 106,
                 200,
                 247,
-                215,
-                0,
-                null,
-                null,
-                null,
+                260,
+                308,
+                310,
+                309,
+                46,
                 null,
                 null,
                 null,
@@ -106969,7 +106969,7 @@
             "start_time": 1732604400,
             "interval_length": 900,
             "totals": {
-                "production": 835
+                "production": 1853
             }
         }
     ]
