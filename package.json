@@ -36,10 +36,10 @@
   },
   "browserslist": {
     "production": [
-      "safari >= 15.4",
-      "chrome >= 100",
-      "firefox >= 100",
-      "ios_saf >= 15.4"
+      "safari >= 17",
+      "chrome >= 120",
+      "firefox >= 120",
+      "ios_saf >= 17"
     ],
     "development": [
       "last 1 chrome version",
