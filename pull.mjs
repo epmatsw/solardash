@@ -25,7 +25,7 @@ try {
   console.error(e);
   process.exit(5);
 }
-console.info("Read data");
+console.info("Read data", Date.now() - now.getTime());
 
 const url = `https://enlighten.enphaseenergy.com/pv/public_systems/2875024/daily_energy?start_date=${year}-${numToString(
   month
@@ -36,6 +36,7 @@ const url = `https://enlighten.enphaseenergy.com/pv/public_systems/2875024/daily
 console.info("Downloading data");
 let data;
 
+now = Date.now();
 try {
   data = await fetch(url);
 } catch (e) {
@@ -49,8 +50,9 @@ if (!data.ok) {
   console.error(await data.text());
   process.exit(1);
 }
-console.info("Downloaded data;");
+console.info("Downloaded data", Date.now() - now);
 
+now = Date.now();
 console.info("Parsing data");
 let todaysData;
 try {
@@ -60,8 +62,9 @@ try {
   console.error(e);
   process.exit(3);
 }
-console.info("Parsed data");
+console.info("Parsed data", Date.now() - now);
 
+now = Date.now();
 const datesToReplace = new Map(todaysData.stats.map((s) => [s.start_time, s]));
 
 const newData = {
@@ -80,6 +83,9 @@ const newData = {
 
 newData.stats.push(...Array.from(datesToReplace.values()));
 
+console.info("Generated data", Date.now() - now);
+
+now = Date.now();
 console.log("Writing file");
 
 try {
@@ -91,4 +97,4 @@ try {
   process.exit(2);
 }
 
-console.log(`Finished update at ${now}`);
+console.log(`Finished update at ${now}`, Date.now() - now);
