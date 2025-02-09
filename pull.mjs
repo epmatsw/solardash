@@ -1,6 +1,6 @@
 import fs from "fs/promises";
 
-const numToString = (n) => {
+const numToString = (/** @type {number} */ n) => {
   if (n < 10) {
     return `0${n}`;
   } else {
@@ -8,6 +8,7 @@ const numToString = (n) => {
   }
 };
 
+/** @type{Date|number} */
 let now = new Date();
 const year = now.getFullYear();
 const month = now.getMonth() + 1;
@@ -15,6 +16,7 @@ const date = now.getDate();
 console.log(`Updating at ${now}`);
 
 console.info("Reading data");
+/** @type {{ stats: Array<{ start_time: number; production: Array<number | null> }>}} */
 let previousData;
 try {
   previousData = JSON.parse(
@@ -54,6 +56,7 @@ console.info("Downloaded data", Date.now() - now);
 
 now = Date.now();
 console.info("Parsing data");
+/** @type {{ stats: Array<{ start_time: number; production: Array<number | null> }>}} */
 let todaysData;
 try {
   todaysData = await data.json();
