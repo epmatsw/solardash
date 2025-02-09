@@ -8,7 +8,7 @@ const numToString = (n) => {
   }
 };
 
-const now = new Date();
+let now = new Date();
 const year = now.getFullYear();
 const month = now.getMonth() + 1;
 const date = now.getDate();
