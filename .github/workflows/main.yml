@@ -14,6 +14,7 @@ jobs:
 
       - name: Update data
         run: |
+          node --version
           npm ci --legacy-peer-deps
           node ./pull.mjs
 

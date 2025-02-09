@@ -5,14 +5,14 @@
   "dependencies": {
     "@date/holidays-us": "^0.4.0",
     "date-fns": "^2.28.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "recharts": "^2.1.10"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
-    "@types/react": "^18.0.14",
-    "@types/react-dom": "^18.0.5",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "@types/recharts": "^1.8.23",
     "react-scripts": "5.0.1",
     "typescript": "^5.0.0"
@@ -24,8 +24,8 @@
     "eject": "react-scripts eject"
   },
   "overrides": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "homepage": ".",
   "eslintConfig": {
