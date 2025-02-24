@@ -117775,14 +117775,14 @@
                 70,
                 110,
                 135,
-                170,
-                2,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                269,
+                523,
+                761,
+                863,
+                1007,
+                1131,
+                1161,
+                388,
                 null,
                 null,
                 null,
@@ -117859,7 +117859,7 @@
             "start_time": 1740380400,
             "interval_length": 900,
             "totals": {
-                "production": 526
+                "production": 6457
             }
         }
     ]
