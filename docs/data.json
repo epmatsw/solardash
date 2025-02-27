@@ -118156,9 +118156,9 @@
                 1865,
                 1876,
                 1879,
-                1462,
-                null,
-                null,
+                1872,
+                1489,
+                1,
                 null,
                 null,
                 null,
@@ -118222,7 +118222,7 @@
             "start_time": 1740639600,
             "interval_length": 900,
             "totals": {
-                "production": 28148
+                "production": 30048
             }
         }
     ]
