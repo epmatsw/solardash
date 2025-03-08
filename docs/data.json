@@ -119239,11 +119239,11 @@
                 1693,
                 1742,
                 1782,
-                1786,
-                270,
-                null,
-                null,
-                null,
+                1827,
+                1850,
+                1864,
+                931,
+                14,
                 null,
                 null,
                 null,
@@ -119311,7 +119311,7 @@
             "start_time": 1741417200,
             "interval_length": 900,
             "totals": {
-                "production": 19701
+                "production": 24131
             }
         }
     ]
