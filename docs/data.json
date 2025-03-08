@@ -119232,10 +119232,10 @@
                 1012,
                 1150,
                 1267,
-                1373,
-                808,
-                null,
-                null,
+                1374,
+                1472,
+                1116,
+                21,
                 null,
                 null,
                 null,
@@ -119311,7 +119311,7 @@
             "start_time": 1741417200,
             "interval_length": 900,
             "totals": {
-                "production": 8572
+                "production": 10374
             }
         }
     ]
