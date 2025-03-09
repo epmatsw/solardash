@@ -119366,10 +119366,10 @@
                 1836,
                 1843,
                 1835,
-                1833,
-                744,
-                null,
-                null,
+                1835,
+                1814,
+                1058,
+                50,
                 null,
                 null,
                 null,
@@ -119428,7 +119428,7 @@
             "start_time": 1741503600,
             "interval_length": 900,
             "totals": {
-                "production": 30748
+                "production": 32928
             }
         }
     ]
