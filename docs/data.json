@@ -121178,10 +121178,10 @@
                 1787,
                 1808,
                 1824,
-                1807,
-                416,
-                null,
-                null,
+                1840,
+                1843,
+                1531,
+                193,
                 null,
                 null,
                 null,
@@ -121243,7 +121243,7 @@
             "start_time": 1742882400,
             "interval_length": 900,
             "totals": {
-                "production": 26518
+                "production": 29702
             }
         }
     ]
