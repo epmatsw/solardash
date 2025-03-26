@@ -121284,10 +121284,10 @@
                 419,
                 583,
                 739,
-                863,
-                248,
-                null,
-                null,
+                880,
+                1012,
+                1099,
+                144,
                 null,
                 null,
                 null,
@@ -121364,7 +121364,7 @@
             "start_time": 1742968800,
             "interval_length": 900,
             "totals": {
-                "production": 3329
+                "production": 5353
             }
         }
     ]
