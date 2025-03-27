@@ -121411,10 +121411,10 @@
                 571,
                 615,
                 707,
-                678,
-                268,
-                null,
-                null,
+                791,
+                961,
+                1109,
+                730,
                 null,
                 null,
                 null,
@@ -121485,7 +121485,7 @@
             "start_time": 1743055200,
             "interval_length": 900,
             "totals": {
-                "production": 7613
+                "production": 10258
             }
         }
     ]
