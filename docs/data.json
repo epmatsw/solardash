@@ -122375,10 +122375,10 @@
                 224,
                 322,
                 562,
-                1013,
-                371,
-                null,
-                null,
+                1023,
+                827,
+                616,
+                54,
                 null,
                 null,
                 null,
@@ -122453,7 +122453,7 @@
             "start_time": 1743746400,
             "interval_length": 900,
             "totals": {
-                "production": 2922
+                "production": 4058
             }
         }
     ]
