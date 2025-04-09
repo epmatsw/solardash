@@ -122996,10 +122996,10 @@
                 1897,
                 1898,
                 1909,
-                1870,
-                764,
-                null,
-                null,
+                1880,
+                1875,
+                1423,
+                79,
                 null,
                 null,
                 null,
@@ -123058,7 +123058,7 @@
             "start_time": 1744178400,
             "interval_length": 900,
             "totals": {
-                "production": 34508
+                "production": 37131
             }
         }
     ]
