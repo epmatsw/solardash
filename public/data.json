@@ -123239,9 +123239,9 @@
                 1869,
                 1872,
                 1862,
-                1086,
-                null,
-                null,
+                1853,
+                1173,
+                9,
                 null,
                 null,
                 null,
@@ -123300,7 +123300,7 @@
             "start_time": 1744351200,
             "interval_length": 900,
             "totals": {
-                "production": 34985
+                "production": 36934
             }
         }
     ]
