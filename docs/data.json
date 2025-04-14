@@ -123606,10 +123606,10 @@
                 1836,
                 1868,
                 1896,
-                1759,
-                369,
-                null,
-                null,
+                1850,
+                1794,
+                1348,
+                49,
                 null,
                 null,
                 null,
@@ -123663,7 +123663,7 @@
             "start_time": 1744610400,
             "interval_length": 900,
             "totals": {
-                "production": 19303
+                "production": 22216
             }
         }
     ]
