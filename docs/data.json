@@ -125053,9 +125053,9 @@
                 1896,
                 1895,
                 1888,
-                1881,
-                866,
-                null,
+                1884,
+                1901,
+                895,
                 null,
                 null,
                 null,
@@ -125115,7 +125115,7 @@
             "start_time": 1745647200,
             "interval_length": 900,
             "totals": {
-                "production": 34350
+                "production": 36283
             }
         }
     ]
