@@ -125771,10 +125771,10 @@
                 1700,
                 1745,
                 1791,
-                1811,
-                1071,
-                null,
-                null,
+                1820,
+                1844,
+                1305,
+                18,
                 null,
                 null,
                 null,
@@ -125841,7 +125841,7 @@
             "start_time": 1746252000,
             "interval_length": 900,
             "totals": {
-                "production": 21512
+                "production": 23617
             }
         }
     ]
