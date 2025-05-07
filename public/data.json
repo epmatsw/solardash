@@ -126251,19 +126251,19 @@
                 1000,
                 794,
                 455,
-                449,
-                46,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                460,
+                209,
+                181,
+                226,
+                175,
+                150,
+                286,
+                479,
+                888,
+                1580,
+                1638,
+                898,
+                102,
                 null,
                 null,
                 null,
@@ -126325,7 +126325,7 @@
             "start_time": 1746597600,
             "interval_length": 900,
             "totals": {
-                "production": 5542
+                "production": 12319
             }
         }
     ]
