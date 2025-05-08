@@ -126388,20 +126388,20 @@
                 1872,
                 1850,
                 1833,
-                1070,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1798,
+                1751,
+                1702,
+                1655,
+                1605,
+                1543,
+                1455,
+                1249,
+                788,
+                420,
+                529,
+                435,
+                312,
+                11,
                 null,
                 null,
                 null,
@@ -126446,7 +126446,7 @@
             "start_time": 1746684000,
             "interval_length": 900,
             "totals": {
-                "production": 41965
+                "production": 56148
             }
         }
     ]
