@@ -126623,13 +126623,13 @@
                 1848,
                 1874,
                 1877,
-                783,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1875,
+                1869,
+                1862,
+                1855,
+                1839,
+                1183,
+                47,
                 null,
                 null,
                 null,
@@ -126688,7 +126688,7 @@
             "start_time": 1746856800,
             "interval_length": 900,
             "totals": {
-                "production": 27892
+                "production": 37639
             }
         }
     ]
