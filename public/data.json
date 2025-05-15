@@ -127220,13 +127220,13 @@
                 1575,
                 1634,
                 1694,
-                1633,
-                177,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1754,
+                1800,
+                1846,
+                1886,
+                1904,
+                1747,
+                123,
                 null,
                 null,
                 null,
@@ -127293,7 +127293,7 @@
             "start_time": 1747288800,
             "interval_length": 900,
             "totals": {
-                "production": 15609
+                "production": 24859
             }
         }
     ]
