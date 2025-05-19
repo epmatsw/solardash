@@ -127723,10 +127723,10 @@
                 1126,
                 1111,
                 1077,
-                1169,
-                522,
-                null,
-                null,
+                1173,
+                1337,
+                1012,
+                22,
                 null,
                 null,
                 null,
@@ -127777,7 +127777,7 @@
             "start_time": 1747634400,
             "interval_length": 900,
             "totals": {
-                "production": 32562
+                "production": 34415
             }
         }
     ]
