@@ -128572,13 +128572,13 @@
                 433,
                 497,
                 473,
-                316,
-                48,
-                null,
-                null,
-                null,
-                null,
-                null,
+                343,
+                396,
+                990,
+                1116,
+                1070,
+                808,
+                46,
                 null,
                 null,
                 null,
@@ -128624,7 +128624,7 @@
             "start_time": 1748239200,
             "interval_length": 900,
             "totals": {
-                "production": 20809
+                "production": 25214
             }
         }
     ]
