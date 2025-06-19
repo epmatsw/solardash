@@ -130491,19 +130491,19 @@
                 1638,
                 1676,
                 1701,
-                814,
-                0,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1723,
+                1744,
+                1752,
+                1767,
+                1784,
+                1792,
+                1819,
+                1658,
+                1159,
+                1276,
+                1400,
+                1647,
+                693,
                 null,
                 null,
                 null,
@@ -130560,7 +130560,7 @@
             "start_time": 1750312800,
             "interval_length": 900,
             "totals": {
-                "production": 18867
+                "production": 38267
             }
         }
     ]
