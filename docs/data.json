@@ -131224,11 +131224,11 @@
                 1803,
                 1822,
                 1813,
-                960,
-                null,
-                null,
-                null,
-                null,
+                1768,
+                1727,
+                1765,
+                1219,
+                50,
                 null,
                 null,
                 null,
@@ -131286,7 +131286,7 @@
             "start_time": 1750917600,
             "interval_length": 900,
             "totals": {
-                "production": 31476
+                "production": 37045
             }
         }
     ]
