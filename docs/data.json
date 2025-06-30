@@ -131711,12 +131711,12 @@
                 685,
                 1101,
                 1708,
-                1129,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1739,
+                1366,
+                1550,
+                1551,
+                990,
+                18,
                 null,
                 null,
                 null,
@@ -131770,7 +131770,7 @@
             "start_time": 1751263200,
             "interval_length": 900,
             "totals": {
-                "production": 20512
+                "production": 26597
             }
         }
     ]
