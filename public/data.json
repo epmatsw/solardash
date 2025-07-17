@@ -133523,10 +133523,10 @@
                 1794,
                 1794,
                 1803,
-                1806,
-                566,
-                null,
-                null,
+                1819,
+                1849,
+                1073,
+                31,
                 null,
                 null,
                 null,
@@ -133585,7 +133585,7 @@
             "start_time": 1752732000,
             "interval_length": 900,
             "totals": {
-                "production": 30182
+                "production": 32582
             }
         }
     ]
