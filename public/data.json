@@ -133641,16 +133641,16 @@
                 959,
                 1722,
                 1451,
-                986,
-                203,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                1022,
+                1386,
+                1803,
+                1375,
+                1124,
+                987,
+                843,
+                1190,
+                584,
+                27,
                 null,
                 null,
                 null,
@@ -133706,7 +133706,7 @@
             "start_time": 1752818400,
             "interval_length": 900,
             "totals": {
-                "production": 23237
+                "production": 32389
             }
         }
     ]
