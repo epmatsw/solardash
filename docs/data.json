@@ -134136,10 +134136,10 @@
                 504,
                 351,
                 343,
-                429,
-                58,
-                null,
-                null,
+                440,
+                430,
+                182,
+                7,
                 null,
                 null,
                 null,
@@ -134190,7 +134190,7 @@
             "start_time": 1753164000,
             "interval_length": 900,
             "totals": {
-                "production": 30202
+                "production": 30774
             }
         }
     ]
