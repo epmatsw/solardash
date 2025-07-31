@@ -135202,9 +135202,9 @@
                 813,
                 925,
                 1025,
-                990,
-                381,
-                null,
+                1113,
+                1233,
+                911,
                 null,
                 null,
                 null,
@@ -135279,7 +135279,7 @@
             "start_time": 1753941600,
             "interval_length": 900,
             "totals": {
-                "production": 6401
+                "production": 8287
             }
         }
     ]
