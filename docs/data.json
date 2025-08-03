@@ -135554,10 +135554,10 @@
                 6,
                 22,
                 39,
-                52,
-                29,
-                null,
-                null,
+                53,
+                65,
+                46,
+                0,
                 null,
                 null,
                 null,
@@ -135642,7 +135642,7 @@
             "start_time": 1754200800,
             "interval_length": 900,
             "totals": {
-                "production": 148
+                "production": 231
             }
         }
     ]
