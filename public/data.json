@@ -138588,11 +138588,11 @@
                 640,
                 775,
                 889,
-                984,
-                145,
-                null,
-                null,
-                null,
+                1029,
+                1134,
+                1186,
+                820,
+                22,
                 null,
                 null,
                 null,
@@ -138667,7 +138667,7 @@
             "start_time": 1756360800,
             "interval_length": 900,
             "totals": {
-                "production": 4536
+                "production": 7598
             }
         }
     ]
