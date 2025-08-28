@@ -138587,9 +138587,9 @@
                 446,
                 640,
                 775,
-                849,
-                119,
-                null,
+                889,
+                896,
+                99,
                 null,
                 null,
                 null,
@@ -138667,7 +138667,7 @@
             "start_time": 1756360800,
             "interval_length": 900,
             "totals": {
-                "production": 3486
+                "production": 4402
             }
         }
     ]
