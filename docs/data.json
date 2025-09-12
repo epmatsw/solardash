@@ -140418,10 +140418,10 @@
                 389,
                 345,
                 433,
-                359,
-                1,
-                null,
-                null,
+                433,
+                439,
+                481,
+                3,
                 null,
                 null,
                 null,
@@ -140482,7 +140482,7 @@
             "start_time": 1757656800,
             "interval_length": 900,
             "totals": {
-                "production": 11063
+                "production": 12059
             }
         }
     ]
