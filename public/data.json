@@ -144517,13 +144517,13 @@
                 189,
                 400,
                 555,
-                360,
-                27,
-                null,
-                null,
-                null,
-                null,
-                null,
+                740,
+                965,
+                1064,
+                1154,
+                1277,
+                1187,
+                301,
                 null,
                 null,
                 null,
@@ -144596,7 +144596,7 @@
             "start_time": 1760594400,
             "interval_length": 900,
             "totals": {
-                "production": 1769
+                "production": 8070
             }
         }
     ]
