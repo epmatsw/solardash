@@ -144963,7 +144963,7 @@
             }
         },
         {
-            "grid_changes": {},
+            "grid_changes": null,
             "production": [
                 null,
                 null,
@@ -145005,9 +145005,9 @@
                 858,
                 1035,
                 1180,
-                849,
-                115,
-                null,
+                1296,
+                921,
+                124,
                 null,
                 null,
                 null,
@@ -145080,7 +145080,7 @@
             "start_time": 1760940000,
             "interval_length": 900,
             "totals": {
-                "production": 5760
+                "production": 7137
             }
         }
     ]
