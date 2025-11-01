@@ -146333,13 +146333,13 @@
                 193,
                 281,
                 370,
-                419,
-                225,
-                null,
-                null,
-                null,
-                null,
-                null,
+                431,
+                516,
+                555,
+                633,
+                819,
+                834,
+                337,
                 null,
                 null,
                 null,
@@ -146411,7 +146411,7 @@
             "start_time": 1761976800,
             "interval_length": 900,
             "totals": {
-                "production": 1754
+                "production": 5235
             }
         }
     ]
