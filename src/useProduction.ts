@@ -11,6 +11,8 @@ type RawProductionStat = {
 export type ProductionStat = {
   production: string;
   total: Dollar;
+  paybackTotal: Dollar;
+  futureTotal: Dollar;
   productionData: Array<WattHour | null>;
   startTime: number;
   productionNum: WattHour;
@@ -21,6 +23,11 @@ export type ProductionStat = {
   midTotal: Dollar;
   peakTotal: Dollar;
   optimalTotal: Dollar;
+  paybackOptimalTotal: Dollar;
+  futureOptimalTotal: Dollar;
+  plan: "old" | "new";
+  paybackPlan: "old" | "new";
+  futurePlan: "old" | "new";
 };
 
 export type Watt = number & {
@@ -66,6 +73,8 @@ const newPeakCostSummer = 21.277 as Cent;
 const newOffCostWinter = 6.792 as Cent;
 const newPeakCostWinter = 18.331 as Cent;
 
+type TouPlan = "old" | "new" | "auto";
+
 const centsToDollars = (c: Cent): Dollar => (c / 100) as Dollar;
 const wattHoursToKWh = (w: WattHour): KilowattHour =>
   (w / 1000) as KilowattHour;
@@ -87,19 +96,40 @@ const holidayDays = [
   christmas,
 ];
 
-const getValue = ({
-  production: productionData,
-  start_time,
-}: RawProductionStat): ProductionStat => {
-  const month = getMonth(start_time * 1000);
-  const isNewTou = start_time * 1000 >= newTouEffectiveDate.getTime();
+const getRateSet = (isWinter: boolean, plan: Exclude<TouPlan, "auto">) => {
+  if (plan === "new") {
+    return {
+      off: isWinter ? newOffCostWinter : newOffCostSummer,
+      mid: isWinter ? newOffCostWinter : newOffCostSummer, // mid collapses into off-peak
+      peak: isWinter ? newPeakCostWinter : newPeakCostSummer,
+    };
+  }
+  return {
+    off: isWinter ? offCostWinter : offCostSummer,
+    mid: isWinter ? midCostWinter : midCostSummer,
+    peak: isWinter ? peakCostWinter : peakCostSummer,
+  };
+};
+
+const getPlanForDate = (startTimeMs: number): Exclude<TouPlan, "auto"> =>
+  startTimeMs >= newTouEffectiveDate.getTime() ? "new" : "old";
+
+const calculateUsageAndTotals = (
+  productionData: Array<WattHour | null>,
+  start_time: number,
+  plan: TouPlan
+) => {
+  const startTimeMs = start_time * 1000;
+  const month = getMonth(startTimeMs);
   const isWinter = month >= 9 || month < 5;
+  const effectivePlan = plan === "auto" ? getPlanForDate(startTimeMs) : plan;
+
   let off: Array<WattHour | null> = [],
     mid: Array<WattHour | null> = [],
     peak: Array<WattHour | null> = [];
-  if (isWeekend(start_time * 1000)) {
+  if (isWeekend(startTimeMs)) {
     off.push(...productionData);
-  } else if (holidayDays.some((day) => isSameDay(start_time * 1000, day))) {
+  } else if (holidayDays.some((day) => isSameDay(startTimeMs, day))) {
     // https://my.xcelenergy.com/customersupport/s/article/What-are-the-six-observed-holidays-that-are-considered-off-peak
     off.push(...productionData);
   } else {
@@ -108,12 +138,10 @@ const getValue = ({
     const peakEnd = 76; // 7:00 PM
     const morning = productionData.slice(0, midStart);
     const night = productionData.slice(peakEnd);
-
-    // New plan removes the mid-peak block; those hours become off-peak.
     const midday = productionData.slice(midStart, peakStart);
 
     off.push(...morning);
-    if (isNewTou) {
+    if (effectivePlan === "new") {
       off.push(...midday);
     } else {
       mid.push(...midday);
@@ -136,25 +164,10 @@ const getValue = ({
   );
   const totalUsage: WattHour = (offUsage + midUsage + peakUsage) as WattHour;
 
-  const offCost = isNewTou
-    ? isWinter
-      ? newOffCostWinter
-      : newOffCostSummer
-    : isWinter
-      ? offCostWinter
-      : offCostSummer;
-  const peakCost = isNewTou
-    ? isWinter
-      ? newPeakCostWinter
-      : newPeakCostSummer
-    : isWinter
-      ? peakCostWinter
-      : peakCostSummer;
-  const midCost = isNewTou
-    ? offCost // mid period removed; keep structure but zeroed usage
-    : isWinter
-      ? midCostWinter
-      : midCostSummer;
+  const { off: offCost, mid: midCost, peak: peakCost } = getRateSet(
+    isWinter,
+    effectivePlan
+  );
 
   const offTotal = (centsToDollars(offCost) *
     wattHoursToKWh(offUsage)) as Dollar;
@@ -163,22 +176,57 @@ const getValue = ({
   const midTotal = (centsToDollars(midCost) *
     wattHoursToKWh(midUsage)) as Dollar;
   const total = (offTotal + peakTotal + midTotal) as Dollar;
+  const optimalTotal = (wattHoursToKWh(totalUsage) *
+    centsToDollars(peakCost)) as Dollar;
 
-  const optimalTotal = (wattHoursToKWh(totalUsage) * centsToDollars(peakCost)) as Dollar;
+  return {
+    offUsage,
+    midUsage,
+    peakUsage,
+    totalUsage,
+    offTotal,
+    peakTotal,
+    midTotal,
+    total,
+    optimalTotal,
+    peakCost,
+    planUsed: effectivePlan,
+  };
+};
+
+const getValue = ({
+  production: productionData,
+  start_time,
+}: RawProductionStat): ProductionStat => {
+  const actual = calculateUsageAndTotals(productionData, start_time, "auto");
+  const futurePlan =
+    Date.now() >= newTouEffectiveDate.getTime() ? "new" : "old";
+  const future = calculateUsageAndTotals(
+    productionData,
+    start_time,
+    futurePlan
+  );
 
   return {
     productionData,
     startTime: start_time * 1000,
-    production: `${(totalUsage / 1000).toFixed(1)}kW`,
-    productionNum: totalUsage,
-    total,
-    offUsage,
-    midUsage,
-    peakUsage,
-    offTotal,
-    peakTotal,
-    midTotal,
-    optimalTotal
+    production: `${(actual.totalUsage / 1000).toFixed(1)}kW`,
+    productionNum: actual.totalUsage,
+    total: actual.total,
+    paybackTotal: actual.total,
+    futureTotal: future.total,
+    offUsage: actual.offUsage,
+    midUsage: actual.midUsage,
+    peakUsage: actual.peakUsage,
+    offTotal: actual.offTotal,
+    peakTotal: actual.peakTotal,
+    midTotal: actual.midTotal,
+    optimalTotal: actual.optimalTotal,
+    paybackOptimalTotal: actual.optimalTotal,
+    futureOptimalTotal: future.optimalTotal,
+    plan: actual.planUsed,
+    paybackPlan: actual.planUsed,
+    futurePlan,
   };
 };
 

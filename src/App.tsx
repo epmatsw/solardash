@@ -112,31 +112,40 @@ function App() {
 
   if (!forecast && !days && !production) return <div>Loading...</div>;
 
-  const [totalValue, totalProductionNumber, productionDays] =
-    production?.reduce<[Dollar, WattHour, number]>(
-      (sums: [Dollar, WattHour, number], p) => {
+  const [totalValue, totalProductionNumber, productionDays, futureTotalValue] =
+    production?.reduce<[Dollar, WattHour, number, Dollar]>(
+      (sums: [Dollar, WattHour, number, Dollar], p) => {
         if (isToday(p.startTime) || typeof p.productionNum !== "number") {
           return sums;
         }
         return [
-          (sums[0] + p.total) as Dollar,
+          (sums[0] + p.paybackTotal) as Dollar,
           (sums[1] + p.productionNum) as WattHour,
           sums[2] + 1,
+          (sums[3] + p.futureTotal) as Dollar,
         ];
       },
-      [0 as Dollar, 0 as WattHour, 0]
-    ) ?? [0 as Dollar, 0 as WattHour, 0];
+      [0 as Dollar, 0 as WattHour, 0, 0 as Dollar]
+    ) ?? [0 as Dollar, 0 as WattHour, 0, 0 as Dollar];
   const perDay =
     productionDays > 0
       ? ((totalValue / productionDays) as Dollar)
       : (0 as Dollar);
+  const perDayFuture =
+    productionDays > 0
+      ? ((futureTotalValue / productionDays) as Dollar)
+      : (0 as Dollar);
 
   const totalProduction = formatKwh(totalProductionNumber);
-  const rawYearsToPayOff = (cost - totalValue) / (perDay * 365);
-  const monthsToPayOff = Math.floor(
-    12 * (((cost - totalValue) / (perDay * 365)) % 1)
-  );
+  const paybackDaily = perDayFuture > 0 ? perDayFuture : perDay;
+  const remainingCost = cost - totalValue;
+  const rawYearsToPayOff =
+    paybackDaily > 0 ? remainingCost / (paybackDaily * 365) : Infinity;
   const yearsToPayOff = Math.floor(rawYearsToPayOff);
+  const monthsToPayOff =
+    paybackDaily > 0
+      ? Math.floor(12 * ((remainingCost / (paybackDaily * 365)) % 1))
+      : Infinity;
 
   const productionWithTimes:
     | Array<{ watts: Watt | undefined; date: Date }>
@@ -195,13 +204,18 @@ function App() {
       isToday(d.date) || (isPast(d.date) && typeof d.production === "undefined")
   );
 
-  const optimalTotal =
-    production?.reduce<Dollar>(
-      (res, { optimalTotal }) => (res + optimalTotal) as Dollar,
-      0 as Dollar
-    ) ?? (0 as Dollar);
-  const optimalTotalString = formatCurrency(optimalTotal);
-  const diffFromOptimal = (optimalTotal - totalValue) as Dollar;
+  const optimalTotals =
+    production?.reduce<[Dollar, Dollar, Dollar]>(
+      (res, { optimalTotal, paybackOptimalTotal, futureOptimalTotal }) => [
+        (res[0] + optimalTotal) as Dollar,
+        (res[1] + paybackOptimalTotal) as Dollar,
+        (res[2] + futureOptimalTotal) as Dollar,
+      ],
+      [0 as Dollar, 0 as Dollar, 0 as Dollar]
+    ) ??
+    ([0 as Dollar, 0 as Dollar, 0 as Dollar] as [Dollar, Dollar, Dollar]);
+  const optimalTotalString = formatCurrency(optimalTotals[2]);
+  const diffFromOptimal = (optimalTotals[2] - totalValue) as Dollar;
   const diffFromOptimalPerDay = diffFromOptimal / (production?.length ?? 1);
   const diffFromOptimalPerYear = (diffFromOptimalPerDay * 365) as Dollar;
 
