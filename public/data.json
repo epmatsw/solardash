@@ -151785,18 +151785,18 @@
                 234,
                 292,
                 357,
-                358,
-                26,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                420,
+                474,
+                573,
+                663,
+                676,
+                665,
+                721,
+                878,
+                1029,
+                1154,
+                917,
+                80,
                 null,
                 null,
                 null,
@@ -151860,7 +151860,7 @@
             "start_time": 1766559600,
             "interval_length": 900,
             "totals": {
-                "production": 2314
+                "production": 10180
             }
         }
     ]
