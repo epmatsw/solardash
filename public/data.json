@@ -152515,13 +152515,13 @@
                 320,
                 489,
                 648,
-                729,
-                132,
-                null,
-                null,
-                null,
-                null,
-                null,
+                832,
+                940,
+                1052,
+                1159,
+                1264,
+                1233,
+                270,
                 null,
                 null,
                 null,
@@ -152586,7 +152586,7 @@
             "start_time": 1767078000,
             "interval_length": 900,
             "totals": {
-                "production": 3928
+                "production": 9817
             }
         }
     ]
