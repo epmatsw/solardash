@@ -155424,9 +155424,9 @@
                 404,
                 366,
                 339,
-                240,
+                356,
+                195,
                 3,
-                null,
                 null,
                 null,
                 null,
@@ -155490,7 +155490,7 @@
             "start_time": 1769151600,
             "interval_length": 900,
             "totals": {
-                "production": 4172
+                "production": 4483
             }
         }
     ]
