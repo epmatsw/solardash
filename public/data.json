@@ -161347,10 +161347,10 @@
                 725,
                 804,
                 1062,
-                984,
-                303,
-                null,
-                null,
+                1015,
+                990,
+                877,
+                276,
                 null,
                 null,
                 null,
@@ -161415,7 +161415,7 @@
             "start_time": 1773381600,
             "interval_length": 900,
             "totals": {
-                "production": 8496
+                "production": 10367
             }
         }
     ]
