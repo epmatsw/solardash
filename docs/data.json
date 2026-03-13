@@ -161352,10 +161352,10 @@
                 902,
                 894,
                 901,
-                813,
-                252,
-                null,
-                null,
+                828,
+                779,
+                676,
+                41,
                 null,
                 null,
                 null,
@@ -161415,7 +161415,7 @@
             "start_time": 1773381600,
             "interval_length": 900,
             "totals": {
-                "production": 12976
+                "production": 14235
             }
         }
     ]
