@@ -161782,7 +161782,7 @@
             }
         },
         {
-            "grid_changes": {},
+            "grid_changes": null,
             "production": [],
             "consumption": [],
             "generator": [],
