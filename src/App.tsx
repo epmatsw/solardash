@@ -253,7 +253,7 @@ function App() {
               <Line dataKey={"watts"} dot={false} strokeDasharray="2 2"></Line>
               <Line dataKey={"production"} dot={false} strokeWidth={2}></Line>
               <XAxis dataKey={"date"} tickFormatter={hourFormatter.format} />
-              <YAxis max={maxWatts} tickFormatter={formatKwVague} />
+              <YAxis domain={[0, maxWatts]} tickFormatter={formatKwVague} />
             </LineChart>
           )}
           {!!comboData && (
@@ -261,14 +261,14 @@ function App() {
               <Line dataKey={"watts"} dot={false} strokeDasharray="2 2"></Line>
               <Line dataKey={"production"} dot={false} strokeWidth={2}></Line>
               <XAxis dataKey={"date"} tickFormatter={formatter.format} />
-              <YAxis max={maxWatts} tickFormatter={formatKwVague} />
+              <YAxis domain={[0, maxWatts]} tickFormatter={formatKwVague} />
             </LineChart>
           )}
           {!!days && (
             <LineChart width={chartWidth} height={chartHeight} data={days}>
               <Line dataKey={"value"} dot={false}></Line>
               <XAxis dataKey={"date"} tickFormatter={dayFormatter.format} />
-              <YAxis max={maxWattHours} tickFormatter={formatKwhVague} />
+              <YAxis domain={[0, maxWattHours]} tickFormatter={formatKwhVague} />
             </LineChart>
           )}
         </span>
