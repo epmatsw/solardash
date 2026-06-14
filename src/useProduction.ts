@@ -117,7 +117,7 @@ const getPlanForDate = (startTimeMs: number): Exclude<TouPlan, "auto"> =>
 const calculateUsageAndTotals = (
   productionData: Array<WattHour | null>,
   start_time: number,
-  plan: TouPlan
+  plan: TouPlan,
 ) => {
   const startTimeMs = start_time * 1000;
   const month = getMonth(startTimeMs);
@@ -152,22 +152,23 @@ const calculateUsageAndTotals = (
 
   const offUsage = off.reduce<WattHour>(
     (total: WattHour, val) => (total + (val ?? (0 as WattHour))) as WattHour,
-    0 as WattHour
+    0 as WattHour,
   );
   const midUsage = mid.reduce<WattHour>(
     (total: WattHour, val) => (total + (val ?? (0 as WattHour))) as WattHour,
-    0 as WattHour
+    0 as WattHour,
   );
   const peakUsage = peak.reduce<WattHour>(
     (total: WattHour, val) => (total + (val ?? (0 as WattHour))) as WattHour,
-    0 as WattHour
+    0 as WattHour,
   );
   const totalUsage: WattHour = (offUsage + midUsage + peakUsage) as WattHour;
 
-  const { off: offCost, mid: midCost, peak: peakCost } = getRateSet(
-    isWinter,
-    effectivePlan
-  );
+  const {
+    off: offCost,
+    mid: midCost,
+    peak: peakCost,
+  } = getRateSet(isWinter, effectivePlan);
 
   const offTotal = (centsToDollars(offCost) *
     wattHoursToKWh(offUsage)) as Dollar;
@@ -204,7 +205,7 @@ const getValue = ({
   const future = calculateUsageAndTotals(
     productionData,
     start_time,
-    futurePlan
+    futurePlan,
   );
 
   return {
@@ -231,15 +232,12 @@ const getValue = ({
 };
 
 const loadFromDate = async () => {
-  const fetchResult = await fetch(
-    "./data.json",
-    {
-      body: null,
-      cache: "no-cache",
-      method: "GET",
-    }
-  );
-  const { stats }= await fetchResult.json();
+  const fetchResult = await fetch("./data.json", {
+    body: null,
+    cache: "no-cache",
+    method: "GET",
+  });
+  const { stats } = await fetchResult.json();
   return (stats as any[]).map((s: RawProductionStat) => getValue(s));
 };
 
