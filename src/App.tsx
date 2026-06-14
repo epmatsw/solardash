@@ -28,7 +28,7 @@ const timeFormatter = new Intl.DateTimeFormat("en-US", {
 
 const poundFormatter = new Intl.NumberFormat("en-US", {
   minimumFractionDigits: 1,
-  maximumFractionDigits: 1
+  maximumFractionDigits: 1,
 });
 
 const getLast7 = (i: ProductionStat[]): ProductionStat[] => {
@@ -59,9 +59,12 @@ function App() {
   const [fetchCount, setFetchCount] = useState(Date.now());
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setFetchCount(Date.now());
-    }, 2 * 60 * 1000);
+    const interval = setInterval(
+      () => {
+        setFetchCount(Date.now());
+      },
+      2 * 60 * 1000,
+    );
     return () => {
       clearInterval(interval);
     };
@@ -72,10 +75,10 @@ function App() {
   const production = useProduction();
 
   const [big, setBig] = useState(
-    window.matchMedia(`(min-width: ${wrapWidth}px)`).matches
+    window.matchMedia(`(min-width: ${wrapWidth}px)`).matches,
   );
   const [realBig, setRealBig] = useState(
-    window.matchMedia(`(min-width: ${realBigWidth}px)`).matches
+    window.matchMedia(`(min-width: ${realBigWidth}px)`).matches,
   );
   const [_chartHeight, setChartHeight] = useState<number>();
   const [_chartWidth, setChartWidth] = useState<number>();
@@ -110,10 +113,7 @@ function App() {
     };
   }, []);
 
-  if (error && !forecast && !days && !production)
-    return <div>Error: {error}</div>;
-
-  if (!forecast && !days && !production) return <div>Loading...</div>;
+  if (!error && !forecast && !days && !production) return <div>Loading...</div>;
 
   const [totalValue, totalProductionNumber, productionDays] =
     production?.reduce<[Dollar, WattHour, number]>(
@@ -127,7 +127,7 @@ function App() {
           sums[2] + 1,
         ];
       },
-      [0 as Dollar, 0 as WattHour, 0]
+      [0 as Dollar, 0 as WattHour, 0],
     ) ?? [0 as Dollar, 0 as WattHour, 0];
   const perDay =
     productionDays > 0
@@ -150,12 +150,12 @@ function App() {
 
   const yesterdaysProduction = productionWithTimes?.filter(
     (p): p is { date: Date; watts: Watt } =>
-      isYesterday(p.date) && p.watts != null
+      isYesterday(p.date) && p.watts != null,
   );
 
   const comboData = forecast?.map((f: Partial<Data>) => {
     const production = productionWithTimes?.find(
-      (p) => p.date.getTime() === f.date?.getTime()
+      (p) => p.date.getTime() === f.date?.getTime(),
     );
     return {
       ...f,
@@ -169,7 +169,7 @@ function App() {
       ...yesterdaysProduction.map((p) => ({
         date: p.date,
         production: p.watts,
-      }))
+      })),
     );
   }
 
@@ -182,14 +182,15 @@ function App() {
           Math.max(md, p.productionNum) as WattHour,
         ];
       },
-      [-1 as WattHour, -1 as WattHour]
+      [-1 as WattHour, -1 as WattHour],
     ) ?? ([0, 0] as [WattHour, WattHour]);
 
   const todayProduction = production?.find((p) => isToday(p.startTime));
 
   const todayData = comboData?.filter(
     (d) =>
-      isToday(d.date) || (isPast(d.date) && typeof d.production === "undefined")
+      isToday(d.date) ||
+      (isPast(d.date) && typeof d.production === "undefined"),
   );
 
   const isStandalone =
@@ -198,6 +199,22 @@ function App() {
 
   return (
     <>
+      {error && (
+        <div
+          style={{
+            position: "fixed",
+            top: "5px",
+            left: "5px",
+            zIndex: 1000,
+            padding: "4px 8px",
+            borderRadius: "4px",
+            color: "white",
+            background: "#c0392b",
+          }}
+        >
+          Error: {error}
+        </div>
+      )}
       <div
         style={{
           display: "flex",
@@ -271,7 +288,10 @@ function App() {
             <LineChart width={chartWidth} height={chartHeight} data={days}>
               <Line dataKey={"value"} dot={false}></Line>
               <XAxis dataKey={"date"} tickFormatter={dayFormatter.format} />
-              <YAxis domain={[0, maxWattHours]} tickFormatter={formatKwhVague} />
+              <YAxis
+                domain={[0, maxWattHours]}
+                tickFormatter={formatKwhVague}
+              />
             </LineChart>
           )}
         </span>
@@ -312,7 +332,7 @@ function App() {
               <br />
               Production: {totalProduction} (
               {formatKwh(
-                (totalProductionNumber / (productionDays || 1)) as WattHour
+                (totalProductionNumber / (productionDays || 1)) as WattHour,
               )}
               /day)
               <br />
@@ -323,8 +343,9 @@ function App() {
               </a>
               :{" "}
               {poundFormatter.format(
-                ((totalProductionNumber / 1000) * 1.205) / 2000
-              )} tons
+                ((totalProductionNumber / 1000) * 1.205) / 2000,
+              )}{" "}
+              tons
               <br />
               Max Output: {formatKwh((maxProduction * 4) as WattHour)}
               <br />
@@ -350,16 +371,16 @@ function App() {
               startOfDay.setMinutes(0);
 
               const productionData = production?.find(
-                (p) => p.startTime === startOfDay.getTime()
+                (p) => p.startTime === startOfDay.getTime(),
               );
               const sum =
                 productionData?.productionData.reduce<WattHour>(
                   (r: WattHour, v: WattHour | null) =>
                     (r + (v ?? (0 as WattHour))) as WattHour,
-                  0 as WattHour
+                  0 as WattHour,
                 ) ?? (0 as WattHour);
               const money = formatCurrency(
-                productionData?.total ?? (0 as Dollar)
+                productionData?.total ?? (0 as Dollar),
               );
               return (
                 <div key={date.getTime()}>

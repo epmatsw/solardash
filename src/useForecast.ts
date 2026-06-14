@@ -44,92 +44,102 @@ export const useForecast = (fetchCount: number) => {
   useEffect(() => {
     (async function () {
       try {
-      let result: Response["result"] | undefined = undefined;
+        let result: Response["result"] | undefined = undefined;
 
-      if (process.env.NODE_ENV === "development") {
-        const cachedValue = localStorage.getItem(forecastDataCacheKey);
-        if (cachedValue) {
-          setApi("Cached");
-          result = JSON.parse(cachedValue);
+        if (process.env.NODE_ENV === "development") {
+          const cachedValue = localStorage.getItem(forecastDataCacheKey);
+          if (cachedValue) {
+            setApi("Cached");
+            result = JSON.parse(cachedValue);
+          }
         }
-      }
 
-      if (process.env.NODE_ENV !== "development" || !result) {
-        if (privateUrl) {
-          try {
-            const fetchResult = await fetch(privateUrl);
-            if (fetchResult.status !== 200) {
-              throw new Error();
-            }
-            result = ((await fetchResult.json()) as Response).result;
-            setApi("Personal");
-            localStorage.setItem(forecastDataCacheKey, JSON.stringify(result));
-            if (apiKey !== "fakekey") {
-              localStorage.setItem("apiKey", apiKey);
-            }
-          } catch {}
+        if (process.env.NODE_ENV !== "development" || !result) {
+          if (privateUrl) {
+            try {
+              const fetchResult = await fetch(privateUrl);
+              if (fetchResult.status !== 200) {
+                throw new Error();
+              }
+              result = ((await fetchResult.json()) as Response).result;
+              setApi("Personal");
+              localStorage.setItem(
+                forecastDataCacheKey,
+                JSON.stringify(result),
+              );
+              if (apiKey !== "fakekey") {
+                localStorage.setItem("apiKey", apiKey);
+              }
+            } catch {}
+          }
+          if (!result) {
+            try {
+              const fetchResult = await fetch(publicUrl);
+              if (fetchResult.status !== 200) {
+                throw new Error();
+              }
+              result = ((await fetchResult.json()) as Response).result;
+              localStorage.setItem(
+                forecastDataCacheKey,
+                JSON.stringify(result),
+              );
+              setApi("Public");
+            } catch {}
+          }
+          if (!result) {
+            const cachedValue = localStorage.getItem(forecastDataCacheKey);
+            if (!cachedValue) throw new Error("Couldn't get data anywhere");
+            setApi("Cached");
+            result = JSON.parse(cachedValue);
+          }
         }
+
         if (!result) {
-          try {
-            const fetchResult = await fetch(publicUrl);
-            if (fetchResult.status !== 200) {
-              throw new Error();
-            }
-            result = ((await fetchResult.json()) as Response).result;
-            localStorage.setItem(forecastDataCacheKey, JSON.stringify(result));
-            setApi("Public");
-          } catch {}
+          throw new Error("Couldn't get data anywhere");
         }
-        if (!result) {
-          const cachedValue = localStorage.getItem("forecast");
-          if (!cachedValue) throw new Error("Couldn't get data anywhere");
-          setApi("Cached");
-          result = JSON.parse(cachedValue);
+
+        const processed: Required<Data>[] = [];
+        for (const key in result.watts) {
+          const watts = result.watts[key];
+          const wattHours = result.watt_hours[key];
+          if (watts == null || wattHours == null) continue;
+          const dateString = key.replace(" ", "T");
+          const date = new Date(dateString);
+          processed.push({
+            date,
+            wattHours,
+            watts,
+          });
         }
-      }
 
-      if (!result) {
-        if (!result) throw new Error("Couldn't get data anywhere");
-      }
+        const days: { date: Date; value: WattHour }[] = [];
+        for (const key in result.watt_hours_day) {
+          const value = result.watt_hours_day[key];
+          if (value == null) continue;
+          const dateString = `${key}T00:00:00`;
+          const date = new Date(dateString);
+          days.push({
+            date,
+            value,
+          });
+        }
 
-      const processed: Required<Data>[] = [];
-      for (const key in result.watts) {
-        const watts = result.watts[key];
-        const wattHours = result.watt_hours[key];
-        if (watts == null || wattHours == null) continue;
-        const dateString = key.replace(" ", "T");
-        const date = new Date(dateString);
-        processed.push({
-          date,
-          wattHours,
-          watts,
-        });
-      }
-
-      const days: { date: Date; value: WattHour }[] = [];
-      for (const key in result.watt_hours_day) {
-        const value = result.watt_hours_day[key];
-        if (value == null) continue;
-        const dateString = `${key}T00:00:00`;
-        const date = new Date(dateString);
-        days.push({
-          date,
-          value,
-        });
-      }
-
-      setForecast(processed);
-      setDays(days);
-      setError(undefined);
+        setForecast(processed);
+        setDays(days);
+        setError(undefined);
       } catch (e) {
-        setError(e instanceof Error && e.message ? e.message : "Couldn't get data anywhere");
+        setError(
+          e instanceof Error && e.message
+            ? e.message
+            : "Couldn't get data anywhere",
+        );
       }
     })();
   }, [fetchCount]);
 
   const maxWatts = useMemo(() => {
     let max = -1;
-    if (!forecast) return 0;
+    if (!forecast || forecast.length === 0) return 0;
     for (const item of forecast) {
       if (item.watts > max) max = item.watts;
     }
@@ -138,7 +148,7 @@ export const useForecast = (fetchCount: number) => {
 
   const maxWattHours = useMemo(() => {
     let max = -1;
-    if (!forecast) return 0;
+    if (!forecast || forecast.length === 0) return 0;
     for (const item of forecast) {
       if (item.wattHours > max) max = item.wattHours;
     }
