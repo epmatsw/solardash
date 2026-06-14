@@ -18,8 +18,8 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "BUILD_PATH='./docs' GENERATE_SOURCEMAP=false react-scripts build",
+    "start": "REACT_APP_COMMIT=$(git rev-parse --short HEAD) react-scripts start",
+    "build": "REACT_APP_COMMIT=$(git rev-parse --short HEAD) BUILD_PATH='./docs' GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
