@@ -54,6 +54,10 @@ const wrapWidth = 900;
 const realBigWidth = 1600;
 
 const cost = 21227;
+// Xcel Colorado has raised electric rates ~7%/yr recently (~22% over the last
+// 3 years, ~38% since 2019). Assume a conservative 4%/yr long-run escalation on
+// forward savings rather than projecting today's rates flat for 15+ years.
+const rateEscalation = 0.04;
 
 const commit = process.env.REACT_APP_COMMIT;
 const repoUrl = "https://github.com/epmatsw/solardash";
@@ -144,14 +148,22 @@ function App() {
 
   const totalProduction = formatKwh(totalProductionNumber);
   const paybackDaily = perDayFuture > 0 ? perDayFuture : perDay;
-  const remainingCost = cost - totalValue;
+  const remainingCost = (cost - totalValue) as Dollar;
+  const annualSavings = paybackDaily * 365;
+  // Solve for the year n where cumulative escalating savings cover the
+  // remaining cost: Σ_{k=0}^{n-1} annualSavings·(1+g)^k = remainingCost
+  //   ⇒ n = ln(1 + remainingCost·g / annualSavings) / ln(1 + g)
   const rawYearsToPayOff =
-    paybackDaily > 0 ? remainingCost / (paybackDaily * 365) : Infinity;
+    remainingCost <= 0
+      ? 0
+      : annualSavings > 0
+        ? Math.log(1 + (remainingCost * rateEscalation) / annualSavings) /
+          Math.log(1 + rateEscalation)
+        : Infinity;
   const yearsToPayOff = Math.floor(rawYearsToPayOff);
-  const monthsToPayOff =
-    paybackDaily > 0
-      ? Math.floor(12 * ((remainingCost / (paybackDaily * 365)) % 1))
-      : Infinity;
+  const monthsToPayOff = Number.isFinite(rawYearsToPayOff)
+    ? Math.floor(12 * (rawYearsToPayOff % 1))
+    : Infinity;
 
   const productionWithTimes:
     | Array<{ watts: Watt | undefined; date: Date }>
@@ -221,8 +233,13 @@ function App() {
       [0 as Dollar, 0 as Dollar, 0 as Dollar],
     ) ?? ([0 as Dollar, 0 as Dollar, 0 as Dollar] as [Dollar, Dollar, Dollar]);
   const optimalTotalString = formatCurrency(optimalTotals[2]);
-  const diffFromOptimal = (optimalTotals[2] - totalValue) as Dollar;
-  const diffFromOptimalPerDay = diffFromOptimal / (production?.length ?? 1);
+  // Compare optimal vs actual under the same (future) rate plan, and average
+  // over completed production days (productionDays) rather than production.length
+  // which includes today's partial day.
+  const diffFromOptimal = (optimalTotals[2] - futureTotalValue) as Dollar;
+  const diffFromOptimalPerDay = (
+    productionDays > 0 ? diffFromOptimal / productionDays : 0
+  ) as Dollar;
   const diffFromOptimalPerYear = (diffFromOptimalPerDay * 365) as Dollar;
 
   const isStandalone =
