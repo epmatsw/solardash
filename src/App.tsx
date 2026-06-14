@@ -67,7 +67,7 @@ function App() {
     };
   }, []);
 
-  const { forecast, days, api, maxWatts, maxWattHours } =
+  const { forecast, days, api, maxWatts, maxWattHours, error } =
     useForecast(fetchCount);
   const production = useProduction();
 
@@ -109,6 +109,9 @@ function App() {
       window.removeEventListener("orientationchange", update);
     };
   }, []);
+
+  if (error && !forecast && !days && !production)
+    return <div>Error: {error}</div>;
 
   if (!forecast && !days && !production) return <div>Loading...</div>;
 

@@ -40,9 +40,11 @@ export const useForecast = (fetchCount: number) => {
   const [forecast, setForecast] = useState<Required<Data>[]>();
   const [days, setDays] = useState<{ date: Date; value: WattHour }[]>();
   const [api, setApi] = useState<"Public" | "Personal" | "Cached">();
+  const [error, setError] = useState<string>();
 
   useEffect(() => {
     (async function () {
+      try {
       let result: Response["result"] | undefined = undefined;
 
       if (process.env.NODE_ENV === "development") {
@@ -117,6 +119,10 @@ export const useForecast = (fetchCount: number) => {
 
       setForecast(processed);
       setDays(days);
+      setError(undefined);
+      } catch (e) {
+        setError(e instanceof Error && e.message ? e.message : "Couldn't get data anywhere");
+      }
     })();
   }, [fetchCount]);
 
@@ -144,5 +150,6 @@ export const useForecast = (fetchCount: number) => {
     api,
     maxWatts,
     maxWattHours,
+    error,
   };
 };
