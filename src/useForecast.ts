@@ -22,7 +22,7 @@ const dec = 18;
 const apiKey =
   (new URLSearchParams(window.location.search).get("apiKey") ||
     localStorage.getItem("apiKey") ||
-    process.env.REACT_APP_API_KEY) ??
+    process.env["REACT_APP_API_KEY"]) ??
   "fakekey";
 
 const maxKwAC = 7.67;
@@ -94,25 +94,27 @@ export const useForecast = (fetchCount: number) => {
 
       const processed: Required<Data>[] = [];
       for (const key in result.watts) {
-        if (!result.watts.hasOwnProperty(key)) continue;
-        if (!result.watt_hours.hasOwnProperty(key)) continue;
+        const watts = result.watts[key];
+        const wattHours = result.watt_hours[key];
+        if (watts == null || wattHours == null) continue;
         const dateString = key.replace(" ", "T");
         const date = new Date(dateString);
         processed.push({
           date,
-          wattHours: result.watt_hours[key],
-          watts: result.watts[key],
+          wattHours,
+          watts,
         });
       }
 
-      const days = [];
+      const days: { date: Date; value: WattHour }[] = [];
       for (const key in result.watt_hours_day) {
-        if (!result.watt_hours_day.hasOwnProperty(key)) continue;
+        const value = result.watt_hours_day[key];
+        if (value == null) continue;
         const dateString = `${key}T00:00:00`;
         const date = new Date(dateString);
         days.push({
           date,
-          value: result.watt_hours_day[key],
+          value,
         });
       }
 
