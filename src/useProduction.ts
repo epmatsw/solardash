@@ -99,15 +99,15 @@ const getValue = ({
 
   const offUsage = off.reduce<WattHour>(
     (total: WattHour, val) => (total + (val ?? (0 as WattHour))) as WattHour,
-    0 as WattHour
+    0 as WattHour,
   );
   const midUsage = mid.reduce<WattHour>(
     (total: WattHour, val) => (total + (val ?? (0 as WattHour))) as WattHour,
-    0 as WattHour
+    0 as WattHour,
   );
   const peakUsage = peak.reduce<WattHour>(
     (total: WattHour, val) => (total + (val ?? (0 as WattHour))) as WattHour,
-    0 as WattHour
+    0 as WattHour,
   );
   const totalUsage: WattHour = (offUsage + midUsage + peakUsage) as WattHour;
 
@@ -166,12 +166,12 @@ const loadFromDate = async (from: DateInfo, to: DateInfo) => {
           from.year
         }-${numToString(from.month)}-${numToString(from.date)}&end_date=${
           to.year
-        }-${numToString(to.month)}-${numToString(to.date)}`
+        }-${numToString(to.month)}-${numToString(to.date)}`,
       ),
     {
       body: null,
       method: "GET",
-    }
+    },
   );
   const proxyResponse = await fetchResult.json();
   const { stats } = JSON.parse(proxyResponse.contents);
